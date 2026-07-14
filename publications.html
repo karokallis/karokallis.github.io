@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Publications — Karoline Kallis, PhD</title>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1e40af; --blue-mid: #1d4ed8; --blue-light: #eff6ff; --blue-border: #bfdbfe;
+      --accent: #0f766e; --accent-light: #f0fdfa; --accent-border: #99f6e4;
+      --bordeaux: #9b2558; --bordeaux-mid: #b03a6e;
+      --text: #0f172a; --muted: #64748b; --border: #e2e8f0;
+      --bg: #ffffff; --bg-soft: #f8fafc;
+      --radius: 8px; --radius-lg: 12px; --max: 900px;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; font-size: 15px; color: var(--text); background: var(--bg); line-height: 1.6; overflow-x: hidden; }
+    a { color: var(--blue-mid); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 4rem; min-height: 56px;
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    }
+    .nav-name { font-size: 15px; font-weight: 600; color: var(--text); }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; white-space: nowrap; }
+    .nav-links a { font-size: 13.5px; color: var(--muted); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-back { color: var(--accent) !important; font-weight: 500; }
+
+    .page-header { padding: 3.5rem 4rem 2.5rem; border-bottom: 1px solid var(--border); }
+    .page-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .page-title { font-size: 2rem; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+    .page-desc { font-size: 14.5px; color: var(--muted); margin-bottom: 1rem; }
+    .page-note { font-size: 13px; color: var(--muted); background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.6rem 1rem; display: inline-block; }
+
+    .pub-section { padding: 0 4rem; }
+    .year-block { padding: 2.5rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 80px 1fr; gap: 2rem; align-items: start; }
+    .year-block:last-child { border-bottom: none; }
+    .year-label { font-size: 1rem; font-weight: 700; color: var(--accent); padding-top: 1.5rem; position: sticky; top: 72px; }
+    .year-papers { display: flex; flex-direction: column; gap: 0; }
+
+    .pub-entry {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub-entry:last-child { border-bottom: none; }
+
+    .pub-top { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.4rem; }
+    .pub-first-badge {
+      flex-shrink: 0; margin-top: 2px;
+      font-size: 9.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-light); border: 1px solid var(--accent-border);
+      border-radius: 999px; padding: 2px 7px; white-space: nowrap;
+    }
+    .pub-submitted-badge {
+      flex-shrink: 0; margin-top: 2px;
+      font-size: 9.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--blue-mid); background: var(--blue-light); border: 1px solid var(--blue-border);
+      border-radius: 999px; padding: 2px 7px; white-space: nowrap;
+    }
+    .pub-title { font-size: 14.5px; font-weight: 600; line-height: 1.4; color: var(--text); }
+    .pub-meta { font-size: 13px; color: var(--muted); margin-bottom: 0.75rem; }
+    .pub-meta strong { color: #444; }
+    .pub-authors { font-size: 12.5px; color: var(--muted); margin-bottom: 0.6rem; line-height: 1.55; }
+    .pub-authors strong { color: var(--text); }
+
+    .pub-abstract { font-size: 13.5px; color: #4b5563; line-height: 1.7; margin-bottom: 1rem; }
+
+    .pub-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pub-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 12.5px; font-weight: 500;
+      border-radius: 8px; padding: 5px 13px;
+      text-decoration: none; transition: background 0.15s;
+    }
+    .pub-btn-doi { color: var(--blue-mid); border: 1px solid var(--blue-border); background: var(--blue-light); }
+    .pub-btn-doi:hover { background: #d4e8f7; text-decoration: none; }
+
+    footer {
+      border-top: 1px solid var(--border); background: var(--bg-soft);
+      padding: 2rem 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;
+    }
+    .footer-left { font-size: 13px; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 13px; color: var(--muted); }
+    .footer-links a:hover { color: var(--text); text-decoration: none; }
+
+    @media (max-width: 720px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        height: auto;
+        padding: 0.85rem 1.5rem;
+        gap: 0.55rem;
+      }
+      .nav-name { font-size: 14px; line-height: 1.25; }
+      .nav-links {
+        width: 100%;
+        gap: 0.9rem;
+        overflow-x: auto;
+        padding-bottom: 0.15rem;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .page-header, .pub-section, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .year-block { grid-template-columns: 1fr; gap: 0; }
+      .year-label { position: static; padding-top: 0; padding-bottom: 1rem; }
+      .pub-top { flex-direction: column; gap: 0.35rem; }
+    }
+
+    /* ── Affiliation cards ── */
+    .affil-section {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .affil-card {
+      flex: 1 1 180px;
+      border-radius: var(--radius);
+      padding: 0.85rem 1.1rem;
+      border-left: 4px solid;
+    }
+    .affil-card.erlangen    { background: #fffbeb; border-color: #eab308; }
+    .affil-card.ucsd-moore  { background: #fff7ed; border-color: #f97316; }
+    .affil-card.ucsd-seibert{ background: #fef2f2; border-color: #ef4444; }
+    .affil-card.ucsd-ross   { background: #fff1f2; border-color: #881337; }
+    .affil-name  { font-size: 12.5px; font-weight: 600; color: var(--text); }
+    .affil-abbr  { font-weight: 400; color: var(--muted); }
+    .affil-pi    { font-size: 11.5px; color: var(--muted); }
+    .affil-years { font-size: 11.5px; color: var(--muted); }
+
+    /* ── Publication lab tags ── */
+    .pub-tag {
+      display: inline-flex; align-items: center;
+      font-size: 12.5px; font-weight: 500;
+      border-radius: 8px; padding: 5px 13px;
+      white-space: nowrap; text-decoration: none;
+    }
+    .pub-tag.erlangen     { color: #713f12; background: #fef9c3; border: 1px solid #fde047; }
+    .pub-tag.ucsd-moore   { color: #7c2d12; background: #ffedd5; border: 1px solid #fb923c; }
+    .pub-tag.ucsd-seibert { color: #991b1b; background: #fee2e2; border: 1px solid #f87171; }
+    .pub-tag.ucsd-ross    { color: #fff1f2; background: #881337; border: 1px solid #9f1239; }
+  </style>
+</head>
+<body>
+<nav>
+<span class="nav-name">Karoline Kallis, PhD</span>
+<ul class="nav-links">
+<li><a class="nav-back" href="index.html">← Back</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="index.html#about">About</a></li>
+<li><a href="mailto:karo.kallis@googlemail.com" style="color:var(--accent);font-weight:500;">Contact</a></li>
+</ul>
+</nav>
+<div class="page-header">
+<p class="page-label">Research output</p>
+<h1 class="page-title">Publications</h1>
+<p class="page-desc">29 peer-reviewed publications in brachytherapy, deep learning for dose prediction, quantitative MRI biomarkers, adaptive radiotherapy, and EHR-based clinical research</p>
+<div class="affil-section">
+  <div class="affil-card erlangen">
+    <div class="affil-name">Department of Radiation Oncology <span class="affil-abbr">(UKER)</span></div>
+    <div class="affil-pi">University Hospital Erlangen, Germany</div>
+    <div class="affil-years">PI: Christoph Bert</div>
+  </div>
+  <div class="affil-card ucsd-moore">
+    <div class="affil-name">Department of Radiation Medicine &amp; Applied Sciences <span class="affil-abbr">(RMAS)</span></div>
+    <div class="affil-pi">University of California San Diego, US</div>
+    <div class="affil-years">PIs: Kevin L. Moore, Sandra M. Meyers</div>
+  </div>
+  <div class="affil-card ucsd-seibert">
+    <div class="affil-name">Department of Radiology <span class="affil-abbr">(UCSD Radiology)</span></div>
+    <div class="affil-pi">University of California San Diego, US</div>
+    <div class="affil-years">PI: Tyler M. Seibert</div>
+  </div>
+  <div class="affil-card ucsd-ross">
+    <div class="affil-name">Department of Surgery <span class="affil-abbr">(UCSD Surgery)</span></div>
+    <div class="affil-pi">University of California San Diego, US</div>
+    <div class="affil-years">PI: Elsie G. Ross</div>
+  </div>
+</div>
+</div>
+<div class="pub-section">
+<div class="year-block">
+<div class="year-label">2026</div>
+<div class="year-papers">
+
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">D2T2: Multimodal Automated Planning for Brachytherapy </p>
+</div>
+<p class="pub-meta"><strong>CVPR 2026</strong>  ·  2026</p>
+<p class="pub-authors">Moore LC, Mitra A, Truong R, <strong>Kallis K</strong>, Kisling K, Meyers SM, Vasconcelos N</p>
+<p class="pub-abstract">Brachytherapy is a complex radiation oncology problem that requires the simultaneous prediction of radiation dose and a set of machine parameters known as dwell times, used for treatment delivery. We propose Direct Dwell Time Transformer (D2T2), the first deep learning architecture that directly predicts dwell times during dose prediction. D2T2 is a two-stage model: the first stage predicts a vector of dwell times and the second implements the physical model of radiation delivery as a linear combination of dose kernels. This constrains the model to make physically plausible dose predictions when trained end-to-end. We also propose a new loss function — the gamma loss — based on prediction of the gamma index, the gold standard for dose comparisons. D2T2 is trained on a large dataset of ~5,000 clinical brachytherapy plans spanning gynecological, breast, and other treatment sites. Results demonstrate that D2T2 outperforms existing methods in both accuracy and speed, producing deliverable plans and physically valid dose distributions in a single forward pass — hours faster than manual planning and minutes faster than recent automated methods.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://openaccess.thecvf.com/content/CVPR2026/html/Moore_D2T2_Multimodal_Automated_Planning_for_Brachytherapy_CVPR_2026_paper.html" target="_blank">🔗 CVF</a>
+</div>
+</div>
+
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Rapid Artificial Intelligence Autoplanning Rivals Manual Expert Planning for Cervical Brachytherapy </p>
+</div>
+<p class="pub-meta"><strong>Practical Radiation Oncology</strong>  ·  2026</p>
+<p class="pub-authors">Mitra A, Moore LC, <strong>Kallis K</strong>, Rash DL, Einck JP, Nwachukwu C, Yashar CM, Mayadev JS, Ayala-Peacock DN, Balogun OD, Chino JP, Contreras JA, Zoberi I, Kisling K, Zou J, Vasconcelos N, Meyers SM</p>
+<p class="pub-abstract"><strong>Purpose:</strong> The study aims to evaluate the quality and clinical acceptability of artificial intelligence automated plans compared with manual clinical plans through blinded physician review, for cervical brachytherapy applicators.<br><br><strong>Methods and Materials:</strong> Automated plans were generated using dose predictions from a U-Net with anatomic masks, dwell position location masks, and applicator-specific 3-dimensional dose inputs. Model data included 2005 brachytherapy plans from 7 implant types (train/validation/test split 62%/19%/19%). Test set dose predictions were fed into an optimizer to produce automated plans. Randomized automated and clinical plan pairs were presented to 10 expert gynecologic brachytherapy physicians, who indicated plan preference, scored plans from 1 to 5, and guessed which plan was automated. Autoplan scores were compared between physician groups and with clinical plans using Wilcoxon signed-rank tests (P &lt; .05 considered significant).<br><br><strong>Results:</strong> Autoplans were deemed better or equivalent in approximately 50% of cases for both physician groups, with the highest preference rates for hybrid implants (&gt;58% on average). Automated and clinical plans scored 4 (acceptable plan with clinically unimportant stylistic differences) on average (P &gt; .05 for all comparisons). Slightly reduced preference rates and scores for external physicians were attributed to stylistic planning differences not captured in model training data. Physicians correctly identified about 50% of autoplans, consistent with random chance, indicating indistinguishability from clinical plans.<br><br><strong>Conclusions:</strong> Our brachytherapy AI automated planning technology produced automated plans comparable in quality and indistinguishable from manual, clinical plans in a median of 1.4 minutes.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.prro.2026.05.002" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Systematic Effects of Patient Factors and Scanner/Protocol Factors on a Restriction Spectrum Imaging Quantitative MRI Biomarker for Prostate Cancer </p>
+</div>
+<p class="pub-meta"><strong>Cancer Imaging</strong>  ·  2026</p>
+<p class="pub-authors">Do DD, Rojo Domingo M, Conlin CC, Matthews I, <strong>Kallis K</strong>, Baxter M, Ollison C, Song Y, Xu G, Zhong AY, Bagrodia A, Barrett T, Cooperberg M, Feng F, Hahn ME, Harisinghani M, Hollenberg GM, Javier-Desloges J, Kamran SC, Kane CJ, Kessler D, Kuperman J, Lee KL, Levine J, Liss MA, Margolis DJA, Murphy PM, Nakrour N, Ohliger MA, Osinski T, Pamatmat AJ, Pompa IR, Rakow-Penner R, Roberts JL, Santhosh K, Shabaik AS, Song D, Tempany CM, Trecarten S, Wehrli N, Weinberg EP, Woolen S, Dale AM, Seibert TM</p>
+<p class="pub-abstract">While multiparametric MRI has revolutionized clinically significant prostate cancer (csPCa) detection, conventional apparent diffusion coefficient (ADC) maps suffer from a monoexponential model that conflates the various forms of diffusion in the tissue, leading to poor microstructural specificity and substantial inter-scanner variability. Restriction Spectrum Imaging (RSI) addresses these limitations with a multi-compartment biophysical model that separates the diffusion signal into four compartments, providing a more specific quantitative imaging biomarker, the RSI restriction score (RSIrs). Although RSIrs has demonstrated promising detection performance for csPCa, patient- and acquisition-related factors may influence its measured values and performance. Our retrospective analysis included 1,890 men (median age 70) from seven centers between 2018 and 2024. We assessed how age, race, ethnicity, prostate volume, medication use, and MRI acquisition parameters influenced prostate maximum RSIrs values using linear modeling. Results revealed modest effects from age (1.8/year increase), prostate volume (−0.83/mL decrease), and acquisition methods (varying between −63.14 to +56.23). While these variations partially overlapped with change in RSIrs due to Grade Group 2 csPCa, they were secondary to the primary signal variation due to csPCa. Adjusting for them did not improve csPCa detection performance (p &gt; 0.05). AUC of RSIrs for patient-level csPCa detection was 0.77 [95% CI: 0.75–0.79]. RSIrs demonstrates robust csPCa detection performance regardless of modest signal variations from patient and acquisition factors, supporting its potential as a generalizable quantitative imaging biomarker for csPCa.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-seibert">UCSD Radiology</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1186/s40644-026-01032-w" target="_blank">🔗 DOI</a>
+</div>
+</div>
+</div>
+</div>
+<div class="year-block">
+<div class="year-label">2025</div>
+<div class="year-papers">
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Peripheral Artery Disease in US Primary Care Practices: A Retrospective EHR-Based Analysis from 2018 to 2022 </p>
+</div>
+<p class="pub-meta"><strong>Journal of General Internal Medicine</strong>  ·  2025</p>
+<p class="pub-authors">Nriagu VC, Hao S, Kamdar NS, Fukaya E, Wang X, <strong>Kallis K</strong>, Rehkopf DH, Ross EG</p>
+<p class="pub-abstract"><strong>Background:</strong> Peripheral artery disease (PAD) affects &gt;10 million adults over age 40, causing high morbidity, mortality, and healthcare costs in the USA. Primary care settings are critical for early detection of PAD, and understanding the landscape of PAD diagnosis patterns can help identify high-risk populations and inform screening strategies to address disparities.<br><br><strong>Objective:</strong> To characterize the epidemiological patterns of PAD diagnosis and examine the clinical and socioeconomic characteristics of patients diagnosed with PAD in US primary care settings.<br><br><strong>Design:</strong> Retrospective cohort study utilizing EHR data from the American Family Cohort (AFC) from 2018 to 2022, comprising data from over 2,000 primary care practices across all 50 states.<br><br><strong>Results:</strong> A total of 18,405 patients had a new diagnosis of PAD among 2,313,650 eligible patients. PAD patients were more likely to be male (49% vs. 43%), older (64% aged 60–79), current smokers (17% vs. 11%), from racial/ethnic minority groups, and residing in areas with higher social deprivation. Non-Hispanic Black and Hispanic individuals had higher odds of PAD diagnosis compared to non-Hispanic Whites across all comorbidity groups. Unlike CAD and hyperlipidemia with decreased incidence, PAD incidence increased notably in 2021.<br><br><strong>Conclusions:</strong> PAD diagnosis patterns across racial, ethnic, and neighborhood socioeconomic groups reveal significant differences in burden of disease. Optimized screening in the primary care setting targeting these high-risk groups is important to improve early detection and reduce PAD-related disparities.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-ross">UCSD Surgery</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1007/s11606-025-10050-6" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Integration of Single-Click, AI-Based Brachytherapy Auto-Planning for Cervical Cancer Within a Treatment Planning System </p>
+</div>
+<p class="pub-meta"><strong>Brachytherapy</strong>  ·  2025</p>
+<p class="pub-authors">Truong R, Moore LC, Mitra A, <strong>Kallis K</strong>, Kisling K, Vasconcelos N, Meyers SM</p>
+<p class="pub-abstract"><strong>Purpose:</strong> Previous work developed an automated cervical brachytherapy treatment planning pipeline consisting of a U-Net dose prediction model and dwell time optimizer. While this method can produce clinically acceptable plans, it relies on time-consuming, manual export and import of DICOM data. This study proposes to increase efficiency by combining scripts into an all-in-one tool that can be used directly within the BrachyVision treatment planning system, producing automated plans in a single click.<br><br><strong>Materials and Methods:</strong> We developed an AI-based planning tool through four main tasks: data retrieval, model inference, dwell time optimization, and auto-plan import. A C# plug-in interacts with the currently open patient in BrachyVision, and a Python executable performs model inference and optimization before copying optimized dwell times back into the open plan. The script was tested on 28 brachytherapy plans spanning 7 applicator types, and auto-plans were compared to clinical plans using mean absolute error (MAE) in voxel-based 3D dose and dwell times.<br><br><strong>Results:</strong> The average MAE in 3D dose and dwell times were 3.8 ± 0.7% (normalized to prescribed dose) and 10.3 ± 7.4 s (2.1 ± 0.9% of total plan dwell time), respectively. The average runtime was 3.5 ± 1.2 minutes.<br><br><strong>Conclusions:</strong> We developed a script that enables efficient, streamlined auto-planning directly within BrachyVision. After contouring and digitization, the script produces high-quality, customized plans with a single button-click in a few minutes.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.brachy.2025.08.004" target="_blank">🔗 DOI</a>
+</div>
+</div>
+
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Restriction Spectrum Imaging as a Quantitative Biomarker for Prostate Cancer With Reliable Positive Predictive Value </p>
+</div>
+<p class="pub-meta"><strong>The Journal of Urology</strong>  ·  2025</p>
+<p class="pub-authors">Rojo Domingo M, Do DD, Conlin CC, Bagrodia A, Barrett T, Baxter MT, Cooperberg M, Feng F, Hahn ME, Harisinghani M, Hollenberg G, Javier-Desloges J, <strong>Kallis K</strong>, Kamran S, Kane CJ, Kessler D, Kuperman J, Lee KL, Levine J, Liss MA, Margolis DJA, Matthews I, Murphy PM, Nakrour N, Ohliger M, Ollison C, Osinski T, Pamatmat AJ, Pompa IR, Rakow-Penner R, Roberts JL, Shabaik AS, Song Y, Song D, Tempany CM, Trecarten S, Wehrli N, Weinberg EP, Woolen S, Xu G, Zhong AY, Dale AM, Seibert TM</p>
+<p class="pub-abstract"><strong>Purpose:</strong> Positive predictive value of PI-RADS for clinically significant prostate cancer (csPCa, grade group ≥2) varies widely between radiologists. The RSI restriction score (RSIrs) is a biophysics-based metric derived from diffusion MRI that could be an objectively interpretable biomarker for csPCa. We aimed to evaluate performance of RSIrs for patient-level detection of csPCa in a large and heterogeneous dataset, and to combine RSIrs with clinical and imaging parameters for csPCa detection.<br><br><strong>Materials and Methods:</strong> At 7 centers, participants underwent prostate MRI between January 2016 and March 2024. We calculated patient-level csPCa probability based on maximum RSIrs in the prostate and compared patient-level csPCa detection to ADC and PI-RADS using AUC. We also evaluated csPCa discrimination by grade group and combined RSIrs with clinical risk factors through multivariable regression.<br><br><strong>Results and Conclusions:</strong> Among 1,892 patients, probability of csPCa increased with higher RSIrs. In biopsy-naïve patients (n=877), AUCs for GG≥2 vs non-csPCa were: RSIrs 0.73 (0.69–0.76), ADC 0.54 (0.50–0.57), and PI-RADS 0.75 (0.71–0.78). RSIrs significantly outperformed ADC (P &lt; .01) and was comparable with PI-RADS (P = .31). RSIrs and PI-RADS combined outperformed either alone. RSIrs is an accurate and reliable quantitative biomarker that performs better than conventional ADC and comparably with expert-defined PI-RADS for patient-level detection of csPCa, providing objective estimates that do not require radiology expertise.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-seibert">UCSD Radiology</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1097/JU.0000000000004611" target="_blank">🔗 DOI</a>
+</div>
+</div>
+</div>
+</div>
+<div class="year-block">
+<div class="year-label">2024</div>
+<div class="year-papers">
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Utility of Quantitative T2 Measurement Using Restriction Spectrum Imaging for Detection of Clinically Significant Prostate Cancer </p>
+</div>
+<p class="pub-meta"><strong>Scientific Reports</strong>  ·  2024</p>
+<p class="pub-authors">Rojo Domingo M, Conlin CC, Karunamuni R, Ollison C, Baxter MT, <strong>Kallis K</strong>, Do DD, Song Y, Kuperman J, Shabaik AS, Hahn ME, Murphy PM, Rakow-Penner R, Dale AM, Seibert TM</p>
+<p class="pub-abstract">The RSI restriction score (RSIrs) has been shown to improve accuracy for diagnosis of clinically significant prostate cancer (csPCa) compared to standard DWI. Both diffusion and T2 properties of prostate tissue contribute to the DWI signal, and each may be valuable for distinguishing csPCa from benign tissue. This retrospective study evaluated whether csPCa detection with RSIrs is improved by acquiring scans at different echo times to measure compartmental T2 (cT2). Data includes two cohorts scanned for csPCa with 3T multi-b-value diffusion-weighted sequences at multiple TEs. In both cohorts, T2 differed significantly (p &lt; 0.05) across the four RSI compartments. At the voxel level, T2 differed in csPCa for C1, C2, C3 (p &lt; 0.001). At the patient level, RSIrs and a logistic regression model incorporating cT2 both outperformed diffusion alone (p &lt; 0.001), but the difference between RSIrs and the combined model was not significant (p = 0.54). Significant differences in cT2 were observed between normal and cancerous prostatic tissue; however, incorporating cT2 alongside diffusion did not significantly improve csPCa detection performance.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-seibert">UCSD Radiology</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1038/s41598-024-82742-8" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Clinical Impact of Contouring Variability for Prostate Cancer Tumor Boost </p>
+</div>
+<p class="pub-meta"><strong>International Journal of Radiation Oncology, Biology, Physics</strong>  ·  2024</p>
+<p class="pub-authors">Zhong AY, Lui AJ, Kuznetsova S, <strong>Kallis K</strong>, Conlin CC, Do DD, Rojo Domingo M, Manger R, Hua P, Karunamuni R, Kuperman J, Dale AM, Rakow-Penner R, Hahn ME, van der Heide UA, Ray X, Seibert TM</p>
+<p class="pub-abstract"><strong>Purpose:</strong> The focal RT boost technique was shown in a phase III RCT to improve prostate cancer outcomes without increasing toxicity. This technique relies on accurate delineation of prostate tumors on MRI. A recent prospective study demonstrated high variability in tumor contours among radiation oncologists. We sought to evaluate the impact of contour variability and inaccuracy on predicted clinical outcomes.<br><br><strong>Methods and Materials:</strong> 45 radiation oncologists and 2 expert radiologists contoured prostate tumors on 30 patient cases. A knowledge-based planning model generated focal RT boost plans for each contour per the RCT protocol. The probability of biochemical failure (BF) was determined using a model from the RCT. The primary metric was delta BF (DBF = Participant BF − Expert BF); an absolute increase in BF ≥5% was considered clinically meaningful.<br><br><strong>Results:</strong> Eight patient cases and 394 target volumes were included. Participant plans were associated with worse predicted clinical outcomes compared to expert plans, with an average absolute increase in BF of 4.3%. Of participant plans, 37% had an absolute increase in BF of 5% or more.<br><br><strong>Conclusions:</strong> Radiation oncologists' attempts to contour tumor targets for focal RT boost are frequently inaccurate enough to yield meaningfully inferior clinical outcomes for patients.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-seibert">UCSD Radiology</span> <span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.ijrobp.2024.06.007" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry" id="kallis-2024-rsi">
+<div class="pub-top"><span class="pub-first-badge">★ First author</span>
+<p class="pub-title">Quantitative MRI Biomarker for Classification of Clinically Significant Prostate Cancer: Calibration for Reproducibility Across Echo Times </p>
+</div>
+<p class="pub-meta"><strong>Journal of Applied Clinical Medical Physics</strong>  ·  2024</p>
+<p class="pub-authors"><strong>Kallis K</strong>, Conlin CC, Ollison C, Hahn ME, Rakow-Penner R, Dale AM, Seibert TM</p>
+<p class="pub-abstract"><strong>Purpose:</strong> To develop a calibration method to account for differences in echo times (TE) and facilitate the use of the RSI restriction score (RSIrs) as a quantitative biomarker for detection of clinically significant prostate cancer (csPCa).<br><br><strong>Methods:</strong> 197 consecutive patients underwent MRI and biopsy; 97 were diagnosed with csPCa (grade group ≥2). RSI data were acquired three times during the same session at two echo times (~75 ms and 90 ms). A linear regression model was fit to match C-maps of TE90 to reference C-maps of TEmin. RSIrs comparisons were made at the 98th percentile within each patient's prostate.<br><br><strong>Results:</strong> Scaling factors for C1, C2, C3, and C4 were 1.68, 1.33, 1.02, and 1.13. In non-csPCa cases, calibration reduced the absolute error between TE90 and TEmin by 72%. In csPCa cases, calibration reduced the mean difference by 55%. At the Youden index for patient-level classification (8.94 SI), RSIrs achieved a sensitivity of 66% and specificity of 72%.<br><br><strong>Conclusions:</strong> The proposed linear calibration method produces similar quantitative biomarker values for acquisitions with different TE, reducing TE-induced error by 72% and 55% for non-csPCa and csPCa respectively, enabling more reproducible multi-site deployment of RSIrs.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-seibert">UCSD Radiology</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1002/acm2.14514" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry">
+<div class="pub-top"><span class="pub-first-badge">★ First author</span>
+<p class="pub-title">Comparison of Synthesized and Acquired High b-Value Diffusion-Weighted MRI for Detection of Prostate Cancer </p>
+</div>
+<p class="pub-meta"><strong>Cancer Imaging</strong>  ·  2024</p>
+<p class="pub-authors"><strong>Kallis K</strong>, Conlin CC, Zhong AY, Hussain TS, Chatterjee A, Karczmar GS, Rakow-Penner R, Dale AM, Seibert TM</p>
+<p class="pub-abstract"><strong>Background:</strong> High b-value diffusion-weighted images (DWI) are used for detection of clinically significant prostate cancer (csPCa). This study qualitatively and quantitatively compares synthesized DWI (sDWI) to acquired DWI (aDWI) for csPCa detection.<br><br><strong>Methods:</strong> 151 consecutive patients who underwent prostate MRI and biopsy were included. DWI with b = 0, 500, 1000, and 2000 s/mm² was acquired on a 3T scanner. sDWI for b = 2000 s/mm² was synthesized via monoexponential extrapolation from b = 0 and 500 s/mm² (sDWI500) and from b = 0, 500, and 1000 s/mm² (sDWI1000). Signal differences and csPCa classification accuracy were compared across methods, including RSIrs as reference.<br><br><strong>Results:</strong> Within the prostate, mean percent differences between sDWI and aDWI were −46 ± 35% for sDWI500 and −67 ± 24% for sDWI1000. AUCs for aDWI, sDWI500, sDWI1000, and RSIrs within the prostate were 0.62, 0.63, 0.65, and 0.78, respectively.<br><br><strong>Conclusions:</strong> sDWI is qualitatively comparable to aDWI within the prostate, but hyperintense artifacts in surrounding pelvic tissue interfere with quantitative cancer detection and may mask metastases. RSIrs yields superior quantitative csPCa detection compared to both sDWI and aDWI.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-seibert">UCSD Radiology</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1186/s40644-024-00723-6" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Rapid Auto-Planning for Cervical Brachytherapy: Direct Dwell Time vs. Dose Prediction with Deep Learning Networks </p>
+</div>
+<p class="pub-meta"><strong>ICCR 2024 — International Conference on the Use of Computers in Radiation Therapy</strong>  ·  2024</p>
+<p class="pub-authors">Moore LC, <strong>Kallis K</strong>, Kisling K, Vasconcelos N, Meyers SM</p>
+<p class="pub-abstract">Treatment planning for cervical brachytherapy is often performed manually and can take over an hour. This work assessed a new approach to automated planning: using a neural network to directly predict dwell times (VGG model), compared to a method that predicts 3D dose followed by an optimizer (OPT model). Models were developed using 1,803 prior cervical brachytherapy treatment plans across 7 implant types. The VGG model used a 16-layer 3D VGG regression network; the OPT model used a Cascade U-Net. Both models produced plans very similar to clinical plans: MAE in dose was 3.4% (OPT) and 4.7% (VGG); MAE in dwell times was 7.3 s (OPT) and 8.0 s (VGG). While the OPT model showed slightly superior accuracy, direct dwell time prediction with the VGG model reduced computation time. Both methods demonstrate high clinical value for automated brachytherapy planning.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://www.iccr2024.org/papers/526220.pdf" target="_blank">🔗 Proceedings</a>
+</div>
+</div>
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Neural Network Dose Prediction for Cervical Brachytherapy: Overcoming Data Scarcity for Applicator-Specific Models </p>
+</div>
+<p class="pub-meta"><strong>Medical Physics</strong>  ·  2024</p>
+<p class="pub-authors">Moore LC, Ahern F, Li L, <strong>Kallis K</strong>, Kisling K, Cortes KG, Nwachukwu C, Rash D, Yashar CM, Mayadev J, Zou J, Vasconcelos N, Meyers SM</p>
+<p class="pub-abstract"><strong>Background:</strong> 3D neural network dose predictions are useful for automating brachytherapy treatment planning for cervical cancer. Cervical brachytherapy can be delivered with numerous applicators, necessitating models that generalize across applicator types. The variability and scarcity of data for any given applicator poses challenges for deep learning.<br><br><strong>Purpose:</strong> To compare three neural network training strategies — a single combined model, fine-tuned applicator-specific models, and individual (IDV) applicator models — for dose prediction across four applicator types.<br><br><strong>Methods:</strong> Models were produced for tandem-and-ovoid (T&amp;O), T&amp;O with needles (T&amp;ON), tandem-and-ring (T&amp;R), and T&amp;R with needles (T&amp;RN). The combined model was trained on 859 treatment plans from 266 patients. Inputs included anatomical masks, dwell position locations, and 3D applicator dose channels. A 3D Cascade U-Net was used with mean squared error loss.<br><br><strong>Results:</strong> Fine-tuned and combined models outperformed IDV applicator training. Fine-tuning yielded modest improvements in ~half of metrics. Gamma pass rates (3%/3mm) were 86%/91%/83%/89% for T&amp;O/T&amp;R/T&amp;ON/T&amp;RN.<br><br><strong>Conclusions:</strong> 3D brachytherapy dose was accurately predicted for all applicator types. Training on all treatment data overcomes data scarcity challenges and achieves superior performance over individual applicator training, enabling automated knowledge-based planning for any cervical brachytherapy treatment.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1002/mp.17230" target="_blank">🔗 DOI</a>
+</div>
+</div>
+</div>
+</div>
+<div class="year-block">
+<div class="year-label">2023</div>
+<div class="year-papers">
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">ReIGNITE Radiation Therapy Boost: A Prospective, International Study of Radiation Oncologists' Accuracy in Delineating Intraprostatic Tumor Using RSI MRI </p>
+</div>
+<p class="pub-meta"><strong>International Journal of Radiation Oncology, Biology, Physics</strong>  ·  2023</p>
+<p class="pub-authors">Lui AJ, <strong>Kallis K</strong>, Zhong AY, Hussain TS, Conlin C, Digma LA, Phan N, Mathews IT, Do DD, Rojo Domingo M, Karunamuni R, Kuperman J, Dale AM, Shabaik A, Rakow-Penner R, Hahn ME, Seibert TM</p>
+<p class="pub-abstract"><strong>Purpose:</strong> In a phase III randomized trial, adding a radiation boost to tumor(s) visible on MRI improved prostate cancer disease-free and metastasis-free survival without additional toxicity. We hypothesized that (1) radiation oncologists would find accurately delineating PCa tumors on conventional MRI challenging, and (2) using RSIrs maps would improve their accuracy.<br><br><strong>Methods and Materials:</strong> In this multi-institutional, international, prospective study, 44 radiation oncologists and 2 expert radiologists contoured prostate tumors on 39 patient cases using conventional MRI with or without RSIrs maps. Participant volumes were compared to consensus expert volumes using percent overlap, Dice coefficient, conformal number, and maximum distance beyond expert volume.<br><br><strong>Results:</strong> 1,604 participant volumes were produced. 40 of 44 participants (91%) completely missed ≥1 expert-defined target lesion without RSIrs, compared to 13 of 44 (30%) with RSIrs maps. On conventional MRI alone, 134 of 762 contour attempts (18%) completely missed the target, vs. 18 of 842 (2%) with RSIrs maps. RSIrs maps improved all contour accuracy metrics by approximately 50% or more. System Usability Scores confirmed RSIrs maps significantly improved the contouring experience (72 vs. 58, p &lt; 0.001).<br><br><strong>Conclusions:</strong> Radiation oncologists struggle with accurately delineating visible PCa tumors on conventional MRI. RSIrs maps improve radiation oncologists' ability to target MRI-visible tumors for prostate tumor boost.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-seibert">UCSD Radiology</span> <span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.ijrobp.2023.07.004" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Estimating Follow-up CTs from Geometric Deformations of Catheter Implants in Interstitial Breast Brachytherapy </p>
+</div>
+<p class="pub-meta"><strong>Medical Physics</strong>  ·  2023</p>
+<p class="pub-authors">Dürrbeck C, Schulz M, Pflaum L, <strong>Kallis K</strong>, Geimer T, Abu-Hossin N, Strnad V, Maier A, Fietkau R, Bert C</p>
+<p class="pub-abstract"><strong>Background:</strong> Electromagnetic tracking (EMT) systems provide valuable information on the geometry of catheter implants in interstitial breast brachytherapy (iBT). To detect dosimetric shortcomings, the relative positions between catheters and target volume must be known. Since EMT cannot provide anatomical context and cone-beam CT is not routinely available in brachytherapy suites, anatomic changes cannot be detected on a daily or fraction basis.<br><br><strong>Purpose:</strong> To develop and evaluate a technique capable of estimating follow-up CTs at any time based on the initial treatment planning CT and surrogate information about changes of the implant geometry from an EMT system.<br><br><strong>Methods:</strong> A deformation vector field is calculated from two EMT-based implant reconstructions acquired in treatment position. Discrete displacement vectors of control and target points are extrapolated using radial basis functions to cover the entire CT volume. The planning CT is warped according to the deformation field to produce an estimated CT (ECT).<br><br><strong>Results:</strong> ECTs and clinical follow-up CTs of 20 patients were compared quantitatively in terms of absolute Hounsfield unit differences. Median differences were 31.2 and 29.5 HU for the convex hull enclosing the catheters and the planning target volume, respectively.<br><br><strong>Conclusion:</strong> The proposed ECT approach approximates the "anatomy of the day" and allows a dosimetric appraisal of treatment plan quality before each fraction, contributing to patient-specific quality assurance in iBT of the breast and helping identify the timing for potential treatment adaptation.</p>
+<div class="pub-actions">
+<span class="pub-tag erlangen">UKER</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1002/mp.16659" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry" id="kallis-2023-pmb">
+<div class="pub-top"><span class="pub-first-badge">★ First author</span>
+<p class="pub-title">Automated Treatment Planning Framework for Brachytherapy of Cervical Cancer Using 3D Dose Predictions </p>
+</div>
+<p class="pub-meta"><strong>Physics in Medicine and Biology</strong>  ·  2023</p>
+<p class="pub-authors"><strong>Kallis K</strong>, Moore LC, Cortes KG, Brown D, Mayadev J, Moore KL, Meyers SM</p>
+<p class="pub-abstract"><strong>Objective:</strong> To lay the foundation for automated knowledge-based brachytherapy treatment planning using 3D dose estimations by describing an optimization framework to convert brachytherapy dose distributions directly into dwell times (DTs).<br><br><strong>Approach:</strong> A dose rate kernel was produced by exporting 3D dose for one dwell position and normalizing by DT. A Python-coded COBYLA optimizer iteratively determines the DTs minimizing mean squared error between calculated and reference dose. As validation, the optimizer replicated clinical plans in 40 patients treated with tandem-and-ovoid or tandem-and-ring applicators. Automated planning was then demonstrated in 10 T&amp;O patients using dose predicted from a CNN developed in prior work.<br><br><strong>Main Results:</strong> Validation plans agreed well with clinical plans (MAD_dose = 1.1%, MAD_DT = 4 s, DSC = 0.99). For automated plans, MAD_dose = 6.5% and MAD_DT = 10.3 s (2.1%). The overall shape of automated dose distributions was similar to clinical doses (DSC = 0.91).<br><br><strong>Significance:</strong> Automated planning with 3D dose predictions could provide significant time savings and standardize treatment planning across practitioners regardless of experience.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1088/1361-6560/acc37c" target="_blank">🔗 DOI</a>
+</div>
+</div>
+</div>
+</div>
+<div class="year-block">
+<div class="year-label">2022</div>
+<div class="year-papers">
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Knowledge-Based Three-Dimensional Dose Prediction for Tandem-and-Ovoid Brachytherapy </p>
+</div>
+<p class="pub-meta"><strong>Brachytherapy</strong>  ·  2022</p>
+<p class="pub-authors">Cortes KG, <strong>Kallis K</strong>, Simon A, Mayadev J, Meyers SM, Moore KL</p>
+<p class="pub-abstract"><strong>Purpose:</strong> To develop a knowledge-based dose prediction system using a convolution neural network (CNN) for cervical brachytherapy treatments with a tandem-and-ovoid applicator.<br><br><strong>Methods:</strong> A 3D U-NET CNN was trained on 395 previously treated cases (training/validation/test: 273/61/61) to make voxel-wise dose predictions based on OAR, HRCTV, and possible source location geometry. Model performance was assessed with voxel-wise dose differences and DVH metric accuracy (HRCTV D90%; bladder, rectum, sigmoid D2cc).<br><br><strong>Results:</strong> Isodose dice similarity coefficients ranged from 0.96/0.91 (training) and 0.94/0.87 (test). DVH metric prediction errors were small: HRCTV D90 -0.09 ± 0.67 Gy, bladder D2cc -0.17 ± 0.67 Gy, rectum D2cc -0.04 ± 0.46 Gy, sigmoid D2cc 0.00 ± 0.44 Gy in the test set.<br><br><strong>Conclusions:</strong> 3D knowledge-based dose predictions provide voxel-level and DVH metric estimates that could be used for treatment plan quality control and data-driven plan guidance.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.brachy.2022.03.002" target="_blank">🔗 DOI</a>
+</div>
+</div>
+</div>
+</div>
+<div class="year-block">
+<div class="year-label">2021</div>
+<div class="year-papers">
+<div class="pub-entry">
+<div class="pub-top">
+<span class="pub-first-badge">★ First author</span>
+<p class="pub-title">Evaluation of Dose Differences Between Intracavitary Applicators for Cervical Brachytherapy Using Knowledge-Based Dose Predictions </p>
+</div>
+<p class="pub-meta"><strong>Brachytherapy</strong>  ·  2021</p>
+<p class="pub-authors"><strong>Kallis K</strong>, Mayadev J, Covele B, Brown D, Scanderbeg D, Simon A, Frisbie-Firsching H, Yashar CM, Einck JP, Mell LK, Moore KL, Meyers SM</p>
+<p class="pub-abstract"><strong>Purpose:</strong> To evaluate the accuracy of organ-at-risk (OAR) dose predictions using knowledge-based intracavitary models, and to determine dosimetric differences between tandem-and-ring (T&amp;R) and tandem-and-ovoid (T&amp;O) applicators.<br><br><strong>Materials and Methods:</strong> Knowledge-based models predicting organ D2cc were trained on 77/75 cases and validated on 32/38 for T&amp;R/T&amp;O applicators. Model-predicted applicator dose differences were determined by applying T&amp;O models to T&amp;R cases and vice versa.<br><br><strong>Results:</strong> Validation T&amp;O/T&amp;R model precision was 0.65/0.55 Gy, 0.55/0.38 Gy, and 0.43/0.60 Gy for bladder, rectum, and sigmoid. When applying cross-applicator models, bladder, rectum, and sigmoid D2cc EQD2 values were on average 5.69/2.62 Gy, 7.31/6.15 Gy, and 3.65/0.69 Gy lower for T&amp;R. Clinical data showed lower T&amp;R OAR doses, with mean EQD2 D2cc deviations of 0.61 Gy, 7.96 Gy (p &lt; 0.01), and 5.86 Gy (p &lt; 0.01) for bladder, rectum, and sigmoid.<br><br><strong>Conclusions:</strong> Accurate knowledge-based dose prediction models were developed for two common intracavitary applicators. Both models and clinical data suggest significant OAR sparing with T&amp;R over T&amp;O applicators, particularly for the rectum.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.brachy.2021.08.010" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry" id="kallis-2021-needle">
+<div class="pub-top"><span class="pub-first-badge">★ First author</span>
+<p class="pub-title">Knowledge-Based Dose Prediction Models to Inform Gynecologic Brachytherapy Needle Supplementation for Locally Advanced Cervical Cancers </p>
+</div>
+<p class="pub-meta"><strong>Brachytherapy</strong>  ·  2021</p>
+<p class="pub-authors"><strong>Kallis K</strong>, Mayadev J, Kisling K, Brown D, Scanderbeg D, Ray X, Cortes K, Simon A, Yashar CM, Einck JP, Mell LK, Moore KL, Meyers SM</p>
+<p class="pub-abstract"><strong>Purpose:</strong> To determine whether dose prediction models can guide needle supplementation decision-making for cervical cancer brachytherapy.<br><br><strong>Materials and Methods:</strong> Intracavitary knowledge-based models for OAR dose estimation were trained and validated for T&amp;R/T&amp;O implants. Models were applied to hybrid cases with 1–3 needles to predict OAR dose without needles. 70/67 hybrid T&amp;R/T&amp;O cases were replanned without needles; cases where dose exceeded objectives were classified as requiring needles. ROC curves assessed classification accuracy.<br><br><strong>Results:</strong> Needle supplementation reduced OAR dose, but 67%/39% of T&amp;R/T&amp;O replans met all dose constraints without needles. ROC AUC was 0.89/0.86 for T&amp;R/T&amp;O. The optimal classification threshold (99%/101% of dose limit) yielded sensitivity/specificity of 78%/86% and 85%/78%.<br><br><strong>Conclusions:</strong> Needle supplementation was not always required to meet standard dose objectives. Our knowledge-based model accurately identified cases that could have met constraints without needles, suggesting utility for data-driven applicator selection and reducing operator dependence.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.brachy.2021.07.001" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">ORBIT-RT: A Real-Time, Open Platform for Knowledge-Based Quality Control of Radiotherapy Treatment Plans </p>
+</div>
+<p class="pub-meta"><strong>JCO Clinical Cancer Informatics</strong>  ·  2021</p>
+<p class="pub-authors">Covele BM, Puri KS, <strong>Kallis K</strong>, Murphy JD, Moore KL</p>
+<p class="pub-abstract"><strong>Purpose:</strong> To provide clinicians worldwide with uninhibited access to knowledge-based radiotherapy plan quality control, independent of treatment planning system (TPS).<br><br><strong>Methods:</strong> ORBIT-RT was designed to satisfy four criteria: web-based access, TPS independence, HIPAA compliance, and autonomous operation. The platform uses a cloud-based server to anonymize DICOM-RT files and autonomously generate knowledge-based DVH estimations. Performance was evaluated on 45 VMAT prostate plans using DVH estimation accuracy and processing time.<br><br><strong>Results:</strong> ORBIT-RT organ DVH predictions showed &lt;1% bias and 3% error uncertainty at doses &gt;80% of prescription. Processing required 3.0 seconds per organ; total workflow from DICOM upload to DVH display took 2.5–3 minutes.<br><br><strong>Conclusion:</strong> ORBIT-RT provides fast, fully autonomous knowledge-based feedback on a web-based platform, using only anonymized DICOM-RT as input, enabling real-time objective quality control feedback for clinics of any size worldwide.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1200/CCI.20.00093" target="_blank">🔗 DOI</a>
+</div>
+</div>
+</div>
+</div>
+<div class="year-block">
+<div class="year-label">2020</div>
+<div class="year-papers">
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">A Knowledge-Based Organ Dose Prediction Tool for Brachytherapy Treatment Planning of Patients with Cervical Cancer </p>
+</div>
+<p class="pub-meta"><strong>Brachytherapy</strong>  ·  2020</p>
+<p class="pub-authors">Yusufaly TI, <strong>Kallis K</strong>, Simon A, Mayadev J, Yashar CM, Einck JP, Mell LK, Brown D, Scanderbeg D, Hild SJ, Covele B, Moore KL, Meyers SM</p>
+<p class="pub-abstract"><strong>Purpose:</strong> To explore knowledge-based organ-at-risk dose estimation for intracavitary brachytherapy planning for cervical cancer using established external-beam DVH estimation methods.<br><br><strong>Methods:</strong> 136 patients treated with 456 CT-based tandem-and-ovoid brachytherapy fractions (356:100 training:validation) were analyzed. DVH estimations were obtained by subdividing OARs into HRCTV boundary distance subvolumes and computing cohort-averaged differential DVHs.<br><br><strong>Results:</strong> Training set deviations: bladder ΔD2cc = −0.04 ± 0.61 Gy, rectum = 0.02 ± 0.57 Gy, sigmoid = −0.05 ± 0.52 Gy. Validation predictions did not statistically differ: bladder ΔD2cc = −0.02 ± 0.46 Gy (p = 0.80), rectum = −0.007 ± 0.47 Gy (p = 0.53), sigmoid = −0.07 ± 0.47 Gy (p = 0.70).<br><br><strong>Conclusion:</strong> A simple boundary distance-driven knowledge-based DVH estimation showed promising results for predicting critical brachytherapy dose metrics, providing a foundation for quality control and automated brachytherapy planning.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-moore">RMAS</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.brachy.2020.04.008" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Adaptive Radiotherapy and the Dosimetric Impact of Inter- and Intrafractional Motion on the Planning Target Volume for Prostate Cancer Patients </p>
+</div>
+<p class="pub-meta"><strong>Strahlentherapie und Onkologie</strong>  ·  2020</p>
+<p class="pub-authors">Böckelmann F, Putz F, <strong>Kallis K</strong>, Lettmaier S, Fietkau R, Bert C</p>
+<p class="pub-abstract">This study investigated the dosimetric influence of daily interfractional setup errors and intrafractional target motion on the planning target volume (PTV) and the feasibility of offline adaptive radiotherapy (ART) for prostate cancer. Using daily CBCT imaging of 31 consecutive patients, systematic and random components of inter- and intrafractional errors were quantified. Results showed that interfractional systematic uncertainties exceeded intrafractional ones (1.12, 2.28, 1.48 mm vs. 0.44, 0.69, 0.80 mm in LR/SI/AP). Calculated margins were 4–5 mm (LR), 8–9 mm (SI), 6–7 mm (AP). Adapted plans showed smaller residual variations. Offline ART is feasible and becomes necessary with further PTV margin reductions.</p>
+<div class="pub-actions">
+<span class="pub-tag erlangen">UKER</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1007/s00066-020-01596-x" target="_blank">🔗 DOI</a>
+</div>
+</div>
+</div>
+</div>
+<div class="year-block">
+<div class="year-label">2019</div>
+<div class="year-papers">
+<div class="pub-entry">
+<div class="pub-top">
+<span class="pub-first-badge">★ First author</span>
+<p class="pub-title">Is Adaptive Treatment Planning in Multi-Catheter Interstitial Breast Brachytherapy Necessary? </p>
+</div>
+<p class="pub-meta"><strong>Radiotherapy and Oncology</strong>  ·  2019</p>
+<p class="pub-authors"><strong>Kallis K</strong>, Ziegler M, Lotter M, Kreppner S, Strnad V, Fietkau R, Bert C</p>
+<p class="pub-abstract"><strong>Purpose:</strong> To assess the need for adaptive treatment planning in 55 patients treated with interstitial multi-catheter breast brachytherapy.<br><br><strong>Methods:</strong> A treatment planning CT and a follow-up CT were acquired per patient. Keeping dwell times and positions constant, the plan at implantation was compared to the situation 48 h later. Catheter deviations (DDP, discrete Fréchet distance) and dosimetric changes (ΔCI, ΔCOIN, ΔDNR) were assessed for both rigid and deformably registered PTVs.<br><br><strong>Results:</strong> Mean DDP = 2.41 ± 1.73 mm, ΔCI = 3.10 ± 3.17%, ΔCOIN = 0.009 ± 0.007, ΔDNR = 0.036 ± 0.040 for rigidly aligned CTs. With deformed PTV, ΔCI = 5.05 ± 4.14%. In 4% of cases, re-planning would have been beneficial.<br><br><strong>Conclusion:</strong> Adaptive re-planning is not routinely necessary but is warranted for cases with large PTV changes or large dwell position deviations.</p>
+<div class="pub-actions">
+<span class="pub-tag erlangen">UKER</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.radonc.2019.08.015" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry" id="kallis-2019-interfrac">
+<div class="pub-top"><span class="pub-first-badge">★ First author</span>
+<p class="pub-title">Estimation of Inter-Fractional Variations in Interstitial Multi-Catheter Breast Brachytherapy Using a Hybrid Treatment Delivery System </p>
+</div>
+<p class="pub-meta"><strong>Radiotherapy and Oncology</strong>  ·  2019</p>
+<p class="pub-authors"><strong>Kallis K</strong>, Abu-Hossin N, Kreppner S, Lotter M, Strnad V, Fietkau R, Bert C</p>
+<p class="pub-abstract"><strong>Purpose:</strong> To assess inter-fractional variations in interstitial multi-catheter breast brachytherapy using an electromagnetic tracking (EMT) system integrated into an afterloader prototype.<br><br><strong>Methods:</strong> 41 patients were included with 355 EMT measurements. Catheter traces were measured automatically after implantation, after CT imaging, and after each fraction. Dwell positions (DPs) were reconstructed and compared to the treatment plan reference. Euclidean distances between reconstructed and planned DPs were assessed, along with the influence of patient and implant factors on deviations.<br><br><strong>Results:</strong> Median Euclidean distance across all measurements was 2.19 mm. Minimal deviation occurred at post-CT measurement (1.67 mm median). Fraction-to-fraction median deviation was 2.31 mm, improvable to 2.05 mm with follow-up CT adaptation. No correlation was found between skin distance, rib proximity, mammilla position, breast volume, or catheter length and large deviations. Largest deviations occurred in the upper inner breast quadrant.<br><br><strong>Conclusion:</strong> The EMT afterloader prototype was successfully integrated into clinical routine, enabling real-time inter-fractional quality assurance with a median DP deviation below the 2.5 mm step size.</p>
+<div class="pub-actions">
+<span class="pub-tag erlangen">UKER</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.radonc.2019.08.012" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Error Detection Using an Electromagnetic Tracking System in Multi-Catheter Breast Interstitial Brachytherapy </p>
+</div>
+<p class="pub-meta"><strong>Physics in Medicine and Biology</strong>  ·  2019</p>
+<p class="pub-authors">Masitho S, <strong>Kallis K</strong>, Strnad V, Fietkau R, Bert C</p>
+<p class="pub-abstract"><strong>Purpose:</strong> To test the feasibility of the hybrid treatment delivery system (HTDS) — an afterloader with integrated electromagnetic tracking (EMT) — for detecting treatment planning and delivery errors in multi-catheter breast brachytherapy.<br><br><strong>Methods:</strong> Planning errors (incorrect offset, indexer length, tip/connector end swaps, partial swaps) and delivery errors (catheter shifts, connection swaps) were manually simulated using phantoms. A MATLAB algorithm assessed geometrical deviations between CT-defined and EMT-measured dwell positions. Detection ability under implant motion was also evaluated. Patient data from the ongoing study at Erlangen were analyzed.<br><br><strong>Results:</strong> All simulated planning errors were detected. Catheter connection swaps were detected 100% of the time. Shift detection rate was &gt;97% for shifts larger than 1.1 mm. The algorithm reliably identified errors in patient data.<br><br><strong>Conclusion:</strong> The HTDS with EMT enables robust, automated error detection for both planning and delivery errors in clinical brachytherapy QA workflows.</p>
+<div class="pub-actions">
+<span class="pub-tag erlangen">UKER</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1088/1361-6560/ab4336" target="_blank">🔗 DOI</a>
+</div>
+</div>
+<div class="pub-entry">
+<div class="pub-top"><span class="pub-first-badge">★ First author</span>
+<p class="pub-title">Impact of Inter- and Intra-Observer Variabilities of Catheter Reconstruction on Multi-Catheter Interstitial Brachytherapy of Breast Cancer Patients </p>
+</div>
+<p class="pub-meta"><strong>Radiotherapy and Oncology</strong>  ·  2019</p>
+<p class="pub-authors"><strong>Kallis K</strong>, Kaltsas T, Kreppner S, Lotter M, Strnad V, Fietkau R, Bert C</p>
+<p class="pub-abstract"><strong>Purpose:</strong> To evaluate inter- and intra-observer variabilities of catheter reconstruction and their dosimetric impact in multi-catheter interstitial breast brachytherapy.<br><br><strong>Methods:</strong> Three medical physicists reconstructed catheter traces of 13 patients for IOV assessment; repeated reconstructions of two physicists were compared for IAV. 426 catheters were analyzed. Geometrical deviations between dwell positions and changes in quality indices (CI, DNR, COIN) and OAR doses were evaluated.<br><br><strong>Results:</strong> Mean IOV dwell position deviation: 0.60 ± 0.35 mm (observer 1: 0.54 ± 0.32 mm; observer 2: 0.58 ± 0.37 mm). Mean catheter trace length varied by 0.51 ± 0.45 mm. Relative deviations in CI, DNR, COIN, heart dose, and lung dose were small (&lt;0.3%). Maximum skin dose change was 8.52%. Mean IAV deviation was 0.49 ± 0.30 mm. IOV and IAV were significantly different (Wilcoxon p &lt; 0.01).<br><br><strong>Conclusions:</strong> Repeated catheter reconstruction does not lead to large geometrical deviations or significant dosimetric changes. Reliable quality indices can be obtained with all tested reconstruction techniques, though ground truth validation remains challenging.</p>
+<div class="pub-actions">
+<span class="pub-tag erlangen">UKER</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.radonc.2019.02.017" target="_blank">🔗 DOI</a>
+</div>
+</div>
+</div>
+</div>
+<div class="year-block">
+<div class="year-label">2018</div>
+<div class="year-papers">
+<div class="pub-entry">
+<div class="pub-top">
+<span class="pub-first-badge">★ First author</span>
+<p class="pub-title">Introduction of a Hybrid Treatment Delivery System Used for Quality Assurance in Multi-Catheter Interstitial Brachytherapy </p>
+</div>
+<p class="pub-meta"><strong>Physics in Medicine and Biology</strong>  ·  2018</p>
+<p class="pub-authors"><strong>Kallis K</strong>, Kreppner S, Lotter M, Fietkau R, Strnad V, Bert C</p>
+<p class="pub-abstract"><strong>Purpose:</strong> To demonstrate the possibilities of an electromagnetic tracking (EMT) system integrated into an afterloader for quality assurance in HDR multi-catheter interstitial breast brachytherapy.<br><br><strong>Methods:</strong> A hybrid afterloader equipped with an EMT sensor was used for phantom and patient measurements. After coherent point drift registration of EMT traces to CT-reconstructed catheters, dwell positions (DPs) were defined. Fitting and interpolation methods for DP reconstruction were compared. All estimated DPs were compared to treatment planning DPs. Implant geometry was acquired for 20 patients.<br><br><strong>Results:</strong> Both fitting and interpolation detected manually introduced shifts and swaps. Interpolation showed superior accuracy (RMSE = 1.27 mm); fitting was more stable under distortion and motion. The EMT system was successfully integrated into clinical workflow for 20 patients.<br><br><strong>Conclusion:</strong> The EMT-integrated hybrid afterloader is beneficial for brachytherapy QA and clinical feasibility was demonstrated, laying the groundwork for real-time treatment monitoring.</p>
+<div class="pub-actions">
+<span class="pub-tag erlangen">UKER</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1088/1361-6560/aabb5a" target="_blank">🔗 DOI</a>
+</div>
+</div>
+</div>
+</div>
+<div class="year-block">
+<div class="year-label">2017</div>
+<div class="year-papers">
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">On the Use of Particle Filters for Electromagnetic Tracking in High Dose Rate Brachytherapy </p>
+</div>
+<p class="pub-meta"><strong>Physics in Medicine and Biology</strong>  ·  2017</p>
+<p class="pub-authors">Götz TI, Lahmer G, Brandt T, <strong>Kallis K</strong>, Strnad V, Bert C, Hensel B, Tomé AM, Lang EW</p>
+<p class="pub-abstract"><strong>Purpose:</strong> To develop a hybrid system combining multi-dimensional scaling with particle filters for precise sensor dwell position determination in HDR breast brachytherapy.<br><br><strong>Methods:</strong> Solenoid sensors measured with an EMT system were used to localize source positions relative to implanted catheters. Empirical mode decomposition removed superimposed breathing artifacts. The hybrid system relates EMT sensor positions to catheter positions initially determined from CT.<br><br><strong>Results:</strong> The hybrid model robustly and reliably determined spatial positions of all catheters and precisely detected deviations of actual dwell positions from the treatment plan across subsequent treatment sessions. Only EMT sensor data were required — no additional imaging.<br><br><strong>Conclusion:</strong> The particle filter–based hybrid system enables real-time, image-free quality assurance of dwell position delivery in HDR brachytherapy.</p>
+<div class="pub-actions">
+<span class="pub-tag erlangen">UKER</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1088/1361-6560/aa8591" target="_blank">🔗 DOI</a>
+</div>
+</div>
+</div>
+</div>
+<div class="year-block">
+<div class="year-label">2016</div>
+<div class="year-papers">
+<div class="pub-entry">
+<div class="pub-top">
+<p class="pub-title">Dosimetric Accuracy of the Cone-Beam CT-Based Treatment Planning of the Vero System: A Phantom Study </p>
+</div>
+<p class="pub-meta"><strong>Journal of Applied Clinical Medical Physics</strong>  ·  2016</p>
+<p class="pub-authors">Yohannes I, Prasetio H, <strong>Kallis K</strong>, Bert C</p>
+<p class="pub-abstract">The accuracy of dose calculation based on CBCT images from the non-bowtie filter kV imaging system of the Vero linac was investigated. Different materials and tube voltages were used to generate Hounsfield unit lookup tables (HLUTs) for both CBCT and fan-beam CT systems. A cube phantom with water-equivalent slabs and inhomogeneity inserts was evaluated using point-dose and 2D dose distribution measurements. Higher tube voltage improved dose calculation accuracy and gamma passing rates. Tissue-equivalent insert materials yielded negligible differences between CBCT- and FBCT-based treatment planning. CBCT-based planning with the Vero system is feasible if calibrated using tissue-equivalent materials at 120 kV.</p>
+<div class="pub-actions">
+<span class="pub-tag erlangen">UKER</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1120/jacmp.v17i4.6194" target="_blank">🔗 DOI</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div class="footer-left"><strong>Karoline Kallis, PhD</strong> · karo.kallis@googlemail.com · San Diego, CA</div>
+<div class="footer-links">
+<a href="https://github.com/karokallis" target="_blank">GitHub</a>
+<a href="https://scholar.google.com/citations?user=iqxNWfQAAAAJ&amp;hl=en" target="_blank">Google Scholar</a>
+<a href="https://www.linkedin.com/in/karoline-kallis/" target="_blank">LinkedIn</a>
+</div>
+</footer>
+</body>
+</html>

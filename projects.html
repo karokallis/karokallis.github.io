@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Karoline Kallis, PhD</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:         #1e40af;
+      --blue-mid:     #1d4ed8;
+      --blue-light:   #eff6ff;
+      --blue-border:  #bfdbfe;
+      --accent:       #0f766e;
+      --accent-light: #f0fdfa;
+      --accent-border:#99f6e4;
+      --bordeaux:     #9b2558;
+      --bordeaux-mid: #b03a6e;
+      --text:         #0f172a;
+      --muted:        #64748b;
+      --border:       #e2e8f0;
+      --bg:           #ffffff;
+      --bg-soft:      #f8fafc;
+      --radius:       8px;
+      --radius-lg:    12px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--blue-mid); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 4rem;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .nav-name { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; white-space: nowrap; }
+    .nav-links a { font-size: 13.5px; color: var(--muted); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-back { color: var(--accent) !important; font-weight: 500; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 3.5rem 4rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .page-title {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+    .page-desc { font-size: 14.5px; color: var(--muted); }
+
+    /* ── ERA SECTION ── */
+    .era {
+      padding: 3rem 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .era-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .era-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .era-meta { font-size: 13px; color: var(--muted); }
+
+    /* ── MINI CARDS ── */
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .mini-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      transition: border-color 0.15s, transform 0.1s;
+    }
+    .mini-card:hover { border-color: var(--accent-border); box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-1px); }
+    .mini-card.featured { border-color: var(--accent-border); background: var(--accent-light); }
+    .mini-featured-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      border-radius: 999px;
+      padding: 2px 8px;
+      display: inline-block;
+      margin-bottom: 7px;
+    }
+    .mini-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 5px;
+      color: var(--text);
+    }
+    .mini-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 9px;
+    }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 9px; }
+    .badge {
+      display: inline-block;
+      font-size: 10.5px;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .b-blue   { background: #eff6ff; color: #1e40af; }
+    .b-teal   { background: #f0fdfa; color: #134e4a; }
+    .b-purple { background: #f1f5f9; color: #475569; }
+    .b-coral  { background: #f1f5f9; color: #475569; }
+    .b-green  { background: #f0fdf4; color: #166534; }
+    .b-amber  { background: #f1f5f9; color: #475569; }
+
+    .mini-pub {
+      font-size: 11.5px;
+      color: var(--muted);
+      font-style: italic;
+      border-top: 1px solid var(--border);
+      padding-top: 7px;
+      margin-top: 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mini-pub a { font-size: 11px; color: var(--accent); font-style: normal; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg-soft);
+      padding: 2rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-left { font-size: 13px; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 13px; color: var(--muted); }
+    .footer-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* ── FIG BACKGROUNDS ── */
+    .fig-ehr    { background: linear-gradient(140deg, #f0fdfa 0%, #eff6ff 100%); }
+    .fig-brachy { background: linear-gradient(140deg, #f5f3ff 0%, #eff6ff 100%); }
+    .fig-mri    { background: linear-gradient(140deg, #fff7ed 0%, #fefce8 100%); }
+
+    /* ── DETAIL PANEL ── */
+    #detail-panel {
+      display: none;
+      margin: 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    #detail-panel.open { display: block; }
+    .detail-fig {
+      width: 100%; height: 260px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; border-bottom: 1px solid var(--border); overflow: hidden;
+    }
+    .detail-close {
+      position: absolute; top: 12px; right: 14px;
+      background: rgba(255,255,255,0.85); border: 1px solid var(--border);
+      border-radius: 8px; padding: 5px 12px; font-size: 12.5px;
+      color: var(--muted); cursor: pointer; font-family: inherit;
+    }
+    .detail-close:hover { color: var(--text); }
+    .detail-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; max-width: 1100px; margin: 0 auto; }
+    .detail-main { padding: 1.75rem 2rem; }
+    .detail-sidebar {
+      padding: 1.75rem 2rem; overflow-y: auto;
+      border-left: 1px solid var(--border); background: var(--bg-soft);
+    }
+    .detail-title { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
+    .detail-meta { font-size: 12.5px; color: var(--muted); margin-bottom: 1.25rem; }
+    .detail-section { margin-bottom: 1.25rem; }
+    .detail-section-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+    }
+    .detail-text { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+    .result-chip {
+      display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px;
+      background: var(--bg-soft); border: 1px solid var(--border);
+      border-radius: 8px; padding: 5px 11px; color: var(--muted); margin: 3px 4px 3px 0;
+    }
+    .detail-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1rem; }
+    .detail-link-btn {
+      display: inline-flex; align-items: center; gap: 5px; font-size: 13px;
+      color: var(--accent); border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 6px 14px; background: var(--accent-light);
+      text-decoration: none; font-weight: 500;
+    }
+    .detail-link-btn:hover { background: #ccfbf1; text-decoration: none; }
+
+    @media (max-width: 720px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        height: auto;
+        padding: 0.85rem 1.5rem;
+        gap: 0.55rem;
+      }
+      .nav-name { font-size: 14px; line-height: 1.25; }
+      .nav-links {
+        width: 100%;
+        gap: 0.9rem;
+        overflow-x: auto;
+        padding-bottom: 0.15rem;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .page-header, .era, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .era-header { align-items: flex-start; flex-direction: column; gap: 0.2rem; }
+      .mini-grid { grid-template-columns: 1fr; }
+      .detail-body { grid-template-columns: 1fr; }
+      .detail-sidebar { border-left: none; border-top: 1px solid var(--border); }
+      .detail-main, .detail-sidebar { padding: 1.25rem; }
+      .detail-fig { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Karoline Kallis, PhD</span>
+  <ul class="nav-links">
+    <li><a class="nav-back" href="index.html">← Back</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="mailto:karo.kallis@googlemail.com" style="color:var(--accent);font-weight:500;">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <p class="page-label">Research portfolio</p>
+  <h1 class="page-title">Projects</h1>
+  <p class="page-desc">19 projects across EHR data science, medical imaging, and radiation oncology treatment planning.</p>
+</div>
+
+<!-- ── DETAIL PANEL ── -->
+<div id="detail-panel">
+  <div class="detail-fig" id="detail-fig">
+    <button class="detail-close" onclick="closeProject()">✕ Close</button>
+  </div>
+  <div class="detail-body">
+    <div class="detail-main" id="detail-main"></div>
+    <div class="detail-sidebar" id="detail-sidebar"></div>
+  </div>
+</div>
+
+<!-- ── ERA 1: CURRENT ── -->
+<div class="era">
+  <div class="era-header">
+    <span class="era-title">EHR & clinical data science</span>
+    <span class="era-meta">UCSD Department of Surgery · 2024–present</span>
+  </div>
+  <div class="mini-grid">
+
+    <div class="mini-card featured" style="cursor:pointer;" onclick="openProject(0,this)">
+      <span class="mini-featured-label">★ Featured</span>
+      <p class="mini-title">Guideline-concordant PAD care across a national EHR cohort</p>
+      <p class="mini-desc">Longitudinal analysis of cardiovascular prevention quality measures in 1.2M PAD patients, with subgroup analysis by race, sex, insurance, and PAD severity.</p>
+      <div class="badge-row">
+        <span class="badge b-blue">Epic COSMOS</span>
+        <span class="badge b-blue">SQL</span>
+        <span class="badge b-blue">Python</span>
+        <span class="badge b-teal">Mixed effects models</span>
+        <span class="badge b-teal">Cox proportional hazards</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card featured" style="cursor:pointer;" onclick="openProject(12,this)">
+      <span class="mini-featured-label">★ Featured</span>
+      <p class="mini-title">PAD detection model for deployment at UCSD</p>
+      <p class="mini-desc">Translating the UC Health PAD detection model into a production-ready clinical tool for EHR integration and at-risk patient flagging at point of care.</p>
+      <div class="badge-row">
+        <span class="badge b-blue">XGBoost</span>
+        <span class="badge b-blue">Epic Caboodle</span>
+        <span class="badge b-blue">AWS SageMaker</span>
+        <span class="badge b-blue">SQL</span>
+        <span class="badge b-blue">Python</span>
+        <span class="badge b-green">Clinical deployment</span>
+      </div>
+      <div class="mini-pub"><span>Clinical deployment</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(1,this)">
+      <p class="mini-title">PAD detection across 5 health systems</p>
+      <p class="mini-desc">ML model for peripheral artery disease detection with multi-site fairness evaluation across UC Health systems.</p>
+      <div class="badge-row">
+        <span class="badge b-teal">LightGBM</span>
+        <span class="badge b-blue">OMOP</span>
+        <span class="badge b-blue">SQL</span>
+        <span class="badge b-blue">Python</span>
+        <span class="badge b-blue">Databricks</span>
+        <span class="badge b-teal">Fairness</span>
+        <span class="badge b-blue">UCDDP</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(13,this)">
+      <p class="mini-title">Open-source PAD detection model with multi-site external validation</p>
+      <p class="mini-desc">Generalizable PAD detection model trained on AFC data, externally validated at UCSD. Trained model and code to be publicly released for direct deployment at other institutions.</p>
+      <div class="badge-row">
+        <span class="badge b-green">Open-source</span>
+        <span class="badge b-teal">External validation</span>
+        <span class="badge b-blue">OMOP</span>
+        <span class="badge b-teal">SHAP</span>
+        <span class="badge b-teal">Fairness</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(16,this)">
+      <p class="mini-title">Diabetic foot ulcer and amputation risk: prediction and causal inference</p>
+      <p class="mini-desc">Two-part project: ML prediction of foot ulcers and amputations in diabetes patients, and causal inference on the effect of foot exams in reducing amputation risk.</p>
+      <div class="badge-row">
+        <span class="badge b-blue">XGBoost</span>
+        <span class="badge b-blue">Python</span>
+        <span class="badge b-teal">Causal inference</span>
+        <span class="badge b-blue">Epic Caboodle</span>
+      </div>
+      <div class="mini-pub"><span>Research Grant</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(4,this)">
+      <p class="mini-title">Representation learning for longitudinal PAD phenotyping</p>
+      <p class="mini-desc">Disease-agnostic representation learning on longitudinal EHR sequences including clinical notes, for downstream PAD phenotyping and semi-supervised detection.</p>
+      <div class="badge-row">
+        <span class="badge b-teal">Deep learning</span>
+        <span class="badge b-teal">NLP</span>
+        <span class="badge b-blue">Word2Vec</span>
+        <span class="badge b-blue">Python</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── ERA 2: RADIOLOGY ── -->
+<div class="era">
+  <div class="era-header">
+    <span class="era-title">Medical imaging & MRI biomarkers</span>
+    <span class="era-meta">UCSD Department of Radiology · 2022–2024</span>
+  </div>
+  <div class="mini-grid">
+
+    <div class="mini-card featured" style="cursor:pointer;" onclick="openProject(15,this)">
+      <span class="mini-featured-label">★ Featured</span>
+      <p class="mini-title">Deformable MRI-to-histopathology registration for RSI biomarker validation</p>
+      <p class="mini-desc">Developed a pipeline to register in-vivo MRI to whole-mount histopathology sections, enabling spatial ground truth for quantitative MRI biomarker validation.</p>
+      <div class="badge-row">
+        <span class="badge b-coral">DIR</span>
+        <span class="badge b-coral">Histopathology</span>
+        <span class="badge b-blue">Python</span>
+        <span class="badge b-amber">DICOM</span>
+      </div>
+      <div class="mini-pub"><span>Research Grant</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(3,this)">
+      <p class="mini-title">Calibrating RSI for reproducible prostate cancer detection</p>
+      <p class="mini-desc">Linear calibration method correcting echo-time-dependent bias in a quantitative MRI biomarker for clinically significant prostate cancer, validated on 197 patients.</p>
+      <div class="badge-row">
+        <span class="badge b-coral">Quantitative MRI</span>
+        <span class="badge b-coral">RSIrs</span>
+        <span class="badge b-coral">Echo-time calibration</span>
+        <span class="badge b-green">MATLAB</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(5,this)">
+      <p class="mini-title">Evaluating synthetic high-b DWI for prostate cancer imaging</p>
+      <p class="mini-desc">Tested whether synthesized <em>b</em>=2000 DWI can replace acquired high-b imaging in 151 prostate MRI/biopsy cases, showing in-prostate similarity but important quantitative and pelvic-artifact limitations.</p>
+      <div class="badge-row">
+        <span class="badge b-coral">Diffusion MRI</span>
+        <span class="badge b-coral">Synthetic DWI</span>
+        <span class="badge b-blue">MATLAB</span>
+        <span class="badge b-teal">ROC analysis</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(6,this)">
+      <p class="mini-title">Clinical validation of RSIrs-guided prostate tumor targeting</p>
+      <p class="mini-desc">Prospective international reader study showing that RSIrs maps substantially improved radiation oncologists' ability to contour prostate tumors for focal radiotherapy boost.</p>
+      <div class="badge-row">
+        <span class="badge b-coral">RSIrs</span>
+        <span class="badge b-teal">Clinical validation</span>
+        <span class="badge b-teal">Multi-reader analytics</span>
+        <span class="badge b-green">MATLAB</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(14,this)">
+      <p class="mini-title">Quantifying treatment impact from prostate contour variability</p>
+      <p class="mini-desc">Converted multi-reader prostate tumor contours into focal boost plans to measure how contouring errors change dose coverage and predicted recurrence risk.</p>
+      <div class="badge-row">
+        <span class="badge b-green">RapidPlan</span>
+        <span class="badge b-teal">DVH analysis</span>
+        <span class="badge b-teal">Outcome modeling</span>
+        <span class="badge b-green">MATLAB</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── ERA 3: RADIATION MEDICINE ── -->
+<div class="era">
+  <div class="era-header">
+    <span class="era-title">Radiation oncology & treatment planning automation</span>
+    <span class="era-meta">UCSD Radiation Medicine & Applied Sciences · 2019–2022</span>
+  </div>
+  <div class="mini-grid">
+
+    <div class="mini-card featured" style="cursor:pointer;" onclick="openProject(2,this)">
+      <span class="mini-featured-label">★ Featured</span>
+      <p class="mini-title">Automated brachytherapy treatment planning</p>
+      <p class="mini-desc">End-to-end framework converting 3D dose predictions into deliverable cervical cancer treatment plans, validated in the clinical workflow.</p>
+      <div class="badge-row">
+        <span class="badge b-purple">Knowledge-based</span>
+        <span class="badge b-purple">Python</span>
+        <span class="badge b-purple">DICOM</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(7,this)">
+      <p class="mini-title">Patient-specific needle supplementation decision support</p>
+      <p class="mini-desc">Built MATLAB-based knowledge-based dose prediction models and worked with clinicians to define how patient-specific needle guidance could fit into cervical brachytherapy workflow.</p>
+      <div class="badge-row">
+        <span class="badge b-purple">Knowledge-based planning</span>
+        <span class="badge b-green">MATLAB</span>
+        <span class="badge b-teal">ROC analysis</span>
+        <span class="badge b-purple">BrachyVision</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(8,this)">
+      <p class="mini-title">Cross-applicator dose comparison for cervical brachytherapy</p>
+      <p class="mini-desc">Used MATLAB-based knowledge-based models to quantify patient-specific OAR dose differences between applicators, raising clinical awareness of applicator choice as a dosimetric decision.</p>
+      <div class="badge-row">
+        <span class="badge b-purple">Knowledge-based planning</span>
+        <span class="badge b-green">MATLAB</span>
+        <span class="badge b-purple">BrachyVision</span>
+        <span class="badge b-teal">Cross-applicator analysis</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(17,this)">
+      <p class="mini-title">Knowledge-based OAR dose prediction for tandem-and-ovoid brachytherapy</p>
+      <p class="mini-desc">Foundational MATLAB knowledge-based model for bladder, rectum, and sigmoid dose prediction, later extended by our group to T&amp;R, hybrid/needle workflows, and automated planning.</p>
+      <div class="badge-row">
+        <span class="badge b-purple">Knowledge-based</span>
+        <span class="badge b-purple">MATLAB</span>
+        <span class="badge b-teal">Statistical analysis</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(18,this)">
+      <p class="mini-title">ORBIT-RT: automated plan quality-control infrastructure</p>
+      <p class="mini-desc">Built the Java/MIM brachytherapy pipeline that moved DICOM-RT data from PACS into automated knowledge-based DVH benchmarking with no manual export steps.</p>
+      <div class="badge-row">
+        <span class="badge b-purple">Java</span>
+        <span class="badge b-purple">MIM extension</span>
+        <span class="badge b-blue">PACS automation</span>
+        <span class="badge b-teal">DICOM-RT</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── ERA 4: PhD ── -->
+<div class="era">
+  <div class="era-header">
+    <span class="era-title">Brachytherapy QA & electromagnetic tracking</span>
+    <span class="era-meta">University Hospital Erlangen · PhD · 2016–2019</span>
+  </div>
+  <div class="mini-grid">
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(9,this)">
+      <p class="mini-title">Electromagnetic tracking QA for breast brachytherapy</p>
+      <p class="mini-desc">Real-time catheter tracking and error detection integrated into the Flexitron afterloader prototype, validated in a 50+ patient clinical study.</p>
+      <div class="badge-row">
+        <span class="badge b-green">MATLAB</span>
+        <span class="badge b-green">EM tracking</span>
+        <span class="badge b-teal">Clinical study</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(10,this)">
+      <p class="mini-title">Inter-fractional motion & adaptive planning feasibility</p>
+      <p class="mini-desc">Estimated inter-fractional variations in breast brachytherapy using electromagnetic tracking and assessed the feasibility of adaptive treatment planning.</p>
+      <div class="badge-row">
+        <span class="badge b-green">MATLAB</span>
+        <span class="badge b-green">EM tracking</span>
+        <span class="badge b-teal">Retrospective analysis</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(11,this)">
+      <p class="mini-title">Observer variability in catheter reconstruction</p>
+      <p class="mini-desc">Quantified the impact of inter- and intra-observer variabilities in catheter reconstruction on dosimetric outcomes in multi-catheter breast brachytherapy.</p>
+      <div class="badge-row">
+        <span class="badge b-green">MATLAB</span>
+        <span class="badge b-teal">Statistical analysis</span>
+        <span class="badge b-green">OncentraBrachy</span>
+      </div>
+      <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-left">
+    <strong>Karoline Kallis, PhD</strong> · karo.kallis@googlemail.com · San Diego, CA
+  </div>
+  <div class="footer-links">
+    <a href="https://github.com/karokallis" target="_blank">GitHub</a>
+    <a href="https://scholar.google.com/citations?user=iqxNWfQAAAAJ&hl=en" target="_blank">Google Scholar</a>
+    <a href="https://www.linkedin.com/in/karoline-kallis/" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+const projects = [
+  {
+    title: "Guideline-concordant PAD care across a national EHR cohort",
+    meta: "Research Scientist · UCSD Department of Surgery · 2024–present",
+    pub: "In preparation",
+    newFormat: true, status: "Ongoing",
+    keywords: ["Real-world evidence","Longitudinal EHR analysis","Outcomes modeling","Equity analytics","Clinical quality measurement"],
+    background: "Despite established cardiovascular prevention guidelines, PAD remains undertreated in routine care. This study evaluated achievement of four MIPS quality measures: blood pressure control, tobacco-free status, antiplatelet therapy, and statin therapy. Using 1.2 million PAD patients across a national EHR network, it examined how care quality changed over three years by demographic, socioeconomic, and clinical subgroups.",
+    data: "Epic COSMOS · Structured EHR data · ICD · CPT · ATC · LOINC",
+    myRole: "Designed the study and defined the cohort using SQL. Built all analysis pipelines in Python including logistic regression, linear mixed effect models, and time-varying Cox hazard models. Calculated Elixhauser comorbidity scores and constructed all quality measure definitions from ICD, CPT, ATC, and LOINC codes using regex and ontology-based lookups.",
+    methods: ["Logistic regression","Mixed effect model","Cox proportional hazards","SQL","Python","pandas","numpy","statsmodels","matplotlib","seaborn"],
+    keyResults: [
+      "Only 10.7% of patients achieved all four quality measures in the first year after PAD diagnosis",
+      "Black patients had substantially lower blood pressure control than White patients (OR 0.64) even after adjustment",
+      "Quality index improved most in the first year then plateaued, remaining below 60% across all subgroups",
+      "Complete quality measure achievement associated with lower hazard of vascular procedures in CLTI patients (HR 0.89)"
+    ],
+    figClass: "fig-ehr",
+    figSvg: `<img src="trajectories_QI.png" alt="Composite quality index trajectories by subgroup" data-caption="Composite PAD quality index trajectories over three years after diagnosis, stratified by race/ethnicity, insurance, sex, and PAD severity. The quality index summarizes achievement of guideline-concordant cardiovascular prevention measures and shows the largest gains during the first year, followed by a plateau." onclick="openLightbox(this)" style="width:100%;max-height:260px;object-fit:contain;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    paperUrl: null, githubUrl: null
+  },
+  {
+    title: "PAD detection across 5 health systems",
+    meta: "Research Scientist · UCSD Department of Surgery · 2024–present",
+    pub: "In preparation",
+    conference: "Kallis K, Ross E. Assessing performance and generalizability of AI-based PAD detection models across California health systems. Vascular Annual Meeting 2025. Poster.",
+    newFormat: true, status: "Ongoing",
+    keywords: ["Multi-site ML validation","EHR feature engineering","Phenotype discovery","Fairness evaluation","LightGBM pipeline"],
+    background: "PAD affects roughly 12 million Americans but is heavily underdiagnosed. EHR prevalence at UC Health was only 1.3 to 2.4% while population estimates reach 5.6%, and patients were in the health system an average of four years before receiving a PAD code. This study developed and evaluated a generalizable ML model for PAD detection across 5 UC Health systems, assessing model performance and fairness across demographic subgroups and patient phenotypes.",
+    data: "UC Health Data Warehouse (UCHDW) · Structured EHR data · OMOP format · 5 UC Health systems · 33,739 PAD patients + 33,739 matched controls · Concept codes · Vitals · Labs",
+    myRole: "Owned the full ML pipeline from cohort design to fairness evaluation across 5 UC Health systems. Defined PAD cases using OMOP concept codes and built a 1:1 propensity-matched case-control cohort of 33,739 patients. Engineered 14,023 features as code occurrence counts across four time windows, plus continuous lab values, vital signs, and demographics, represented as a sparse matrix. Trained a LightGBM classifier with Bayesian hyperparameter optimization via Optuna. Applied dimensionality reduction followed by Gaussian Mixture Model clustering to identify 4 clinically distinct patient phenotypes. Evaluated model fairness across sex, race, age, social vulnerability index, health system, and phenotypic subgroups using selection rates and equalized odds.",
+    methods: ["LightGBM","Sparse matrix training","Dimensionality reduction","Gaussian Mixture Model","Propensity matching","SHAP","Optuna","SQL","Python","Databricks","Fairness evaluation"],
+    keyResults: [
+      "AUROC 0.76 to 0.79 consistent across all 5 health systems",
+      "Unsupervised clustering revealed 4 clinically distinct PAD phenotypes spanning healthcare utilization, metabolic burden, and comorbidity profiles",
+      "Phenotype AUROC ranged from 0.66 (sparse data cluster) to 0.89 (metabolic cluster)",
+      "Performance stable across sex; modest variation by race and age",
+      "Phenotypic clustering revealed fairness considerations beyond standard demographic subgrouping"
+    ],
+    figClass: "fig-ehr",
+    figSvg: `<img src="figure3.png" alt="Patient phenotype cluster characteristics — coefficient plots for 4 PAD clusters" data-caption="PAD phenotype cluster characteristics derived from unsupervised clustering of EHR-based model features. Positive and negative coefficients summarize the variables most associated with each cluster, revealing clinically distinct subgroups across utilization, metabolic burden, comorbidity, and demographic patterns." onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    paperUrl: null, githubUrl: null
+  },
+  {
+    title: "Automated brachytherapy treatment planning",
+    meta: "Postdoctoral Fellow · UCSD Radiation Medicine & Applied Sciences · 2019–2022",
+    pub: "Physics in Medicine & Biology 2023",
+    newFormat: true,
+    status: "Continued",
+    keywords: ["End-to-end ML pipeline","Dose-to-plan optimization","Physics-informed optimization","DICOM RT integration","Clinical workflow validation"],
+    figClass: "fig-brachy",
+    figSvg: `<img src="img/automated_treatment.png" alt="Automated brachytherapy treatment planning workflow" data-caption="Figure from Kallis et al., Physics in Medicine & Biology 2023: schema of the optimization workflow. A dose-rate kernel is transformed to each dwell position, weighted by dwell time, summed to calculate dose, and iteratively optimized by minimizing mean squared error between calculated and reference dose." onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    problem: "Brachytherapy treatment planning for cervical cancer is time-intensive, requires expert physicists, and is highly operator-dependent. The full automation chain had not been demonstrated for this indication.",
+    contribution: "Owned the automated planning software pipeline around an existing 3D dose prediction model (Cortes et al., a knowledge-based CNN model developed in parallel within the same lab): exported and preprocessed RT DICOM data, implemented the Python optimizer that converts predicted dose into deliverable dwell times, generated updated RT Plan files, evaluated plan quality against clinical benchmarks, and prepared the manuscript.",
+    background: "Cervical cancer brachytherapy planning is performed in a narrow clinical window, often while the patient remains under anesthesia, and depends on expert physicists manually translating anatomy, applicator geometry, and dose constraints into deliverable dwell times. Prior ML work in the lab (Cortes et al., Brachytherapy 2022) could predict patient-specific 3D dose distributions, but those predictions were not directly usable by the treatment machine. This project addressed the missing engineering step: converting model-predicted dose into a clinically deliverable DICOM treatment plan. The lab has continued to build on this dose-to-plan pipeline in the years since, extending the dose-prediction model itself and the auto-planning approach through several follow-on papers.",
+    data: "UCSD cervical cancer brachytherapy RT DICOM data · 40 clinical validation plans (T&O/T&R with 0-3 needles) · 10 T&O automated-planning cases · CT images · RTStruct contours · RT Plan/RP dwell positions and times · RT Dose grids · model-predicted 3D dose distributions",
+    myRole: "Owned the software and analysis pipeline downstream of the existing 3D dose prediction model. Exported and preprocessed RT DICOM data, built the Python-coded COBYLA optimizer that converts predicted dose distributions into optimized dwell times, generated updated RT Plan files for import back into the clinical workflow, evaluated automated plans against clinical benchmarks, created figures and analyses, and prepared the manuscript. Remained a contributing co-author on the lab's follow-on dose-prediction and auto-planning papers after moving on from this postdoc.",
+    tools: [["Python","b-purple"],["COBYLA optimizer","b-purple"],["Knowledge-based modeling","b-purple"],["DICOM","b-purple"],["Spatial interpolation","b-coral"],["MIM","b-purple"],["BrachyVision","b-purple"]],
+    results: ["Plan quality matched manual benchmarks","Validated in clinical workflow at UCSD","First automated dose-to-plan pipeline for cervical brachytherapy","PMB 2023"],
+    methods: ["Python","COBYLA optimizer","SciPy","Knowledge-based modeling","3D dose prediction","Dose-to-dwell optimization","DICOM RTStruct","DICOM RT Plan/RP","BrachyVision","MIM"],
+    keyResults: [
+      "First end-to-end automated dose-to-plan pipeline for cervical brachytherapy",
+      "Converted predicted 3D dose distributions into deliverable dwell times",
+      "Plan quality matched manual clinical benchmarks",
+      "Validated within the UCSD clinical workflow",
+      "Published in Physics in Medicine & Biology 2023",
+      "Dose-prediction model extended to a 3D CNN approach (Cortes et al., Brachytherapy 2022) and further refined for applicator-specific models under data scarcity (Moore et al., Medical Physics 2024)",
+      "Auto-planning approach continued by the lab: dwell-time vs. dose-prediction network comparison (Moore et al., ICCR 2024), single-click AI auto-planning integrated into a clinical TPS (Truong et al., Brachytherapy 2025/2026), AI auto-planning shown to rival manual expert planning (Mitra et al., Practical Radiation Oncology 2026), and D2T2 multimodal automated planning (Moore et al., CVPR 2026)"
+    ],
+    paperUrl: "https://doi.org/10.1088/1361-6560/acc37c", githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub%20access%20request%20-%20automated%20brachytherapy%20planning&body=Hi%20Karoline%2C%20I%20would%20like%20to%20request%20access%20to%20your%20GitHub%20repository%20for%20the%20automated%20brachytherapy%20treatment%20planning%20project."
+  },
+  {
+    title: "Calibrating RSI for reproducible prostate cancer detection",
+    meta: "Postdoctoral Fellow · UCSD Department of Radiology · 2022–2024",
+    pub: "J Applied Med Physics 2024", figClass: "fig-mri",
+    newFormat: true, status: "Published",
+    keywords: ["Quantitative MRI","Echo-time calibration","Diffusion-weighted imaging","Prostate cancer","Reproducibility"],
+    figSvg: `<img src="img/pub_figures/fig_kallis2024_tecalib.png" alt="RSIrs calibration scatter plots — TE90 uncorrected vs. corrected vs. repeat TEmin acquisitions, for non-csPCa and csPCa patients" data-caption="Figure from Kallis et al., Journal of Applied Clinical Medical Physics 2024: 98th percentile RSIrs values comparing uncorrected TE90, corrected TE90, and repeated TEmin acquisitions against the TEmin1 reference. The top row shows patients without clinically significant prostate cancer; the bottom row shows patients with clinically significant prostate cancer." onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "RSI restriction score (RSIrs) is a diffusion MRI biomarker that has shown strong performance for detecting clinically significant prostate cancer (csPCa), outperforming ADC and matching PI-RADS v2.1. But like many quantitative MRI biomarkers, its value is sensitive to acquisition parameters — in particular echo time (TE) — which differ across scanners, protocols, and institutions. Uncorrected, this TE-dependence limits RSIrs's reliability as a comparable, reproducible clinical measurement and complicates multi-site validation and pooled analyses.",
+    data: "197 consecutive patients undergoing MRI and biopsy at UCSD (100 without csPCa, 97 with grade group ≥2 csPCa), each scanned three times in the same session on a 3T GE Discovery MR750 scanner: twice at minimum echo time (TEmin1, TEmin2, ≈75–76 ms) and once at TE = 90 ms (TE90), across 5 b-values (0, 50, 800, 1500, 3000 s/mm²), with biopsy- or prostatectomy-confirmed pathology.",
+    myRole: "Prepared the full dataset from scratch: identified and pulled the relevant RSI and T2w series from PACS for all 197 patients, anonymized the imaging data, and ran the RSI model fitting to generate the compartment (C1–C4) and RSIrs maps for each of the three TE acquisitions per patient. Built the full RSIrs processing pipeline end to end — data export from PACS, de-identification, model fitting, and writing out processed imaging data as NIfTI alongside the original DICOM, organized by patient and acquisition — and ran it with multiprocessing on the department's compute cluster to parallelize model fitting across the full cohort. Designed and implemented the TE-calibration method on top of this dataset: a partial linear regression model fit on the four RSI compartment maps to match TE90 acquisitions to the TEmin reference, restricted to the 95th–99th percentile of prostate signal intensity to limit the influence of noise. Estimated per-compartment scaling factors (1.68, 1.33, 1.02, 1.13 for C1–C4) and derived a calibrated b=0 normalization value. Ran the full statistical evaluation — paired t-tests across TE conditions, sensitivity/specificity at the Youden index, and a bootstrapped sample-size analysis to determine how many patients are needed to reproduce the calibration for a new scanner or disease site. Implemented the full pipeline in MATLAB.",
+    methods: ["PACS extraction","De-identification","Linear regression calibration","MATLAB","Quantitative MRI modeling","Multi-compartment diffusion modeling","Compute cluster","ROC / Youden index analysis","Paired t-tests","DICOM","NIfTI"],
+    keyResults: [
+      "72% reduction in TE-induced bias for non-csPCa cases (1.82 ± 1.20 SI → −0.51 ± 1.21 SI vs. reference)",
+      "55% reduction in bias for csPCa cases after calibration",
+      "66% sensitivity / 72% specificity for csPCa at the Youden index using the reference acquisition",
+      "~35 patients sufficient to reproduce a comparable calibration for a new scanner or disease site",
+      "Published in Journal of Applied Clinical Medical Physics, 2024"
+    ],
+    paperUrl: "https://doi.org/10.1002/acm2.14514", githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub%20access%20request%20%E2%80%94%20RSI%20TE%20calibration&body=Hi%20Karoline%2C%20I%20would%20like%20to%20request%20access%20to%20your%20GitHub%20repository%20for%20the%20RSI%20cross-scanner%2Fecho-time%20calibration%20project."
+  },
+  // 4 — Representation learning
+  {
+    title: "Representation learning for longitudinal PAD phenotyping",
+    meta: "Research Scientist · UCSD Department of Surgery · 2024–present",
+    pub: "In preparation",
+    newFormat: true, status: "Ongoing",
+    keywords: ["Self-supervised representation learning","Longitudinal EHR sequences","Clinical concept embeddings","Autoencoder pipeline","Downstream phenotyping"],
+    background: "Static feature representations cannot capture the rich temporal dynamics in longitudinal EHR data such as shifting lab values, evolving medication regimens, and changing procedure patterns. This project trains a disease-agnostic representation learning model across all patients using a convolutional autoencoder with Word2Vec embeddings and an Adam optimizer, learning dense patient representations from clinical sequences without disease-specific supervision. Potential downstream applications include phenotyping, population stratification, and semi-supervised detection with limited labeled data.",
+    data: "Longitudinal structured and unstructured EHR data · multi-institutional · ICD · CPT · LOINC · ATC codes",
+    myRole: "Defining the research hypothesis and directing the scientific trajectory of the project. Developing the full representation learning pipeline including Word2Vec-based clinical concept embeddings, CNN autoencoder architecture, and training on the full patient population. Evaluating learned representations for downstream tasks including disease phenotyping, semi-supervised learning, and amputation risk prediction in high-risk populations.",
+    methods: ["Word2Vec","CNN","Autoencoder","Adam optimizer","NLP","PyTorch","DataLoader","Python","pandas","scikit-learn"],
+    keyResults: ["In progress · trained on all patients, not disease-specific","Potential applications: disease phenotyping · semi-supervised PAD detection · prediction of amputations in high-risk populations"],
+    figClass: "fig-ehr",
+    figSvg: `<img src="img/pub_figures/fig_repr_learning.png" alt="ConvAE representation learning architecture" data-caption="Representation learning workflow for longitudinal EHR data. Clinical events, medications, labs, procedures, and notes are encoded as temporal sequences, passed through a convolutional autoencoder, and embedded into a dense latent space for downstream phenotyping and disease subtyping." onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    paperUrl: null, githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub%20access%20request%20%E2%80%94%20representation%20learning&body=Hi%20Karoline%2C%20I%20would%20like%20to%20request%20access%20to%20your%20GitHub%20repository%20for%20the%20representation%20learning%20project.", githubNote: null
+  },
+  // 5 — Synthesized DWI
+  {
+    title: "Evaluating synthetic high-b DWI for prostate cancer imaging",
+    meta: "Postdoctoral Fellow · UCSD Department of Radiology · 2022–2024",
+    pub: "Cancer Imaging 2024", figClass: "fig-mri",
+    newFormat: true, status: "Published",
+    keywords: ["Quantitative MRI validation","Synthetic DWI","RSIrs","Diffusion modeling","Artifact analysis","Clinical imaging evaluation"],
+    figSvg: `<img src="img/syntheticb-value.png" alt="Synthetic high-b DWI comparison showing monoexponential signal extrapolation and acquired versus synthesized prostate DWI images" data-caption="Figure from Kallis et al., Cancer Imaging 2024: comparison of acquired images to images synthesized with monoexponential models for one representative patient. Mean prostate values using b-values up to 500 s/mm&lt;sup&gt;2&lt;/sup&gt; (sDWI500) or up to 1000 s/mm&lt;sup&gt;2&lt;/sup&gt; (sDWI1000) are compared to acquired DWI. Panels A-D show acquired &lt;em&gt;b&lt;/em&gt;=0, 500, 1000, and 2000 s/mm&lt;sup&gt;2&lt;/sup&gt; images; panels E-F show synthesized &lt;em&gt;b&lt;/em&gt;=2000 s/mm&lt;sup&gt;2&lt;/sup&gt; images." onclick="openLightbox(this)" style="width:100%;max-height:380px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "High b-value diffusion-weighted MRI improves prostate cancer conspicuity and is recommended for lesion detection, but acquired high-b images add scan time and can suffer from low signal-to-noise and artifacts. Synthetic high-b DWI offers an attractive shortcut by extrapolating from lower b-values, but monoexponential synthesis may not represent restricted diffusion in complex tissue or remain reliable outside the prostate.",
+    data: "151 consecutive prostate MRI patients with biopsy or prostatectomy pathology · 3T GE Discovery MR750 · axial DWI acquired at <em>b</em>=0, 500, 1000, and 2000 s/mm<sup>2</sup> · T2-weighted reference MRI · whole-gland prostate segmentations · radiologist-defined suspicious lesions · RSIrs maps for multi-compartment diffusion comparison",
+    myRole: "Collected and prepared the full imaging dataset for this study, including identifying the relevant prostate MRI cases, preparing the DWI data, and organizing the analysis-ready cohort with pathology labels, and generated the RSIrs comparator maps using the same PACS-export/cluster-based processing pipeline built for the calibration study. Led the image-analysis study comparing synthesized and acquired <em>b</em>=2000 DWI. Generated sDWI from <em>b</em>=0/500 and <em>b</em>=0/500/1000 acquisitions using monoexponential extrapolation, quantified voxel-level signal differences across prostate and pelvic ROIs, evaluated lesion conspicuity and patient-level clinically significant prostate cancer classification with ROC analysis, and benchmarked sDWI and aDWI against RSIrs. Prepared the figures, statistical analysis, and manuscript.",
+    methods: ["MATLAB","Synthetic DWI","Monoexponential extrapolation","Voxel-wise signal analysis","ROC analysis","AUC / FPR90 comparison","Contrast-to-noise ratio","DICOM","Quantitative MRI"],
+    keyResults: [
+      "sDWI was qualitatively comparable to acquired <em>b</em>=2000 DWI within the prostate",
+      "sDWI systematically underestimated acquired signal within the prostate (-46% for sDWI1000, -67% for sDWI500)",
+      "AUCs for in-prostate csPCa detection were similar for aDWI and sDWI (0.62-0.65)",
+      "Synthetic images introduced hyperintense pelvic artifacts that interfered with quantitative detection beyond the prostate",
+      "RSIrs outperformed aDWI and sDWI for quantitative csPCa detection (AUC 0.78 in-prostate)",
+      "Published in Cancer Imaging, 2024"
+    ],
+    paperUrl: "https://doi.org/10.1186/s40644-024-00723-6", githubUrl: null
+  },
+  // 6 — ReIGNITE
+  {
+    title: "Clinical validation of RSIrs-guided prostate tumor targeting",
+    meta: "Postdoctoral Fellow · UCSD Department of Radiology · 2022–2024",
+    pub: "IJROBP 2023", figClass: "fig-mri",
+    newFormat: true, status: "Published",
+    keywords: ["RSIrs-assisted contouring","Prospective reader study","Contour accuracy metrics","Mixed-effects modeling","Clinical usability analysis","International collaboration"],
+    figSvg: `<img src="img/pub_figures/fig_lui2023_reignite.png" alt="Patient case showing tumor contours on conventional MRI alone vs. conventional MRI + RSIrs map, with participant contour heatmaps" data-caption="Figure from Lui et al., International Journal of Radiation Oncology • Biology • Physics 2023: patient case 1 from Figure 1. Participants contoured target volumes using conventional MRI alone or conventional MRI with an RSIrs map. Expert volumes are shown in red; selected participant volumes are shown in blue, and heatmaps show the percentage of participants including each voxel in the target volume." onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "Focal prostate radiotherapy boost can improve outcomes when the MRI-visible tumor is accurately targeted, but target delineation is difficult for radiation oncologists using conventional MRI alone. RSIrs is a quantitative diffusion MRI biomarker designed to highlight restricted diffusion associated with clinically significant prostate cancer. This study tested whether adding RSIrs maps improved real-world contouring accuracy, reduced missed tumors, and made the contouring task more usable for radiation oncologists.",
+    data: "Prospective, international, multi-reader study · 44 radiation oncologists across 9 countries · 39 prostate MRI cases · conventional MRI and RSIrs map conditions · 2 expert genitourinary radiologist reference contours · 1,604 participant contour attempts · histopathology confirmation for 33 of 34 expert-defined lesions · system usability survey responses",
+    myRole: "Co-led the quantitative analysis for the study. Ran the RSIrs processing pipeline (PACS export, de-identification, cluster-based multiprocessing) to generate the RSIrs maps used across study sites, and processed the resulting MRI and contour data, converting participant-exported contour sets into binary masks and building the MATLAB analysis pipeline for multi-reader contour accuracy metrics. Computed percent overlap with expert volume, Dice coefficient, conformal number, and maximum distance beyond the expert volume. Ran mixed-effects models to quantify the effect of RSIrs availability while accounting for reader experience, supported usability analysis, case curation, histopathology confirmation, figure generation, and manuscript preparation.",
+    methods: ["MATLAB","DICOM contour processing","Binary mask generation","Dice coefficient","Conformal number","Mixed-effects modeling","System usability scale","Multi-reader study design","Statistical analysis"],
+    keyResults: [
+      "1,604 contour attempts by 44 radiation oncologists across 9 countries",
+      "Complete-miss rate fell from 18% of attempts (conventional MRI) to 2% (with RSIrs)",
+      "91% of participants missed ≥1 target without RSIrs, vs. 30% with RSIrs",
+      "Median overlap with the expert-defined target improved from 41% to 78% with RSIrs",
+      "Mixed-effects models confirmed RSIrs — not reader experience — was the main driver of improved accuracy (P < 10⁻⁹)",
+      "Published in International Journal of Radiation Oncology • Biology • Physics, 2023"
+    ],
+    paperUrl: "https://doi.org/10.1016/j.ijrobp.2023.07.004", githubUrl: null
+  },
+  // 7 — Needle supplementation
+  {
+    title: "Patient-specific needle supplementation decision support",
+    meta: "Postdoctoral Fellow · UCSD Radiation Medicine & Applied Sciences · 2019–2022",
+    pub: "Brachytherapy 2021", figClass: "fig-brachy",
+    newFormat: true, status: "Published",
+    keywords: ["Knowledge-based dose prediction","Needle decision support","Clinician collaboration","Workflow design","ROC classification","OAR dose modeling"],
+    figSvg: `<img src="img/suppl_needle.jpg" alt="Proposed clinical workflows for using dose predictions to guide needle supplementation in cervical brachytherapy" data-caption="Figure from Kallis et al., Brachytherapy 2021: suggested clinical workflows using dose predictions to guide needle supplementation and treatment planning. Panel A shows a workflow for centers where adding needles after imaging and subsequent re-imaging are feasible; panel B shows an alternative workflow where predictions guide decision-making for the subsequent fraction." onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "Interstitial needles can improve dose shaping in cervical brachytherapy, but they also add procedural complexity, time, and patient burden. At the time, needle supplementation decisions were largely physician-dependent, with no patient-specific quantitative tool to estimate whether an intracavitary-only plan could still satisfy organ-at-risk constraints. This project tested whether knowledge-based dose prediction models could support applicator and needle decision-making before committing to a hybrid implant, and it was developed in close collaboration with clinicians to understand where such guidance could realistically fit into the treatment workflow.",
+    data: "UCSD cervical cancer brachytherapy cohort · tandem-and-ring and tandem-and-ovoid implants · hybrid cases with 1-3 interstitial needles · clinical DICOM RT plans and dose-volume data · bladder, rectum, and sigmoid D<sub>2cc</sub> endpoints · standardized intracavitary replans created in BrachyVision as reference for whether needles were truly required",
+    myRole: "Developed the MATLAB analysis pipeline for knowledge-based organ-at-risk dose prediction and needle classification. Worked closely with physicians and physicists to understand the clinical decision points, practical constraints, and possible workflows for using model predictions during applicator and needle selection. Performed standardized intracavitary replanning of hybrid needle cases in BrachyVision, giving me hands-on experience operating a clinical brachytherapy treatment planning system and creating the reference plans used to determine whether needles were truly required. Trained and validated intracavitary dose prediction models for tandem-and-ring and tandem-and-ovoid applicators, applied the models to hybrid needle cases to estimate achievable dose without needles, and compared predictions against the replans. Built ROC analyses, selected thresholds using the Youden index, quantified sensitivity/specificity, created figures, and prepared the manuscript.",
+    methods: ["MATLAB","BrachyVision replanning","Treatment planning system","Knowledge-based dose prediction","ROC analysis","Youden index","D<sub>2cc</sub> analysis","DICOM RT","Standardized replanning","Statistical analysis"],
+    keyResults: [
+      "AUC 0.89 / 0.86 for T&R / T&O needle classification",
+      "67% of T&R replans and 39% of T&O replans met all dose constraints without needles",
+      "Standardized intracavitary replans created in BrachyVision served as the reference for needle necessity",
+      "Optimal thresholds achieved sensitivity/specificity of 78%/85% for T&R and 86%/78% for T&O",
+      "Showed that needle supplementation reduced OAR dose but was not always required to meet standard objectives",
+      "Proposed clinically feasible workflows for integrating predictions into applicator and needle decision-making",
+      "Published in Brachytherapy, 2021"
+    ],
+    paperUrl: "https://doi.org/10.1016/j.brachy.2021.07.001", githubUrl: null
+  },
+  // 8 — Dose comparison applicators
+  {
+    title: "Cross-applicator dose comparison for cervical brachytherapy",
+    meta: "Postdoctoral Fellow · UCSD Radiation Medicine & Applied Sciences · 2019–2022",
+    pub: "Brachytherapy 2021", figClass: "fig-brachy",
+    newFormat: true, status: "Published",
+    keywords: ["Knowledge-based dose prediction","Cross-applicator analysis","MATLAB pipeline","BrachyVision planning","OAR dose modeling","Clinical decision support"],
+    figSvg: `<img src="img/TRcompTO.png" alt="Cross-applicator dose comparison between tandem-and-ring and tandem-and-ovoid cervical brachytherapy applicators" data-caption="Figure from Kallis et al., Brachytherapy 2021: actual dose for T&amp;O cases versus D&lt;sub&gt;2cc&lt;/sub&gt; values predicted by the T&amp;R model (left), and actual dose for T&amp;R cases versus T&amp;O model predictions (right). The dotted line indicates equivalence between model predictions and actual values; bias to one side of the line marks possible dose differences between applicators." onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "Cervical brachytherapy applicator selection is clinically important, but physicians often choose between tandem-and-ring (T&R) and tandem-and-ovoid (T&O) applicators based on experience rather than patient-specific dosimetric evidence. Because a patient is normally treated with only one applicator, it is difficult to estimate what organ-at-risk dose the same patient might have received with the alternative applicator. This project helped make applicator choice part of a data-driven clinical discussion by quantifying the dosimetric consequences of T&R versus T&O selection.",
+    data: "UCSD cervical cancer brachytherapy cohort · T&R and T&O intracavitary implants · clinical DICOM RT plans and dose-volume data · bladder, rectum, and sigmoid D<sub>2cc</sub> endpoints · T&R model trained on 77 cases and validated on 32 cases · T&O model trained on 75 cases and validated on 38 cases",
+    myRole: "Implemented the MATLAB analysis pipeline for knowledge-based organ-at-risk dose prediction and cross-applicator comparison. Trained and validated separate dose prediction models for T&R and T&O applicators, then applied each model to the opposite applicator cohort to estimate alternative-applicator OAR dose. Used BrachyVision-derived clinical plan data and DICOM RT dose-volume endpoints, quantified model precision and bias, and performed statistical comparisons of predicted and clinically achieved dose differences. Worked with clinicians to interpret the findings in the context of applicator selection, helping draw attention to the fact that applicator choice can materially affect organ-at-risk dose. Created figures and prepared the manuscript.",
+    methods: ["MATLAB","Knowledge-based dose prediction","Cross-applicator modeling","BrachyVision","Treatment planning system data","DICOM RT","D<sub>2cc</sub> analysis","Student's t-test","EQD2 conversion","Statistical analysis"],
+    keyResults: [
+      "Developed accurate T&R and T&O knowledge-based OAR dose prediction models",
+      "Validation precision ranged from 0.38 to 0.65 Gy across bladder, rectum, and sigmoid endpoints",
+      "Cross-applicator modeling predicted lower OAR dose with T&R compared with T&O, especially for rectum",
+      "Clinical data also showed significantly lower rectum and sigmoid EQD2 D<sub>2cc</sub> with T&R",
+      "Raised clinical awareness that applicator selection is a measurable dosimetric decision, not only a physician-preference workflow step",
+      "Provided a patient-specific framework for applicator selection and brachytherapy planning quality improvement",
+      "Published in Brachytherapy, 2021"
+    ],
+    paperUrl: "https://doi.org/10.1016/j.brachy.2021.08.010", githubUrl: null
+  },
+  // 9 — EM tracking QA (PhD featured)
+  {
+    title: "Electromagnetic tracking QA for breast brachytherapy",
+    meta: "PhD candidate · University Hospital Erlangen · 2016–2019",
+    pub: "PMB 2018 · PMB 2019", figClass: "fig-brachy",
+    figSvg: `<svg width="480" height="160" viewBox="0 0 480 160" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="14" y="18" font-size="10.5" fill="#3C3489" font-family="Inter,sans-serif" font-weight="500">Flexitron afterloader + EMT sensor → real-time catheter tracking → QA &amp; error detection</text><rect x="12" y="36" width="96" height="80" rx="6" fill="#EEEDFE" stroke="#AFA9EC" stroke-width="0.75"/><text x="60" y="58" font-size="8.5" fill="#3C3489" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Flexitron</text><text x="60" y="72" font-size="8" fill="#533AB7" text-anchor="middle" font-family="Inter,sans-serif">afterloader prototype</text><text x="60" y="86" font-size="8" fill="#533AB7" text-anchor="middle" font-family="Inter,sans-serif">+ EMT sensor</text><line x1="109" y1="76" x2="136" y2="76" stroke="#888780" stroke-width="1.5" stroke-dasharray="5,3"/><rect x="136" y="36" width="96" height="80" rx="6" fill="#EAF3DE" stroke="#97C459" stroke-width="0.75"/><text x="184" y="56" font-size="8.5" fill="#27500A" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Catheter tracking</text><text x="184" y="70" font-size="8" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">automatic · sequential</text><text x="184" y="84" font-size="8" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">MATLAB pipeline</text><line x1="233" y1="76" x2="258" y2="76" stroke="#639922" stroke-width="1.5" stroke-dasharray="5,3"/><rect x="258" y="36" width="96" height="80" rx="6" fill="#FAECE7" stroke="#F0997B" stroke-width="0.75"/><text x="306" y="56" font-size="8.5" fill="#712B13" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Error detection</text><text x="306" y="70" font-size="8" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif">catheter swap / misload</text><text x="306" y="84" font-size="8" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif">position deviations</span></text><rect x="374" y="52" width="90" height="36" rx="5" fill="#1D9E75" fill-opacity="0.12" stroke="#1D9E75" stroke-width="0.75"/><text x="419" y="67" font-size="8" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Validated in</text><text x="419" y="80" font-size="8" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif">50+ patients</text><line x1="355" y1="76" x2="374" y2="70" stroke="#1D9E75" stroke-width="1.5"/></svg>`,
+    problem: "Multi-catheter interstitial breast brachytherapy relies on accurate catheter positioning across multiple treatment fractions. Clinical errors — catheter swaps, misloaded positions — can lead to serious dosimetric deviations, yet no real-time in-vivo QA system existed for this modality.",
+    contribution: "Designed and implemented a hybrid treatment delivery system integrating an EMT sensor into the Flexitron afterloader prototype. Developed the MATLAB pipeline for automatic, sequential catheter tracking, dwell position reconstruction, and error detection. Conducted the clinical validation study in 50+ breast brachytherapy patients at University Hospital Erlangen.",
+    tools: [["MATLAB","b-green"],["Electromagnetic tracking","b-green"],["Flexitron afterloader","b-green"],["Dwell position reconstruction","b-teal"],["Clinical study design","b-teal"]],
+    results: ["System validated in 50+ patients","Detected catheter swap and misload errors in real time","First hybrid EMT/afterloader QA system for breast brachytherapy","PMB 2018 · PMB 2019"],
+    paperUrl: "https://doi.org/10.1088/1361-6560/aab6e1", githubUrl: null
+  },
+  // 10 — Inter-fractional variations
+  {
+    title: "Inter-fractional motion & adaptive planning feasibility",
+    meta: "PhD candidate · University Hospital Erlangen · 2016–2019",
+    pub: "Radiotherapy & Oncology 2019", figClass: "fig-brachy",
+    figSvg: `<img src="img/pub_figures/fig_kallis2019_interfrac.png" alt="Inter-fractional variation analysis" data-caption="Figure from Kallis et al., Radiotherapy and Oncology 2019: overview of patient measurements comparing EMT-measured catheter positions with dwell positions defined in the treatment plan. Panels show measurements after CT imaging and later fractions, including catheter shift and swap examples; color indicates Euclidean distance, and the lower panels summarize deviation over the treatment course and the implanted catheters after surgery." onclick="openLightbox(this)" style="width:100%;max-height:220px;object-fit:contain;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    problem: "In multi-fraction breast brachytherapy, the catheter implant may shift between fractions. If these inter-fractional variations are clinically significant, adaptive replanning between fractions would be needed — but whether this is truly necessary had not been systematically quantified.",
+    contribution: "Used the EMT system (from the PhD QA project) to acquire 355 measurements across 41 patients at four time points: post-implantation, post-CT, and after each irradiation fraction. Developed the rigid registration and dwell position reconstruction pipeline in MATLAB. Computed dosimetric changes (ΔCI, ΔCOIN, ΔDNR) using deformable image registration of the planning target volume between CT acquisitions.",
+    tools: [["MATLAB","b-green"],["Electromagnetic tracking","b-green"],["Deformable image registration","b-teal"],["Statistical analysis","b-teal"],["OncentraBrachy","b-green"]],
+    results: ["Mean dwell position deviation 2.41 ± 1.73 mm across 41 patients","Dosimetric changes were small for most patients","Adaptive replanning not routinely necessary","Radiotherapy & Oncology 2019"],
+    paperUrl: "https://doi.org/10.1016/j.radonc.2019.08.015", githubUrl: null
+  },
+  // 11 — Observer variability
+  {
+    title: "Observer variability in catheter reconstruction",
+    meta: "PhD candidate · University Hospital Erlangen · 2016–2019",
+    pub: "Radiotherapy & Oncology 2019", figClass: "fig-brachy",
+    figSvg: `<svg width="480" height="160" viewBox="0 0 480 160" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="14" y="18" font-size="10.5" fill="#3C3489" font-family="Inter,sans-serif" font-weight="500">3 physicists × 13 patients · 426 catheters → inter/intra-observer dosimetric impact</text><rect x="12" y="36" width="96" height="80" rx="6" fill="#EEEDFE" stroke="#AFA9EC" stroke-width="0.75"/><text x="60" y="56" font-size="8.5" fill="#3C3489" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Manual recon.</text><text x="60" y="70" font-size="8" fill="#533AB7" text-anchor="middle" font-family="Inter,sans-serif">3 physicists</text><text x="60" y="84" font-size="8" fill="#533AB7" text-anchor="middle" font-family="Inter,sans-serif">13 patients</text><line x1="109" y1="76" x2="136" y2="76" stroke="#AFA9EC" stroke-width="1.5" stroke-dasharray="5,3"/><rect x="136" y="36" width="96" height="80" rx="6" fill="#EAF3DE" stroke="#97C459" stroke-width="0.75"/><text x="184" y="56" font-size="8.5" fill="#27500A" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Auto recon.</text><text x="184" y="70" font-size="8" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">planning system</text><text x="184" y="84" font-size="8" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">algorithm</text><line x1="233" y1="76" x2="258" y2="76" stroke="#639922" stroke-width="1.5" stroke-dasharray="5,3"/><rect x="258" y="36" width="96" height="80" rx="6" fill="#FAECE7" stroke="#F0997B" stroke-width="0.75"/><text x="306" y="56" font-size="8.5" fill="#712B13" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Dosimetric</text><text x="306" y="70" font-size="8" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif">impact: CI · DNR</text><text x="306" y="84" font-size="8" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif">COIN · OAR dose</text><rect x="374" y="52" width="90" height="40" rx="5" fill="#1D9E75" fill-opacity="0.12" stroke="#1D9E75" stroke-width="0.75"/><text x="419" y="67" font-size="8" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">426 catheters</text><text x="419" y="80" font-size="8" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif">quantified</text><line x1="355" y1="76" x2="374" y2="70" stroke="#1D9E75" stroke-width="1.5"/></svg>`,
+    problem: "Catheter reconstruction in multi-catheter breast brachytherapy is performed manually by medical physicists. Inter- and intra-observer variability in this step could introduce dosimetric uncertainty, but the magnitude of this effect had not been rigorously quantified.",
+    contribution: "Designed the study and coordinated three medical physicists to independently reconstruct 426 catheters across 13 patients. Compared manual reconstructions against the automatic algorithm in the planning system and against a purposely imprecise reconstruction. Computed geometric deviations between dwell positions and evaluated impact on CI, DNR, COIN, and OAR dose using MATLAB.",
+    tools: [["MATLAB","b-green"],["OncentraBrachy","b-green"],["Statistical analysis","b-teal"],["Dosimetric analysis","b-teal"]],
+    results: ["Inter-observer variability characterized across 426 catheters","Automatic reconstruction comparable to expert manual reconstruction","Dosimetric impact on CI, DNR, COIN quantified","Radiotherapy & Oncology 2019"],
+    paperUrl: "https://doi.org/10.1016/j.radonc.2019.02.017", githubUrl: null
+  },
+  // 12 — PAD production model
+  {
+    title: "PAD detection model for deployment at UCSD",
+    meta: "Research Scientist · UCSD Department of Surgery · 2024–present",
+    pub: null,
+    newFormat: true, status: "Ongoing",
+    keywords: ["Clinical ML deployment","XGBoost pipeline","Epic Caboodle integration","Model monitoring","Decision support workflow"],
+    background: "PAD is severely underdiagnosed, with reported prevalence at UCSD of approximately 1%, far below the estimated 7% in the general US population. Many patients are asymptomatic and remain undetected until limb-threatening events occur. This project translates the multi-site PAD detection model into a clinical tool that flags high-risk patients with upcoming clinic appointments, enabling clinicians to proactively order an ankle-brachial index (ABI) test, confirm the diagnosis, and initiate guideline-recommended therapy before adverse limb events occur. For clinical adoption, model explainability is essential: clinicians need to understand which patient-level factors are driving a flag in order to trust and act on the model output.",
+    data: "UC San Diego Health · Epic Caboodle · longitudinal structured EHR data · ICD · CPT · LOINC · ATC",
+    myRole: "Defined the data cohort and inclusion criteria, engineered features from longitudinal structured EHR data using ICD, CPT, LOINC, and ATC codes, and created train, validation, and test datasets. Developed and tuned the XGBoost model using Optuna for hyperparameter optimization. Conducted an Epic chart review of model-flagged patients to clinically validate predictions and assess real-world model behavior. Leading productionization of the model, packaging the inference pipeline, defining the deployment architecture, and designing monitoring for performance drift over time. Implementation on AWS SageMaker using Python and SQL in Jupyter notebooks.",
+    methods: ["XGBoost","Optuna","SHAP","Python","SQL","AWS SageMaker","Epic Caboodle","Epic chart review","Jupyter notebooks","Feature engineering","Model monitoring"],
+    keyResults: ["Train AUC 0.82 · Test AUC 0.79 · Validation AUC 0.76","Epic chart review of flagged patients conducted to clinically validate model predictions","Production inference pipeline under development for EHR integration at UCSD"],
+    figClass: "fig-ehr",
+    figSvg: `<img src="img/pub_figures/fig_pad_detection_roc.png" alt="ROC curves for PAD production model (Train AUC 0.82, Test AUC 0.79, Val AUC 0.76)" data-caption="Receiver operating characteristic curves for the PAD detection model across train, test, and validation splits. Performance remained stable across splits, with AUC 0.82 for training, 0.79 for testing, and 0.76 for validation." onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    paperUrl: null, githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub%20access%20request&body=Hi%20Karoline%2C%20I%20would%20like%20to%20request%20access%20to%20your%20GitHub%20repository%20for%20the%20PAD%20detection%20model.", githubNote: null
+  },
+  // 13 — AFC Stanford PAD model
+  {
+    title: "Open-source PAD detection model with multi-site external validation",
+    meta: "Research Scientist · UCSD Department of Surgery · 2024–present",
+    pub: "In preparation",
+    newFormat: true, status: "Ongoing",
+    keywords: ["Portable ML model","Open-source release","External validation","SHAP explainability","Multi-site deployment readiness"],
+    background: "Most clinical ML models are developed and evaluated within a single institution, limiting their adoption and reproducibility. This project, in cooperation with the Population Health Science team at Stanford, develops a generalizable PAD detection model trained on data from the American Family Cohort (AFC) and externally validated at UC San Diego Health. The trained model will be made publicly available, enabling other institutions to deploy it directly without retraining. The accompanying code will also be released openly to support reproducible clinical ML research.",
+    data: "AFC EHR data in OMOP format (training) · UC San Diego Health Epic Caboodle (external validation)",
+    myRole: "Collaborated with the Population Health Science team at Stanford, who queried and prepared the AFC features and trained the initial model. Significantly improved model performance and, critically, made the model portable and generalizable across health systems with different data environments. Created the UC San Diego Health external validation dataset independently to demonstrate cross-institutional generalizability. Currently preparing the manuscript and public model and code release.",
+    methods: ["XGBoost","OMOP","Epic Caboodle","Python","SHAP","External validation","Fairness evaluation","Statistical analysis"],
+    keyResults: ["Significant model improvement over initial Stanford baseline","External validation dataset created at UC San Diego Health","SHAP feature importance consistent across internal and external cohorts","Manuscript and public GitHub release in preparation"],
+    figClass: "fig-ehr",
+    figSvg: `<img src="img/pub_figures/fig_afc_shap.png" alt="SHAP feature importance — internal vs. external validation" data-caption="Mean SHAP feature importance for the portable PAD detection model, comparing internal validation with external validation. Similar feature ranking across cohorts supports model portability across health systems with different EHR environments." onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    paperUrl: null, githubUrl: null, githubNote: "GitHub public release pending"
+  },
+  // 14 — Zhong dosimetric impact
+  {
+    title: "Quantifying treatment impact from prostate contour variability",
+    meta: "Postdoctoral Fellow · UCSD Department of Radiology · 2022–2024",
+    pub: "IJROBP 2024", figClass: "fig-mri",
+    newFormat: true, status: "Published",
+    keywords: ["Contour-to-dose pipeline","Knowledge-based planning","DVH analysis","Outcome modeling","RSIrs-assisted contours","Clinical impact quantification"],
+    figSvg: `<img src="img/pub_figures/fig_zhong2024_dosimetric.png" alt="Dose distributions for three patient cases comparing expert and participant-contoured focal radiotherapy boost plans" data-caption="Figure from Zhong et al., International Journal of Radiation Oncology • Biology • Physics 2024: focal boost dose distributions for three patient cases. Left column shows the planning MRI; panels A–C show the resulting dose wash (as % of the 77 Gy prescription) for the expert-defined target versus different participant-contoured targets, illustrating how contouring differences shift the high-dose region relative to the true tumor." onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "ReIGNITE showed that RSIrs maps reduced prostate tumor contouring errors, but the clinical question was whether those geometric differences actually matter for treatment. Focal boost plans have dose gradients and penumbra, so a contour can partially miss the expert target without an obvious interpretation of patient impact. This follow-up study translated contour variability into treatment-plan dose coverage and predicted biochemical failure risk, creating a quantitative bridge from imaging/contouring performance to clinically meaningful endpoints.",
+    data: "8 ReIGNITE patient cases with usable planning CT · 45 radiation oncologist readers (23 trainees, 22 non-trainees) · 2 expert radiologist reference contours · 394 participant target volumes + 8 expert target volumes · full focal-boost RT plans for each contour · 77 Gy/35 fractions prostate prescription with integrated boost to 95 Gy at the target · KBP model trained on 62 clinical plans and validated on 10 independent cases",
+    myRole: "Contributed to the contour-to-dose analysis pipeline. Rigidly co-registered T2-weighted MRI and expert/participant tumor contours to the planning CT, processed 394 participant contours plus 8 expert contours through the knowledge-based planning workflow, and extracted dose metrics including D98 and delta D98. Supported predicted biochemical failure estimation using the randomized-trial dose-response model, as well as case-wise and paired statistical comparisons across contouring conditions, RSIrs availability, and trainee vs. non-trainee readers.",
+    methods: ["Knowledge-based planning","Varian RapidPlan","Rigid image registration","DICOM RTDose","DVH analysis","D98 / delta D98","Biochemical failure modeling","MATLAB","Paired t-tests","Mixed-effects analysis"],
+    keyResults: [
+      "394 participant + 8 expert target volumes converted into full RT plans via automated knowledge-based planning",
+      "Participant contours increased predicted biochemical failure by 4.3% on average vs. the expert-defined target",
+      "37% of participant plans showed a clinically meaningful (≥5% absolute) increase in biochemical failure risk",
+      "Significant differences in predicted outcome vs. expert plan in 6 of 8 patient cases",
+      "RSIrs-assisted contours significantly reduced dosimetric error for 2 of 3 cases with paired MRI-alone vs. MRI+RSIrs contours",
+      "No significant difference in predicted outcomes between trainee and non-trainee radiation oncologists",
+      "Published in International Journal of Radiation Oncology • Biology • Physics, 2024"
+    ],
+    paperUrl: "https://doi.org/10.1016/j.ijrobp.2024.06.007", githubUrl: null
+  },
+  // 15 — MRI to histopathology registration
+  {
+    title: "Deformable MRI-to-histopathology registration for RSI biomarker validation",
+    meta: "Postdoctoral Fellow · UCSD Department of Radiology · 2022–2024",
+    pub: null, figClass: "fig-mri",
+    newFormat: true, status: "Continued",
+    keywords: ["Medical image registration","MRI-to-pathology pipeline","Quantitative biomarker validation","DICOM RTStruct export","Clinical research tooling"],
+    figSvg: `<img src="img/Picture1.png" alt="MRI to histopathology registration pipeline" data-caption="MRI-to-histopathology registration example for RSI biomarker validation. Whole-mount prostate histopathology slices with annotated cancer are aligned to in-vivo MRI, creating spatial ground truth for quantitative imaging biomarker development." onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "RSI (Restriction Spectrum Imaging) is an emerging quantitative MRI biomarker for detecting clinically significant prostate cancer. To validate and train RSI-based models, spatially accurate ground truth from pathology is essential. 2D whole-mount histopathology after prostatectomy provides definitive cancer location and Gleason score, but aligning ex-vivo tissue slices to in-vivo MRI is challenging due to tissue deformation during surgery and processing.",
+    data: "In-vivo pre-surgical MRI (T2w, DWI, RSI) · 2D whole-mount histopathology slices post-prostatectomy · DICOM RTStruct",
+    myRole: "Digitized 2D whole-mount histopathology slices and worked with a pathologist to annotate cancer extent and Gleason score. Developed the multi-modal deformable image registration pipeline to spatially align in-vivo MRI (T2w, DWI, RSI) to the annotated histopathology slices, building on the RAPSODI framework (Rusu et al., Med Phys 2020), implementing rigid, affine, and deformable registration steps to correct for tissue deformation during surgery and fixation. Wrote out the deformed histopathology structures as DICOM RTStruct files and uploaded them in MIM for clinical verification of the registered contours. Maintained the REDCap database tracking patient cases and documentation throughout the study, and conducted exploratory data analysis in support of the research grant funding this work, which was continued by the lab after my postdoc.",
+    methods: ["Multi-modal deformable image registration","RAPSODI","SimpleITK","pydicom","Python","3D Slicer","MIM","REDCap","DICOM RTStruct","Exploratory data analysis"],
+    keyResults: [
+      "Spatially registered MRI-histopathology dataset established for RSI biomarker validation",
+      "Pipeline corrects for tissue shrinkage and deformation from prostatectomy",
+      "Deformed histopathology contours exported as DICOM RTStruct and clinically verified in MIM",
+      "Work continued by the lab after postdoc; developed primarily to support a research grant"
+    ],
+    paperUrl: null, githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub%20access%20request%20%E2%80%94%20MRI-histopathology%20registration&body=Hi%20Karoline%2C%20I%20would%20like%20to%20request%20access%20to%20your%20GitHub%20repository%20for%20the%20MRI-histopathology%20registration%20project.", githubNote: null
+  },
+  // 16 — Diabetic foot ulcer and amputation prediction
+  {
+    title: "Diabetic foot ulcer and amputation risk: prediction and causal inference",
+    meta: "Research Scientist · UCSD Department of Surgery · 2024–present",
+    pub: null,
+    newFormat: true, status: "Ongoing",
+    keywords: ["Risk prediction","Causal inference","Preventive care analytics","Epic Caboodle cohorting","Diabetes complications"],
+    figSvg: `<svg width="480" height="200" viewBox="0 0 480 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="14" y="18" font-size="10.5" fill="#085041" font-family="Inter,sans-serif" font-weight="500">EHR data → risk prediction · causal inference → diabetic foot complication prevention</text>
+      <rect x="12" y="30" width="96" height="120" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.75"/>
+      <text x="60" y="52" font-size="8.5" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Diabetes patients</text>
+      <text x="60" y="66" font-size="8" fill="#0F6E56" text-anchor="middle" font-family="Inter,sans-serif">Epic Caboodle</text>
+      <text x="60" y="79" font-size="8" fill="#0F6E56" text-anchor="middle" font-family="Inter,sans-serif">ICD · CPT · Labs</text>
+      <text x="60" y="92" font-size="8" fill="#0F6E56" text-anchor="middle" font-family="Inter,sans-serif">Vitals · Meds</text>
+      <line x1="109" y1="90" x2="134" y2="70" stroke="#1D9E75" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <line x1="109" y1="90" x2="134" y2="116" stroke="#1D9E75" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <rect x="134" y="28" width="100" height="60" rx="6" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.75"/>
+      <text x="184" y="50" font-size="8.5" fill="#0C447C" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Risk prediction</text>
+      <text x="184" y="64" font-size="8" fill="#185FA5" text-anchor="middle" font-family="Inter,sans-serif">Foot ulcer · Amputation</text>
+      <text x="184" y="77" font-size="8" fill="#185FA5" text-anchor="middle" font-family="Inter,sans-serif">XGBoost · SHAP</text>
+      <rect x="134" y="98" width="100" height="60" rx="6" fill="#FAEEDA" stroke="#FAC775" stroke-width="0.75"/>
+      <text x="184" y="120" font-size="8.5" fill="#633806" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Causal inference</text>
+      <text x="184" y="134" font-size="8" fill="#854F0B" text-anchor="middle" font-family="Inter,sans-serif">Foot exams → fewer</text>
+      <text x="184" y="147" font-size="8" fill="#854F0B" text-anchor="middle" font-family="Inter,sans-serif">amputations</text>
+      <line x1="235" y1="58" x2="258" y2="90" stroke="#185FA5" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <line x1="235" y1="128" x2="258" y2="96" stroke="#BA7517" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <rect x="258" y="54" width="96" height="72" rx="6" fill="#EAF3DE" stroke="#97C459" stroke-width="0.75"/>
+      <text x="306" y="78" font-size="8.5" fill="#27500A" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Prevention</text>
+      <text x="306" y="92" font-size="8" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">At-risk patient flagging</text>
+      <text x="306" y="105" font-size="8" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">Evidence for foot exam</text>
+      <text x="306" y="118" font-size="8" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">policy change</text>
+      <rect x="370" y="68" width="96" height="44" rx="5" fill="#1D9E75" fill-opacity="0.12" stroke="#1D9E75" stroke-width="0.75"/>
+      <text x="418" y="86" font-size="8.5" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Grant submitted</text>
+      <text x="418" y="100" font-size="8" fill="#0F6E56" text-anchor="middle" font-family="Inter,sans-serif">NIH / AHRQ</text>
+      <line x1="355" y1="90" x2="370" y2="90" stroke="#1D9E75" stroke-width="1.5"/>
+    </svg>`,
+    background: "Diabetic foot ulcers and lower extremity amputations are severe, costly, and often preventable complications of diabetes. Despite evidence that regular foot exams reduce amputation risk, they remain underutilized in clinical practice. This project has two complementary parts: (1) developing an ML model to predict which diabetes patients are at highest risk for foot ulcers and amputations using longitudinal EHR data, and (2) a causal inference analysis to quantify the effect of foot exams on reducing amputation risk at the population level.",
+    data: "UC San Diego Health · Epic Caboodle · Longitudinal structured EHR data · ICD · CPT · ATC · LOINC · Labs · Vitals",
+    myRole: "Initiated and designed both components of this project. Conducted preliminary data analysis for the grant application, including cohort definition, outcome identification from ICD codes, and initial feature exploration. Lead investigator on the prediction modeling and causal inference study design.",
+    methods: ["XGBoost","SHAP","Causal inference","Propensity scoring","Python","SQL","Epic Caboodle","Logistic regression"],
+    keyResults: [
+      "Grant submitted based on preliminary analyses",
+      "Part 1: ML risk model for diabetic foot ulcer and amputation prediction",
+      "Part 2: Causal inference on foot exam frequency and amputation outcomes",
+      "Potential to inform clinical policy on diabetes foot care"
+    ],
+    paperUrl: null, githubUrl: null
+  },
+  // 17 — Yusufaly knowledge-based OAR dose prediction
+  {
+    title: "Knowledge-based OAR dose prediction for tandem-and-ovoid brachytherapy",
+    meta: "Postdoctoral Fellow · UCSD Radiation Medicine & Applied Sciences · 2019–2022",
+    pub: "Brachytherapy 2020", figClass: "fig-brachy",
+    newFormat: true, status: "Published",
+    keywords: ["Knowledge-based planning","DVH estimation","MATLAB","Cervical cancer","Quality control"],
+    figSvg: `<img src="img/workflow_knowledgebased.png" alt="Knowledge-based brachytherapy dose prediction model training and validation workflow" data-caption="Figure from Yusufaly et al., Brachytherapy 2020: methodology and workflow used to train the knowledge-based dose-prediction model and validate it on a separate dataset. The workflow builds shell-specific OAR DVHs from training cases and applies the model to validation cases to predict OAR D&lt;sub&gt;2cc&lt;/sub&gt;." onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "Cervical brachytherapy planning lacked a way to benchmark whether a given plan's organ-at-risk (OAR) doses were reasonable for that patient's anatomy. This project, led by Tahir Yusufaly with the UCSD brachytherapy physics group, developed a knowledge-based dose prediction tool that estimates achievable bladder, rectum, and sigmoid dose-volume histograms (DVHs) for tandem-and-ovoid cervical brachytherapy directly from organ-at-risk boundary-distance relative to the high-risk CTV. It became the foundation that our group then extended to tandem-and-ring applicators, hybrid needle-supplementation decision support, cross-applicator comparisons, and later automated brachytherapy planning work.",
+    data: "136 patients with locally advanced cervical cancer treated with tandem-and-ovoid brachytherapy · 456 CT-based fractions (356 training / 100 validation) · bladder, rectum, and sigmoid D<sub>2cc</sub> as prediction targets",
+    myRole: "Contributed to model development and validation: helped curate the training and validation cohort of CT-based tandem-and-ovoid fractions, extracted organ-at-risk DVHs from the treatment planning system, and supported the MATLAB implementation of the boundary-distance-driven DVH estimation model and its statistical validation (paired t-tests between training/validation performance, ANOVA for categorical variance across physician, fraction number, and case complexity). I then helped extend this knowledge-based modeling approach beyond the original T&O cohort to T&R applicators, hybrid needle-supplementation workflows, cross-applicator comparisons, and downstream automated planning studies.",
+    methods: ["MATLAB","Knowledge-based planning","DVH estimation","Statistical analysis (t-test, ANOVA)","DICOM RT"],
+    keyResults: [
+      "Predicted bladder, rectum, and sigmoid D<sub>2cc</sub> within ≈0.5 Gy of actual delivered dose",
+      "No significant difference between training and validation set performance",
+      "Attending physician was the only significant categorical driver of prediction variance",
+      "Established the modeling framework later extended to T&R applicators, hybrid needle decision support, and automated brachytherapy planning",
+      "Published in Brachytherapy, 2020"
+    ],
+    paperUrl: "https://doi.org/10.1016/j.brachy.2020.04.008", githubUrl: null
+  },
+  // 18 — Covele ORBIT-RT
+  {
+    title: "ORBIT-RT: automated plan quality-control infrastructure",
+    meta: "Postdoctoral Fellow · UCSD Radiation Medicine & Applied Sciences · 2019–2022",
+    pub: "JCO Clinical Cancer Informatics 2021", figClass: "fig-brachy",
+    newFormat: true, status: "Published",
+    keywords: ["Clinical informatics","Java","MIM extension","PACS automation","DICOM-RT","Knowledge-based DVH benchmarking"],
+    figSvg: `<img src="img/pub_figures/fig_covele2021_orbitrt.png" alt="ORBIT-RT workflow diagram showing case upload, MIMCloud anonymization, PACS-based contour matching, and DVH prediction display" data-caption="Figure from Covele et al., JCO Clinical Cancer Informatics 2021: ORBIT-RT system workflow. A user enters case metadata and uploads DICOM either directly or via MIMCloud, which anonymizes the case (two-step MCA anonymization, ~90 s) before storage. MIM PACS at UCSD then receives the DICOM, matches contours (~30 s), runs the ORBIT-RT knowledge-based calculation (~20 s), and returns DVH predictions for display (~15 s) — a fully automated pipeline from upload to real-time DVH feedback." onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "Knowledge-based quality control can help clinicians evaluate whether a radiation treatment plan's organ-at-risk doses are consistent with what similar patients have achieved, but these models are only useful if they fit into real clinical data flows. ORBIT-RT (Online Real-time Benchmarking Informatics Technology for RadioTherapy), led by Brent Covele, addressed that implementation gap by turning knowledge-based DVH prediction into a web-based, treatment-planning-system-independent workflow built on MIM and MIMCloud. The applied research challenge was not just model accuracy; it was moving DICOM-RT data through anonymization, routing, contour matching, model execution, and feedback fast enough to be useful.",
+    data: "MIM software suite (v7.0.2) and MIMCloud architecture · DICOM-RT plans, structures, and dose data routed through PACS/MIM workflows · external validation on 45 VMAT prostate plans (<1% bias, ~3% error uncertainty above 80% of prescription dose) · full DICOM-RT upload-to-DVH-feedback runtime of 2.5–3 minutes",
+    myRole: "Implemented the brachytherapy integration layer end to end in Java using the MIM Java API. Built the automated PACS-to-MIM extension that detects incoming brachytherapy DICOM-RT data, exports the relevant treatment objects, transfers them into the MIMCloud workflow, and routes cases toward the appropriate knowledge-based model without manual file handling. This work translated our brachytherapy dose-prediction model from a research method into reusable clinical informatics infrastructure, connecting PACS, anonymization, DICOM-RT processing, and real-time plan quality benchmarking.",
+    methods: ["Java","MIM Java API","MIM extension development","PACS automation","DICOM-RT","MIMCloud workflow","Knowledge-based DVH estimation","Clinical informatics"],
+    keyResults: [
+      "Automated the brachytherapy data path from PACS export through anonymized DVH benchmarking feedback",
+      "<1% bias and ~3% error uncertainty above 80% of prescription dose on the validation cohort",
+      "End-to-end runtime of 2.5–3 minutes from DICOM-RT arrival to DVH feedback",
+      "Brachytherapy extension connected the Yusufaly 2020 knowledge-based dose-prediction model to a reusable informatics workflow",
+      "Published in JCO Clinical Cancer Informatics, 2021"
+    ],
+    paperUrl: "https://doi.org/10.1200/CCI.20.00093", githubUrl: null
+  }
+];
+
+let activeProject = -1;
+
+function openProject(i, clickedEl) {
+  const panel = document.getElementById('detail-panel');
+  const fig   = document.getElementById('detail-fig');
+  const main  = document.getElementById('detail-main');
+  const sidebar = document.getElementById('detail-sidebar');
+  // Move panel to just after the era containing the clicked card
+  if (clickedEl) {
+    const era = clickedEl.closest('.era');
+    if (era && era.nextSibling !== panel) {
+      era.parentNode.insertBefore(panel, era.nextSibling);
+    }
+  }
+  const p = projects[i];
+
+  document.querySelectorAll('.mini-card').forEach((c, idx) => c.classList.toggle('active', idx === i));
+
+  fig.style.display = 'none';
+  const status = p.status || (p.pub && !/preparation|submitted/i.test(p.pub) ? 'Published' : 'Ongoing');
+  const keywords = p.keywords || (p.tools ? p.tools.slice(0, 5).map(([t]) => t) : []);
+  const methods = p.methods || (p.tools ? p.tools.map(([t]) => t) : []);
+  const keyResults = p.keyResults || p.results || [];
+  const background = p.background || p.problem || '';
+  const data = p.data || '';
+  const myRole = p.myRole || p.contribution || '';
+  const statusColor = status === 'Ongoing' ? 'color:#0F6E56;background:#E1F5EE;' : status === 'In production' ? 'color:#185FA5;background:#E6F1FB;' : status === 'Published' ? 'color:#533AB7;background:#EEEDFE;' : status === 'Submitted' ? 'color:#0C447C;background:#DBEAFE;' : status === 'Continued' ? 'color:#6B5EAB;background:#EEEBF8;' : status === 'Research Grant' ? 'color:#854F0B;background:#FEF3C7;' : 'color:var(--muted);background:var(--bg-soft);border:1px solid var(--border);';
+  const kwTags = keywords.map(k => `<span class="badge b-blue" style="font-size:12px;padding:4px 11px;">${k}</span>`).join('');
+  const methodTags = methods.map(m => `<span class="badge" style="font-size:12px;padding:4px 11px;background:#f2ede4;border:1px solid #ddd4c8;">${m}</span>`).join('');
+  const resultItems = keyResults.map(r => `<li style="margin-bottom:6px;">${r}</li>`).join('');
+
+  main.innerHTML = `
+    <button class="detail-close" onclick="closeProject()" style="position:static;margin-bottom:0.75rem;">✕ Close</button>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.5rem;">
+      <p class="detail-title" style="margin:0;">${p.title}</p>
+      <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 12px;border-radius:6px;flex-shrink:0;${statusColor}">
+        <span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block;"></span>${status}
+      </span>
+    </div>
+    ${p.conference ? `<p style="font-size:12px;color:#6b7280;font-style:italic;margin:0 0 0.75rem;">${p.conference}</p>` : ''}
+    ${kwTags ? `<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem;">${kwTags}</div>` : ''}
+    ${background ? `<div class="detail-section"><div class="detail-section-label">Background</div><p class="detail-text">${background}</p></div>` : ''}
+    ${data ? `<div class="detail-section"><div class="detail-section-label">Data</div><p class="detail-text">${data}</p></div>` : ''}
+    ${myRole ? `<div class="detail-section"><div class="detail-section-label">Contribution</div><p class="detail-text">${myRole}</p></div>` : ''}
+    <div class="detail-links">
+      ${p.paperUrl ? `<a class="detail-link-btn" href="${p.paperUrl}" target="_blank">📄 ${p.pub || 'View paper'}</a>` : p.pub ? `<span class="detail-link-btn" style="opacity:0.5;cursor:default;">📄 ${p.pub}</span>` : ''}
+      ${p.githubUrl ? `<a class="detail-link-btn" href="${p.githubUrl}" ${p.githubUrl.startsWith('mailto') ? '' : 'target="_blank"'}>${p.githubUrl.startsWith('mailto') ? '✉ Request GitHub access' : '⌥ GitHub'}</a>` : p.githubNote ? `<span class="detail-link-btn" style="opacity:0.65;cursor:default;">⌥ ${p.githubNote}</span>` : ''}
+    </div>`;
+  sidebar.innerHTML = `
+    <div style="margin-bottom:1.25rem;">${p.figSvg}</div>
+    ${methodTags ? `<div class="detail-section"><div class="detail-section-label">Methods &amp; tools</div><div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;">${methodTags}</div></div>` : ''}
+    ${resultItems ? `<div class="detail-section" style="margin-top:1.25rem;"><div class="detail-section-label">Key results</div><ul style="margin:4px 0 0;padding-left:1.25rem;font-size:13px;color:#6b7280;line-height:1.75;">${resultItems}</ul></div>` : ''}`;
+
+  if (!panel.classList.contains('open') || activeProject !== i) {
+    panel.classList.add('open');
+    setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+  activeProject = i;
+}
+
+function closeProject() {
+  document.getElementById('detail-panel').classList.remove('open');
+  document.querySelectorAll('.mini-card').forEach(c => c.classList.remove('active'));
+  activeProject = -1;
+}
+function openLightbox(img) {
+  const lb = document.getElementById('lightbox');
+  lb.querySelector('img').src = img.src;
+  lb.querySelector('img').alt = img.alt || 'Figure';
+  const caption = lb.querySelector('.lightbox-caption');
+  caption.innerHTML = img.dataset.caption || '';
+  caption.style.display = img.dataset.caption ? 'block' : 'none';
+  lb.style.display = 'flex';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+<div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;padding:2rem;">
+  <figure style="max-width:92vw;max-height:92vh;margin:0;display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
+    <img src="" alt="Figure" style="max-width:92vw;max-height:84vh;border-radius:8px;box-shadow:0 4px 32px rgba(0,0,0,0.5);" />
+    <figcaption class="lightbox-caption" style="display:none;max-width:780px;color:#e5e7eb;font-size:13px;line-height:1.55;text-align:center;"></figcaption>
+  </figure>
+</div>
+</body>
+</html>

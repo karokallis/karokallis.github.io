@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karoline Kallis, PhD — Research Scientist</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:        #1e40af;
+      --blue-mid:    #1d4ed8;
+      --blue-light:  #eff6ff;
+      --blue-border: #bfdbfe;
+      --accent:      #0f766e;
+      --accent-light:#f0fdfa;
+      --accent-border:#99f6e4;
+      --bordeaux:    #9b2558;
+      --bordeaux-mid:#b03a6e;
+      --text:        #0f172a;
+      --muted:       #64748b;
+      --border:      #e2e8f0;
+      --bg:          #ffffff;
+      --bg-soft:     #f8fafc;
+      --radius:      8px;
+      --radius-lg:   12px;
+      --max:         1080px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--blue-mid); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .nav-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .nav-links a {
+      font-size: 13.5px;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-links .nav-cta {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 5rem 4rem 4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.75fr);
+      gap: 3rem;
+      align-items: center;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .hero-intro {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      min-width: 0;
+    }
+    .profile-photo {
+      width: 160px;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .hero-copy {
+      min-width: 0;
+      max-width: 560px;
+    }
+    .hero-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .hero-name {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .hero-statement {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .hero-impact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.75rem;
+    }
+    .impact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #334155;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 10px;
+      white-space: nowrap;
+    }
+    .impact-chip::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      border: 1px solid var(--blue);
+    }
+    .btn-primary:hover { background: #5aa3e8; text-decoration: none; color: #fff; }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { background: var(--bg-soft); text-decoration: none; }
+    .btn-cv {
+      background: var(--blue-light);
+      color: var(--blue);
+      border: 1px solid var(--blue-border);
+    }
+    .btn-cv:hover { background: #d0e5f5; text-decoration: none; color: var(--blue); }
+    .btn-scholar {
+      background: #eeedfe;
+      color: #3c3489;
+      border: 1px solid #afa9ec;
+    }
+    .btn-scholar:hover { background: #e0ddfb; text-decoration: none; color: #3c3489; }
+    .btn-github {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-github:hover { background: #e2e8f0; text-decoration: none; color: #1e293b; }
+    .btn-linkedin { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+    .btn-linkedin:hover { background: #dbeafe; text-decoration: none; color: #1e40af; }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      max-width: 360px;
+      width: 100%;
+      margin-left: auto;
+    }
+    .stat-card {
+      background: var(--bg);
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      column-gap: 0.9rem;
+      transition: background 0.16s, transform 0.16s;
+    }
+    .stat-card:hover {
+      background: #fbfdff;
+      transform: translateY(-1px);
+    }
+    .stat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stat-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .stat-icon.teal { color: #0f766e; background: #f0fdfa; }
+    .stat-icon.blue { color: #1d4ed8; background: #eff6ff; }
+    .stat-icon.slate { color: #475569; background: #f1f5f9; }
+    .stat-icon.purple { color: #6d28d9; background: #f5f3ff; }
+    .stat-num {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1.05;
+    }
+    .stat-label {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    /* ── SECTION ── */
+    section {
+      padding: 4rem 4rem;
+      border-top: 1px solid var(--border);
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--text);
+    }
+    .section-link {
+      font-size: 13px;
+      color: var(--blue-mid);
+    }
+
+    /* ── PROJECT CARDS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.18s, transform 0.15s, border-color 0.15s;
+      background: var(--bg);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: var(--accent-border);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.09), 0 2px 6px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+    .project-card.active {
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+    .project-card:focus-visible,
+    .btn:focus-visible,
+    .detail-close:focus-visible {
+      outline: 3px solid var(--accent-border);
+      outline-offset: 3px;
+    }
+    .card-fig {
+      width: 100%;
+      height: 175px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-fig svg,
+    .card-fig img {
+      transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+    .project-card:hover .card-fig svg,
+    .project-card:hover .card-fig img {
+      transform: scale(1.015);
+    }
+    .card-body { padding: 14px 16px 16px; flex: 1; }
+    .card-body.tint-ehr    { background: #f0fdfa; }
+    .card-body.tint-brachy { background: #f5f3ff; }
+    .card-body.tint-mri    { background: #fff7ed; }
+    .card-body.tint-em     { background: #f0fdf4; }
+    .card-domain {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 5px; }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-weight: 400;
+    }
+    .b-blue   { background: #eff6ff; color: #1e40af; }
+    .b-teal   { background: #f0fdfa; color: #134e4a; }
+    .b-purple { background: #f1f5f9; color: #475569; }
+    .b-coral  { background: #f1f5f9; color: #475569; }
+    .b-green  { background: #f0fdf4; color: #166534; }
+    .b-amber  { background: #f1f5f9; color: #475569; }
+
+    /* ── DETAIL PANEL ── */
+    #detail-panel {
+      display: none;
+      margin-top: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    #detail-panel.open { display: block; }
+    .detail-fig {
+      width: 100%;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .detail-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 5px 12px;
+      font-size: 12.5px;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .detail-close:hover { color: var(--text); }
+    .detail-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .detail-main { padding: 1.75rem 2rem; }
+    .detail-sidebar {
+      padding: 1.75rem 2rem;
+      overflow-y: auto;
+      border-left: 1px solid var(--border);
+      background: var(--bg-soft);
+    }
+    .detail-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .detail-meta { font-size: 12.5px; color: var(--muted); margin-bottom: 1.25rem; }
+    .detail-section { margin-bottom: 1.25rem; }
+    .detail-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .detail-text { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+    .result-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12.5px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 5px 11px;
+      color: var(--muted);
+      margin: 3px 4px 3px 0;
+    }
+    .detail-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1rem; }
+    .detail-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      color: var(--blue-mid);
+      border: 1px solid var(--blue-border);
+      border-radius: 8px;
+      padding: 6px 14px;
+      background: var(--blue-light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .detail-link-btn:hover { background: #d4e8f7; text-decoration: none; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-panel {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem 2rem;
+    }
+    .pub-list { display: flex; flex-direction: column; gap: 0; }
+    .pub-item {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-year {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      min-width: 36px;
+      padding-top: 2px;
+    }
+    .pub-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      line-height: 1.45;
+    }
+    .pub-authors { font-size: 12.5px; color: #4b5563; margin-bottom: 3px; }
+    .pub-authors strong { font-weight: 600; text-decoration: underline; color: #1f2937; }
+    .pub-journal { font-size: 12.5px; color: var(--muted); }
+    .pub-title-link { text-decoration: none; color: inherit; }
+    .pub-title-link:hover .pub-title { color: var(--blue); text-decoration: underline; }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .skill-group {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+    }
+    .skill-group-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .skill-tag {
+      font-size: 12px;
+      padding: 4px 10px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text);
+    }
+    .skill-tag-b {
+      font-size: 12px;
+      padding: 4px 10px;
+      background: var(--blue-light);
+      border: 1px solid var(--blue-border);
+      border-radius: 999px;
+      color: var(--blue);
+    }
+
+    /* ── SKILL GROUP THEMES ── */
+    .skill-group.theme-blue   { background: #f5f9ff; }
+    .skill-group.theme-purple { background: #f8f6ff; }
+    .skill-group.theme-teal   { background: #f2fdfb; }
+    .skill-group.theme-green  { background: #f3fbf3; }
+    .skill-group.theme-coral  { background: #fff6f3; }
+    .skill-group.theme-amber  { background: #fffbf0; }
+
+    .skill-group.theme-blue   .skill-group-label { color: #1e40af; }
+    .skill-group.theme-purple .skill-group-label { color: #6d28d9; }
+    .skill-group.theme-teal   .skill-group-label { color: #0f766e; }
+    .skill-group.theme-green  .skill-group-label { color: #166534; }
+    .skill-group.theme-coral  .skill-group-label { color: #c2410c; }
+    .skill-group.theme-amber  .skill-group-label { color: #92400e; }
+
+    .skill-group.theme-blue   .skill-tag-b { background: #dbeafe; border-color: #93c5fd; color: #1e40af; }
+    .skill-group.theme-purple .skill-tag-b { background: #ede9fe; border-color: #c4b5fd; color: #6d28d9; }
+    .skill-group.theme-teal   .skill-tag-b { background: #ccfbf1; border-color: #5eead4; color: #0f766e; }
+    .skill-group.theme-green  .skill-tag-b { background: #bbf7d0; border-color: #86efac; color: #166534; }
+    .skill-group.theme-coral  .skill-tag-b { background: #ffe4d5; border-color: #fdba8c; color: #c2410c; }
+    .skill-group.theme-amber  .skill-tag-b { background: #fef3c7; border-color: #fcd34d; color: #92400e; }
+
+    .skill-group.theme-blue   .skill-tag { background: #eff6ff; border-color: #dbeafe; color: #1e3a5f; }
+    .skill-group.theme-purple .skill-tag { background: #f5f3ff; border-color: #e9e3fc; color: #4c1d95; }
+    .skill-group.theme-teal   .skill-tag { background: #f0fdfa; border-color: #ccfbf1; color: #134e4a; }
+    .skill-group.theme-green  .skill-tag { background: #f0fdf4; border-color: #dcfce7; color: #14532d; }
+    .skill-group.theme-coral  .skill-tag { background: #fff1ec; border-color: #ffddd0; color: #7c2d12; }
+    .skill-group.theme-amber  .skill-tag { background: #fffbeb; border-color: #fef3c7; color: #78350f; }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text-wrap { display: flex; flex-direction: column; gap: 0.75rem; }
+    .about-text { font-size: 14.5px; color: var(--muted); line-height: 1.75; }
+    .cred-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .cred-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 13.5px;
+    }
+    .cred-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+    }
+    .cred-title { font-weight: 500; line-height: 1.3; }
+    .cred-sub { font-size: 12px; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg-soft);
+      padding: 2.5rem 2rem;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-left { font-size: 13px; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 13px; color: var(--muted); }
+    .footer-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* ── FIG BACKGROUNDS ── */
+    .fig-ehr    { background: linear-gradient(140deg, #99f6e4 0%, #bfdbfe 100%); }
+    .fig-brachy { background: linear-gradient(140deg, #ddd6fe 0%, #bfdbfe 100%); }
+    .fig-mri    { background: linear-gradient(140deg, #fed7aa 0%, #fde68a 100%); }
+    .fig-em     { background: linear-gradient(140deg, #bbf7d0 0%, #99f6e4 100%); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        height: auto;
+        padding: 0.85rem 1.25rem;
+        gap: 0.55rem;
+      }
+      .nav-name { font-size: 14px; line-height: 1.25; }
+      .nav-links {
+        width: 100%;
+        gap: 0.9rem;
+        overflow-x: auto;
+        padding-bottom: 0.15rem;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      #hero { grid-template-columns: 1fr; padding: 2.25rem 1.25rem 2.5rem; gap: 2rem; }
+      .hero-intro { flex-direction: column; gap: 1.25rem; }
+      .profile-photo { width: 132px; height: 164px; }
+      .hero-name { font-size: 2rem; overflow-wrap: anywhere; }
+      .hero-label { font-size: 11px; line-height: 1.45; }
+      .hero-statement { font-size: 15px; }
+      .hero-btns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .btn { justify-content: center; padding: 10px 12px; }
+      .hero-stats { max-width: none; margin-left: 0; }
+      .stat-card { padding: 1.15rem; }
+      .stat-num { font-size: 1.65rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .detail-body { grid-template-columns: 1fr; }
+      .detail-sidebar { border-left: none; border-top: 1px solid var(--border); }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      section { padding: 2.5rem 1.5rem; }
+      .section-header { align-items: flex-start; flex-direction: column; gap: 0.35rem; }
+      .detail-main, .detail-sidebar { padding: 1.25rem; }
+      .detail-fig { height: 220px; }
+    }
+
+    @media (max-width: 430px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .hero-btns { grid-template-columns: 1fr 1fr; }
+      .card-fig { height: 150px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <span class="nav-name">Karoline Kallis, PhD</span>
+  <ul class="nav-links">
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a class="nav-cta" href="mailto:karo.kallis@googlemail.com">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<div id="hero">
+  <div class="hero-intro">
+    <img class="profile-photo" src="profile.jpg" alt="Karoline Kallis">
+    <div class="hero-copy">
+      <p class="hero-label" style="margin-bottom:6px;">Applied Research Scientist · Medical Imaging & Clinical Data</p>
+      <h1 class="hero-name">Karoline Kallis, PhD</h1>
+      <p class="hero-statement">
+        I build machine learning systems for real clinical problems, from medical imaging and treatment planning to large-scale EHR analysis. My work connects rigorous model development with deployable healthcare workflows, clinical validation, and measurable patient impact.
+      </p>
+      <div class="hero-impact" aria-label="Research focus areas">
+        <span class="impact-chip">Clinical ML</span>
+        <span class="impact-chip">Medical imaging</span>
+        <span class="impact-chip">EHR data science</span>
+        <span class="impact-chip">Radiotherapy data</span>
+        <span class="impact-chip">DICOM workflows</span>
+        <span class="impact-chip">Model validation</span>
+        <span class="impact-chip">Cross-functional collaboration</span>
+        <span class="impact-chip">Treatment planning automation</span>
+      </div>
+      <div class="hero-btns">
+        <a class="btn btn-cv" href="CV_Karoline_Kallis.pdf" download>Resume</a>
+        <a class="btn btn-scholar" href="https://scholar.google.com/citations?user=iqxNWfQAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn btn-github" href="https://github.com/karokallis" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-linkedin" href="https://www.linkedin.com/in/karoline-kallis/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <span class="stat-icon teal" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 12h4l2-5 4 10 2-5h4"/></svg>
+      </span>
+      <div>
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Years in healthcare data science</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-icon blue" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v5h5"/><path d="M10 13h6"/><path d="M10 17h4"/></svg>
+      </span>
+      <div>
+        <div class="stat-num">29</div>
+        <div class="stat-label">Peer-reviewed publications</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-icon slate" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M8 9l-4 3 4 3"/><path d="M16 9l4 3-4 3"/><path d="M14 5l-4 14"/></svg>
+      </span>
+      <div>
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Programming languages</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-icon purple" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M7 16V9"/><path d="M12 16V5"/><path d="M17 16v-6"/><path d="M6 9h2"/><path d="M11 5h2"/><path d="M16 10h2"/></svg>
+      </span>
+      <div>
+        <div class="stat-num">14+</div>
+        <div class="stat-label">Conference presentations</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="section-header">
+    <h2 class="section-title">Selected projects</h2>
+    <span style="font-size:13px; color:var(--muted);">Click any card to explore</span>
+  </div>
+
+  <div class="projects-grid" id="cards-grid">
+<!-- Card 0 -->
+    <div class="project-card" onclick="openProject(0)" onkeydown="handleCardKey(event, 0)" role="button" tabindex="0" data-project-id="0" id="card-0">
+      <div class="card-fig fig-ehr">
+        <svg width="100%" height="175" viewBox="0 0 360 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(0,33)">
+            <line x1="31" y1="0" x2="31" y2="110" stroke="#085041" stroke-opacity="0.12" stroke-width="0.5"/>
+            <line x1="62" y1="0" x2="62" y2="110" stroke="#085041" stroke-opacity="0.12" stroke-width="0.5"/>
+            <rect x="0" y="0" width="93" height="12" fill="#085041" fill-opacity="0.18"/>
+            <rect x="2" y="3" width="24" height="6" rx="1.5" fill="#085041" fill-opacity="0.6"/>
+            <rect x="33" y="3" width="23" height="6" rx="1.5" fill="#085041" fill-opacity="0.6"/>
+            <rect x="64" y="3" width="25" height="6" rx="1.5" fill="#085041" fill-opacity="0.6"/>
+            <rect x="2" y="16" width="18" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.45"/>
+            <rect x="33" y="16" width="20" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.35"/>
+            <rect x="64" y="16" width="15" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.5"/>
+            <line x1="0" y1="28" x2="93" y2="28" stroke="#085041" stroke-opacity="0.07" stroke-width="0.5"/>
+            <rect x="0" y="28" width="93" height="18" fill="#1D9E75" fill-opacity="0.04"/>
+            <rect x="2" y="32" width="20" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.35"/>
+            <rect x="33" y="32" width="18" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.4"/>
+            <rect x="64" y="32" width="20" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.3"/>
+            <line x1="0" y1="46" x2="93" y2="46" stroke="#085041" stroke-opacity="0.07" stroke-width="0.5"/>
+            <rect x="0" y="46" width="2" height="18" fill="#0F6E56" fill-opacity="0.7"/>
+            <rect x="0" y="46" width="93" height="18" fill="#1D9E75" fill-opacity="0.1"/>
+            <rect x="2" y="50" width="23" height="6" rx="1.5" fill="#0F6E56" fill-opacity="0.55"/>
+            <rect x="33" y="50" width="21" height="6" rx="1.5" fill="#0F6E56" fill-opacity="0.45"/>
+            <rect x="64" y="50" width="18" height="6" rx="1.5" fill="#0F6E56" fill-opacity="0.6"/>
+            <line x1="0" y1="64" x2="93" y2="64" stroke="#085041" stroke-opacity="0.07" stroke-width="0.5"/>
+            <rect x="2" y="68" width="15" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.3"/>
+            <rect x="33" y="68" width="23" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.35"/>
+            <rect x="64" y="68" width="15" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.4"/>
+            <line x1="0" y1="82" x2="93" y2="82" stroke="#085041" stroke-opacity="0.07" stroke-width="0.5"/>
+            <rect x="0" y="82" width="93" height="18" fill="#1D9E75" fill-opacity="0.04"/>
+            <rect x="2" y="86" width="20" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.4"/>
+            <rect x="33" y="86" width="15" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.3"/>
+            <rect x="64" y="86" width="20" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.45"/>
+            <line x1="0" y1="100" x2="93" y2="100" stroke="#085041" stroke-opacity="0.07" stroke-width="0.5"/>
+            <rect x="2" y="104" width="18" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.25"/>
+            <rect x="33" y="104" width="21" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.35"/>
+            <rect x="64" y="104" width="15" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.3"/>
+          </g>
+          <line x1="180" y1="80" x2="112" y2="27" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="112" y2="52" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="112" y2="77" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="112" y2="102" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="112" y2="127" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="248" y2="44" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="248" y2="80" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="248" y2="116" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <circle cx="180" cy="80" r="28" fill="#5eead4" stroke="#0f766e" stroke-width="2"/>
+          <circle cx="180" cy="80" r="22" fill="none" stroke="#1D9E75" stroke-width="0.5" stroke-opacity="0.5"/>
+          <text x="180" y="85" font-size="13" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">EHR</text>
+          <circle cx="112" cy="27" r="10" fill="#0F6E56"/>
+          <text x="112" y="31" font-size="8" fill="white" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">ICD</text>
+          <circle cx="112" cy="52" r="10" fill="#0F6E56"/>
+          <text x="112" y="56" font-size="7.5" fill="white" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">CPT</text>
+          <circle cx="112" cy="77" r="10" fill="#1D9E75"/>
+          <text x="112" y="81" font-size="8" fill="white" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">Rx</text>
+          <circle cx="112" cy="102" r="10" fill="#1D9E75"/>
+          <text x="112" y="106" font-size="7" fill="white" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">LOINC</text>
+          <circle cx="112" cy="127" r="10" fill="#0F6E56"/>
+          <polyline points="103,127 107,127 109,121 112,133 115,127 121,127" stroke="white" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <g transform="translate(-10,0)">
+          <circle cx="248" cy="44" r="10" fill="#2563EB"/>
+          <circle cx="248" cy="40" r="2.5" fill="white"/>
+          <path d="M 244 48 Q 244 44 248 44 Q 252 44 252 48" fill="white"/>
+          <text x="261" y="46" font-size="8" fill="#085041" text-anchor="start" font-family="Inter,sans-serif" opacity="0.85">Cohort</text>
+          <circle cx="248" cy="80" r="10" fill="#2563EB"/>
+          <polyline points="242,85 245,79 249,82 254,75" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="261" y="82" font-size="8" fill="#085041" text-anchor="start" font-family="Inter,sans-serif" opacity="0.85">QI</text>
+          <circle cx="248" cy="116" r="10" fill="#3B82F6"/>
+          <rect x="244" y="121" width="3" height="3.5" fill="white" rx="0.5"/>
+          <rect x="248" y="118" width="3" height="6.5" fill="white" rx="0.5"/>
+          <rect x="252" y="120" width="3" height="4.5" fill="white" rx="0.5"/>
+          <text x="261" y="118" font-size="8" fill="#085041" text-anchor="start" font-family="Inter,sans-serif" opacity="0.85">Risk</text>
+          </g>
+          <g transform="translate(18,0)">
+          <line x1="270" y1="158" x2="355" y2="158" stroke="#085041" stroke-opacity="0.3" stroke-width="0.75" stroke-linecap="round"/>
+          <line x1="270" y1="18" x2="270" y2="158" stroke="#085041" stroke-opacity="0.3" stroke-width="0.75" stroke-linecap="round"/>
+          <path d="M 273 90 C 296 82 330 55 352 50" stroke="#0F6E56" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 273 90 C 296 86 330 70 352 67" stroke="#3B82F6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 273 90 C 296 90 330 92 352 94" stroke="#8B5CF6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 273 91 C 296 100 330 122 352 128" stroke="#EA580C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <text x="273" y="32" font-size="8" fill="#085041" font-family="Inter,sans-serif" font-weight="500" opacity="0.55">QI</text>
+          <text x="313" y="170" font-size="7" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif" opacity="0.5">3y</text>
+          </g>
+        </svg>
+      </div>
+      <div class="card-body tint-ehr">
+        <div class="card-domain">EHR · Epidemiology</div>
+        <p class="card-title">Guideline-concordant PAD care across a national EHR cohort</p>
+        <p class="card-desc">Longitudinal analysis of cardiovascular prevention quality measures in 1.2M PAD patients, with subgroup analysis by race, sex, insurance, and PAD severity.</p>
+        <div class="badge-row">
+          <span class="badge b-blue">Epic COSMOS</span>
+          <span class="badge b-teal">Logistic regression</span>
+          <span class="badge b-teal">Mixed effect model</span>
+          <span class="badge b-blue">SQL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="project-card" onclick="openProject(5)" onkeydown="handleCardKey(event, 5)" role="button" tabindex="0" data-project-id="5" id="card-1">
+      <div class="card-fig fig-ehr">
+        <svg width="100%" height="175" viewBox="0 0 360 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(0,33)">
+            <line x1="31" y1="0" x2="31" y2="110" stroke="#085041" stroke-opacity="0.12" stroke-width="0.5"/>
+            <line x1="62" y1="0" x2="62" y2="110" stroke="#085041" stroke-opacity="0.12" stroke-width="0.5"/>
+            <rect x="0" y="0" width="93" height="12" fill="#085041" fill-opacity="0.18"/>
+            <rect x="2" y="3" width="24" height="6" rx="1.5" fill="#085041" fill-opacity="0.6"/>
+            <rect x="33" y="3" width="23" height="6" rx="1.5" fill="#085041" fill-opacity="0.6"/>
+            <rect x="64" y="3" width="25" height="6" rx="1.5" fill="#085041" fill-opacity="0.6"/>
+            <rect x="2" y="16" width="18" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.45"/>
+            <rect x="33" y="16" width="20" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.35"/>
+            <rect x="64" y="16" width="15" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.5"/>
+            <line x1="0" y1="28" x2="93" y2="28" stroke="#085041" stroke-opacity="0.07" stroke-width="0.5"/>
+            <rect x="0" y="28" width="93" height="18" fill="#1D9E75" fill-opacity="0.04"/>
+            <rect x="2" y="32" width="20" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.35"/>
+            <rect x="33" y="32" width="18" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.4"/>
+            <rect x="64" y="32" width="20" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.3"/>
+            <line x1="0" y1="46" x2="93" y2="46" stroke="#085041" stroke-opacity="0.07" stroke-width="0.5"/>
+            <rect x="0" y="46" width="2" height="18" fill="#0F6E56" fill-opacity="0.7"/>
+            <rect x="0" y="46" width="93" height="18" fill="#1D9E75" fill-opacity="0.1"/>
+            <rect x="2" y="50" width="23" height="6" rx="1.5" fill="#0F6E56" fill-opacity="0.55"/>
+            <rect x="33" y="50" width="21" height="6" rx="1.5" fill="#0F6E56" fill-opacity="0.45"/>
+            <rect x="64" y="50" width="18" height="6" rx="1.5" fill="#0F6E56" fill-opacity="0.6"/>
+            <line x1="0" y1="64" x2="93" y2="64" stroke="#085041" stroke-opacity="0.07" stroke-width="0.5"/>
+            <rect x="2" y="68" width="15" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.3"/>
+            <rect x="33" y="68" width="23" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.35"/>
+            <rect x="64" y="68" width="15" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.4"/>
+            <line x1="0" y1="82" x2="93" y2="82" stroke="#085041" stroke-opacity="0.07" stroke-width="0.5"/>
+            <rect x="0" y="82" width="93" height="18" fill="#1D9E75" fill-opacity="0.04"/>
+            <rect x="2" y="86" width="20" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.4"/>
+            <rect x="33" y="86" width="15" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.3"/>
+            <rect x="64" y="86" width="20" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.45"/>
+            <line x1="0" y1="100" x2="93" y2="100" stroke="#085041" stroke-opacity="0.07" stroke-width="0.5"/>
+            <rect x="2" y="104" width="18" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.25"/>
+            <rect x="33" y="104" width="21" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.35"/>
+            <rect x="64" y="104" width="15" height="6" rx="1.5" fill="#1D9E75" fill-opacity="0.3"/>
+          </g>
+          <line x1="180" y1="80" x2="112" y2="27" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="112" y2="52" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="112" y2="77" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="112" y2="102" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="112" y2="127" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="248" y2="28" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="248" y2="80" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <line x1="180" y1="80" x2="248" y2="132" stroke="#0F6E56" stroke-width="0.9" stroke-opacity="0.4"/>
+          <circle cx="180" cy="80" r="28" fill="#5eead4" stroke="#0f766e" stroke-width="2"/>
+          <circle cx="180" cy="80" r="22" fill="none" stroke="#1D9E75" stroke-width="0.5" stroke-opacity="0.5"/>
+          <text x="180" y="85" font-size="13" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">EHR</text>
+          <circle cx="112" cy="27" r="10" fill="#0F6E56"/>
+          <text x="112" y="31" font-size="8" fill="white" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">ICD</text>
+          <circle cx="112" cy="52" r="10" fill="#0F6E56"/>
+          <text x="112" y="56" font-size="7.5" fill="white" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">CPT</text>
+          <circle cx="112" cy="77" r="10" fill="#1D9E75"/>
+          <text x="112" y="81" font-size="8" fill="white" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">Rx</text>
+          <circle cx="112" cy="102" r="10" fill="#1D9E75"/>
+          <text x="112" y="106" font-size="7" fill="white" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">LOINC</text>
+          <circle cx="112" cy="127" r="10" fill="#0F6E56"/>
+          <polyline points="103,127 107,127 109,121 112,133 115,127 121,127" stroke="white" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <g transform="translate(-10,0)">
+          <circle cx="248" cy="28" r="10" fill="#2563EB"/>
+          <path d="M 242 33 C 244 26 250 22 252 22" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <text x="261" y="30" font-size="8" fill="#085041" text-anchor="start" font-family="Inter,sans-serif" opacity="0.85">AUROC</text>
+          <circle cx="248" cy="80" r="10" fill="#2563EB"/>
+          <circle cx="245" cy="77" r="2.2" fill="white"/>
+          <circle cx="251" cy="77" r="2.2" fill="white"/>
+          <path d="M 242 84 Q 242 81 245 81 Q 248 81 248 84" fill="white"/>
+          <path d="M 248 84 Q 248 81 251 81 Q 254 81 254 84" fill="white"/>
+          <text x="261" y="82" font-size="8" fill="#085041" text-anchor="start" font-family="Inter,sans-serif" opacity="0.85">Fairness</text>
+          <circle cx="248" cy="132" r="10" fill="#3B82F6"/>
+          <circle cx="243" cy="128" r="2" fill="white"/>
+          <circle cx="250" cy="128" r="2" fill="white"/>
+          <circle cx="243" cy="135" r="2" fill="white"/>
+          <circle cx="250" cy="135" r="2" fill="white"/>
+          <circle cx="246.5" cy="131.5" r="2" fill="white" fill-opacity="0.5"/>
+          <text x="261" y="134" font-size="8" fill="#085041" text-anchor="start" font-family="Inter,sans-serif" opacity="0.85">Detection</text>
+          </g>
+          <g transform="translate(30,0)">
+          <line x1="270" y1="158" x2="355" y2="158" stroke="#085041" stroke-opacity="0.3" stroke-width="0.75" stroke-linecap="round"/>
+          <line x1="270" y1="18" x2="270" y2="158" stroke="#085041" stroke-opacity="0.3" stroke-width="0.75" stroke-linecap="round"/>
+          <line x1="270" y1="158" x2="355" y2="18" stroke="#085041" stroke-opacity="0.1" stroke-width="0.75" stroke-dasharray="2,2"/>
+          <path d="M 270 158 C 277 70 344 18 355 18" stroke="#0F6E56" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 270 158 C 277 82 345 18 355 18" stroke="#3B82F6" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M 270 158 C 279 95 346 22 355 18" stroke="#8B5CF6" stroke-width="1.3" fill="none" stroke-dasharray="3,2" stroke-linecap="round"/>
+          <text x="273" y="13" font-size="8" fill="#085041" font-family="Inter,sans-serif" font-weight="500" opacity="0.55">ROC</text>
+          </g>
+        </svg>
+      </div>
+      <div class="card-body tint-ehr">
+        <div class="card-domain">EHR · Machine Learning</div>
+        <p class="card-title">PAD detection model for deployment at UCSD</p>
+        <p class="card-desc">Production ML model integrated into Epic for flagging high-risk PAD patients at point of care, with performance drift monitoring.</p>
+        <div class="badge-row">
+          <span class="badge b-blue">XGBoost</span>
+          <span class="badge b-blue">Epic Caboodle</span>
+          <span class="badge b-blue">AWS SageMaker</span>
+          <span class="badge b-green">Clinical deployment</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="project-card" onclick="openProject(2)" onkeydown="handleCardKey(event, 2)" role="button" tabindex="0" data-project-id="2" id="card-2">
+      <div class="card-fig fig-brachy">
+        <svg width="100%" height="175" viewBox="0 0 360 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="brachyPipeBg" x1="0" y1="0" x2="360" y2="175">
+              <stop stop-color="#F5F3FF"/>
+              <stop offset="0.5" stop-color="#EEF2FF"/>
+              <stop offset="1" stop-color="#E0F2FE"/>
+            </linearGradient>
+            <radialGradient id="doseBlob" cx="45%" cy="45%" r="60%">
+              <stop offset="0%" stop-color="#312E81" stop-opacity="0.55"/>
+              <stop offset="38%" stop-color="#7C3AED" stop-opacity="0.32"/>
+              <stop offset="72%" stop-color="#60A5FA" stop-opacity="0.20"/>
+              <stop offset="100%" stop-color="#DBEAFE" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="pipeSoft" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5"/>
+            </filter>
+          </defs>
+          <g transform="translate(24,28)">
+            <text x="47" y="12" font-size="9" fill="#3C3489" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">3D dose prediction</text>
+            <ellipse cx="47" cy="57" rx="44" ry="28" fill="url(#doseBlob)" filter="url(#pipeSoft)"/>
+            <ellipse cx="47" cy="57" rx="39" ry="23" fill="none" stroke="#818CF8" stroke-opacity="0.35"/>
+            <ellipse cx="47" cy="57" rx="28" ry="16" fill="none" stroke="#6366F1" stroke-opacity="0.45"/>
+            <ellipse cx="47" cy="57" rx="17" ry="9" fill="#4F46E5" fill-opacity="0.18" stroke="#4338CA" stroke-opacity="0.55"/>
+            <path d="M18 91 C36 81 62 81 80 91" stroke="#FFFFFF" stroke-width="1.1" stroke-opacity="0.5" stroke-linecap="round"/>
+            <path d="M17 24 C34 34 62 34 79 24" stroke="#FFFFFF" stroke-width="1.1" stroke-opacity="0.38" stroke-linecap="round"/>
+          </g>
+
+          <path d="M124 86 H148" stroke="#7C3AED" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="4 4"/>
+          <path d="M143 80 L150 86 L143 92" stroke="#7C3AED" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <g transform="translate(151,47)">
+            <text x="29" y="7" font-size="9" fill="#3C3489" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">optimize</text>
+            <rect x="4" y="24" width="50" height="28" rx="8" fill="#EEF2FF" fill-opacity="0.78" stroke="#8B5CF6" stroke-opacity="0.58"/>
+            <text x="29" y="41" font-size="9" fill="#312E81" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">COBYLA</text>
+            <path d="M14 62 C23 68 35 68 44 62" stroke="#7C3AED" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.34"/>
+          </g>
+
+          <path d="M215 86 H239" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="4 4"/>
+          <path d="M234 80 L241 86 L234 92" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <g transform="translate(244,31)">
+            <text x="44" y="8" font-size="9" fill="#0C447C" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">DICOM treatment plan</text>
+            <ellipse cx="44" cy="55" rx="28" ry="33" fill="#DBEAFE" fill-opacity="0.72" stroke="#60A5FA" stroke-opacity="0.45"/>
+            <ellipse cx="44" cy="55" rx="13" ry="17" fill="#A78BFA" fill-opacity="0.42" stroke="#7C3AED" stroke-opacity="0.45"/>
+            <path d="M31 18 C35 31 37 80 32 99" stroke="#312E81" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M44 14 C45 31 45 84 44 102" stroke="#312E81" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M57 18 C53 31 51 80 56 99" stroke="#312E81" stroke-width="1.4" stroke-linecap="round"/>
+            <g fill="#312E81">
+              <circle cx="31" cy="36" r="2"/>
+              <circle cx="32" cy="51" r="2"/>
+              <circle cx="32" cy="66" r="2"/>
+              <circle cx="31" cy="82" r="2"/>
+              <circle cx="44" cy="32" r="2"/>
+              <circle cx="44" cy="49" r="2"/>
+              <circle cx="44" cy="67" r="2.8"/>
+              <circle cx="44" cy="85" r="2"/>
+              <circle cx="57" cy="36" r="2"/>
+              <circle cx="56" cy="51" r="2"/>
+              <circle cx="56" cy="66" r="2"/>
+              <circle cx="57" cy="82" r="2"/>
+            </g>
+            <path d="M15 104 C32 112 57 112 74 104" stroke="#FFFFFF" stroke-width="1.2" stroke-opacity="0.62" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+      <div class="card-body tint-brachy">
+        <div class="card-domain">Radiotherapy Data · Treatment Automation</div>
+        <p class="card-title">Automated brachytherapy treatment planning</p>
+        <p class="card-desc">End-to-end framework converting 3D dose predictions into deliverable cervical cancer treatment plans, validated in the clinical workflow.</p>
+        <div class="badge-row">
+          <span class="badge b-purple">Knowledge-based modeling</span>
+          <span class="badge b-purple">Python</span>
+          <span class="badge b-purple">DICOM</span>
+          <span class="badge b-coral">BrachyVision</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="project-card" onclick="openProject(3)" onkeydown="handleCardKey(event, 3)" role="button" tabindex="0" data-project-id="3" id="card-3">
+      <div class="card-fig fig-mri">
+        <svg width="280" height="145" viewBox="0 0 280 145" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="clip-mri-shot"><rect x="10" y="18" width="78" height="95" rx="5"/></clipPath>
+            <clipPath id="clip-histo-shot"><rect x="192" y="18" width="78" height="95" rx="5"/></clipPath>
+          </defs>
+          <!-- MRI slice left (real acquisition) -->
+          <rect x="10" y="18" width="78" height="95" rx="5" fill="#FAECE7" stroke="#F0997B" stroke-width="0.75"/>
+          <image href="img/rsi_card_mri.png" x="10" y="18" width="78" height="95" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-mri-shot)"/>
+          <rect x="10" y="18" width="78" height="95" rx="5" fill="none" stroke="#F0997B" stroke-width="0.75"/>
+          <text x="49" y="126" font-size="7.5" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif">In-vivo MRI</text>
+          <!-- arrow -->
+          <line x1="92" y1="65" x2="108" y2="65" stroke="#888780" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <polygon points="108,62 114,65 108,68" fill="#888780"/>
+          <!-- registration box -->
+          <rect x="114" y="38" width="56" height="54" rx="5" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.75"/>
+          <text x="142" y="55" font-size="7.5" fill="#0C447C" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Multi-modal</text>
+          <text x="142" y="66" font-size="7.5" fill="#0C447C" text-anchor="middle" font-family="Inter,sans-serif">deformable</text>
+          <text x="142" y="77" font-size="7.5" fill="#0C447C" text-anchor="middle" font-family="Inter,sans-serif">registration</text>
+          <text x="142" y="88" font-size="7" fill="#185FA5" text-anchor="middle" font-family="Inter,sans-serif" font-style="italic">RAPSODI</text>
+          <!-- arrow -->
+          <line x1="170" y1="65" x2="186" y2="65" stroke="#888780" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <polygon points="186,62 192,65 186,68" fill="#888780"/>
+          <!-- histopath slice right (real digitized WMHP contour) -->
+          <rect x="192" y="18" width="78" height="95" rx="5" fill="#FAEEDA" stroke="#FAC775" stroke-width="0.75"/>
+          <image href="img/rsi_card_histo.png" x="192" y="18" width="78" height="95" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-histo-shot)"/>
+          <rect x="192" y="18" width="78" height="95" rx="5" fill="none" stroke="#FAC775" stroke-width="0.75"/>
+          <text x="231" y="126" font-size="7.5" fill="#854F0B" text-anchor="middle" font-family="Inter,sans-serif">Histopathology</text>
+        </svg>
+      </div>
+      <div class="card-body tint-mri">
+        <div class="card-domain">Medical Imaging · Image Registration</div>
+        <p class="card-title">Deformable MRI-to-histopathology registration for RSI biomarker validation</p>
+        <p class="card-desc">Pipeline to spatially align in-vivo MRI to whole-mount histopathology, establishing pixel-level ground truth for quantitative MRI biomarker validation.</p>
+        <div class="badge-row">
+          <span class="badge b-coral">Multi-modal deformable image registration</span>
+          <span class="badge b-coral">MRI</span>
+          <span class="badge b-coral">Histopathology</span>
+          <span class="badge b-blue">DICOM</span>
+          <span class="badge b-blue">Python</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /projects-grid -->
+
+  <div style="margin-top:1.75rem; text-align:center;">
+    <a href="projects.html" class="btn btn-outline" style="font-size:14px; padding:10px 28px;">View all projects →</a>
+  </div>
+
+  <!-- Detail panel -->
+  <div id="detail-panel">
+    <div class="detail-fig" id="detail-fig">
+      <button class="detail-close" onclick="closeProject()">✕ Close</button>
+    </div>
+    <div class="detail-body">
+      <div class="detail-main" id="detail-main"></div>
+      <div class="detail-sidebar" id="detail-sidebar"></div>
+    </div>
+  </div>
+
+</section><!-- /projects -->
+
+<!-- ── PUBLICATIONS ── -->
+<section id="publications">
+  <div class="section-header">
+    <h2 class="section-title">Publications</h2>
+  </div>
+  <div class="pub-panel">
+  <div class="pub-list">
+
+    <div class="pub-item">
+      <div class="pub-year">2024</div>
+      <div>
+        <a class="pub-title-link" href="publications.html#kallis-2024-rsi"><p class="pub-title">Quantitative MRI Biomarker for Classification of Clinically Significant Prostate Cancer: Calibration for Reproducibility Across Echo Times</p></a>
+        <p class="pub-authors"><strong>Kallis K</strong>, Conlin CC, Ollison C, Hahn ME, Rakow-Penner R, Dale AM, Seibert TM</p>
+        <p class="pub-journal">Journal of Applied Clinical Medical Physics · 2024</p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2023</div>
+      <div>
+        <a class="pub-title-link" href="publications.html#kallis-2023-pmb"><p class="pub-title">Automated Treatment Planning Framework for Brachytherapy of Cervical Cancer Using 3D Dose Predictions</p></a>
+        <p class="pub-authors"><strong>Kallis K</strong>, Moore LC, Cortes KG, Brown D, Mayadev J, Moore KL, Meyers SM</p>
+        <p class="pub-journal">Physics in Medicine &amp; Biology · 2023</p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2021</div>
+      <div>
+        <a class="pub-title-link" href="publications.html#kallis-2021-needle"><p class="pub-title">Knowledge-Based Dose Prediction Models to Inform Gynecologic Brachytherapy Needle Supplementation for Locally Advanced Cervical Cancers</p></a>
+        <p class="pub-authors"><strong>Kallis K</strong>, Mayadev J, Kisling K, Brown D, Scanderbeg D, Ray X, Cortes K, Simon A, Yashar CM, Einck JP, Mell LK, Moore KL, Meyers SM</p>
+        <p class="pub-journal">Brachytherapy · 2021</p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2019</div>
+      <div>
+        <a class="pub-title-link" href="publications.html#kallis-2019-interfrac"><p class="pub-title">Estimation of Inter-Fractional Variations in Interstitial Multi-Catheter Breast Brachytherapy Using a Hybrid Treatment Delivery System</p></a>
+        <p class="pub-authors"><strong>Kallis K</strong>, Abu-Hossin N, Kreppner S, Lotter M, Strnad V, Fietkau R, Bert C</p>
+        <p class="pub-journal">Radiotherapy and Oncology · 2019</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:1.5rem; text-align:center;">
+    <a href="publications.html" class="btn btn-outline" style="font-size:14px; padding:10px 28px;">View all publications →</a>
+  </div>
+  </div>
+
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="section-header">
+    <h2 class="section-title">Methods &amp; tools</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group theme-blue">
+      <div class="skill-group-label">Programming & libraries</div>
+      <div class="skill-tags">
+        <span class="skill-tag-b">Python</span>
+        <span class="skill-tag-b">SQL</span>
+        <span class="skill-tag-b">R</span>
+        <span class="skill-tag-b">MATLAB</span>
+        <span class="skill-tag-b">C#</span>
+        <span class="skill-tag-b">Java</span>
+        <span class="skill-tag-b">Bash</span>
+        <span class="skill-tag-b">Linux</span>
+        <div style="width:100%; height:0; border-top:1px solid var(--border); margin:4px 0;"></div>
+        <span class="skill-tag">pandas</span>
+        <span class="skill-tag">numpy</span>
+        <span class="skill-tag">scipy</span>
+        <span class="skill-tag">scikit-learn</span>
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">SimpleITK</span>
+        <span class="skill-tag">pydicom</span>
+        <span class="skill-tag">matplotlib</span>
+        <span class="skill-tag">seaborn</span>
+        <span class="skill-tag">awswrangler</span>
+        <span class="skill-tag">Optuna</span>
+        <span class="skill-tag">SHAP</span>
+        <span class="skill-tag">lme4</span>
+        <span class="skill-tag">survival</span>
+        <span class="skill-tag">ggplot2</span>
+        <span class="skill-tag">tidyverse</span>
+      </div>
+    </div>
+    <div class="skill-group theme-purple">
+      <div class="skill-group-label">Machine learning</div>
+      <div class="skill-tags">
+        <span class="skill-tag-b">Classification</span>
+        <span class="skill-tag-b">Segmentation</span>
+        <span class="skill-tag-b">Clustering</span>
+        <span class="skill-tag-b">Deep learning</span>
+        <span class="skill-tag-b">Representation learning</span>
+        <span class="skill-tag-b">Word embedding</span>
+        <span class="skill-tag-b">Optimization</span>
+        <div style="width:100%; height:0; border-top:1px solid var(--border); margin:6px 0 4px;"></div>
+        <span class="skill-tag">Logistic regression</span>
+        <span class="skill-tag">Random Forest</span>
+        <span class="skill-tag">XGBoost / Gradient boosting</span>
+        <span class="skill-tag">K-means</span>
+        <span class="skill-tag">GMM</span>
+        <span class="skill-tag">CNN</span>
+        <span class="skill-tag">ResNet</span>
+        <span class="skill-tag">U-Net</span>
+        <span class="skill-tag">Autoencoder</span>
+        <span class="skill-tag">PCA</span>
+        <span class="skill-tag">GLRM</span>
+        <span class="skill-tag">Word2Vec</span>
+        <span class="skill-tag">Gradient descent</span>
+      </div>
+    </div>
+    <div class="skill-group theme-teal">
+      <div class="skill-group-label">Statistical analysis</div>
+      <div class="skill-tags">
+        <span class="skill-tag-b">Phenotyping</span>
+        <span class="skill-tag-b">Observational study design</span>
+        <span class="skill-tag-b">Outcome modeling</span>
+        <span class="skill-tag-b">Model evaluation</span>
+        <span class="skill-tag-b">Fairness</span>
+        <span class="skill-tag-b">Generalizability</span>
+        <div style="width:100%; height:0; border-top:1px solid var(--border); margin:6px 0 4px;"></div>
+        <span class="skill-tag">Mixed effects models</span>
+        <span class="skill-tag">AUROC / AUPRC</span>
+        <span class="skill-tag">Cox proportional hazards</span>
+        <span class="skill-tag">Calibration</span>
+        <span class="skill-tag">Propensity score matching</span>
+        <span class="skill-tag">Bootstrapping</span>
+        <span class="skill-tag">Cross-site validation</span>
+        <span class="skill-tag">Performance drift</span>
+        <span class="skill-tag">Kaplan-Meier survival curves</span>
+      </div>
+    </div>
+    <div class="skill-group theme-green">
+      <div class="skill-group-label">Real-world data</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Epic Caboodle</span>
+        <span class="skill-tag">Epic COSMOS</span>
+        <span class="skill-tag">ICD · CPT · LOINC · RxNorm · ATC</span>
+        <span class="skill-tag">SNOMED CT</span>
+        <span class="skill-tag">REDCap</span>
+        <span class="skill-tag">OMOP CDM</span>
+        <span class="skill-tag">Imputation</span>
+        <span class="skill-tag">Selection bias</span>
+      </div>
+    </div>
+    <div class="skill-group theme-coral">
+      <div class="skill-group-label">Medical imaging</div>
+      <div class="skill-tags">
+        <span class="skill-tag">DICOM / PACS</span>
+        <span class="skill-tag">CT · CBCT</span>
+        <span class="skill-tag">MRI · DWI · RSI</span>
+        
+        <span class="skill-tag">ITK · SimpleITK · VTK</span>
+        <span class="skill-tag">Image registration</span>
+        <span class="skill-tag">EM tracking</span>
+        <span class="skill-tag">RTStruct · RTDose · RTPlan</span>
+        <span class="skill-tag">Dose-volume histogram (DVH)</span>
+      </div>
+    </div>
+    <div class="skill-group theme-amber">
+      <div class="skill-group-label">Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">AWS SageMaker</span>
+        <span class="skill-tag">AWS Athena</span>
+        <span class="skill-tag">AWS S3</span>
+        <span class="skill-tag">Databricks</span>
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">Jupyter</span>
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">Claude Code</span>
+        <span class="skill-tag">GitHub Copilot</span>
+        <span class="skill-tag">Epic EHR</span>
+        <span class="skill-tag">Asana</span>
+        <span class="skill-tag">3D Slicer</span>
+        <span class="skill-tag">ImageJ</span>
+        <span class="skill-tag">Sectra</span>
+        <span class="skill-tag">Eclipse / RapidPlan</span>
+        <span class="skill-tag">OncentraBrachy</span>
+        <span class="skill-tag">MIM</span>
+        <span class="skill-tag">BrachyVision</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-header">
+    <h2 class="section-title">About</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text-wrap">
+      <p class="about-text">
+        My path into healthcare data science started in radiation oncology, a field that drew me in because it brings together physics, imaging, biology, treatment planning, and patient care to solve highly applied clinical problems. I grew up in Germany and completed my higher education there, including a PhD in Medical Physics, before moving to the United States for postdoctoral research at UC San Diego.
+      </p>
+      <p class="about-text">
+        Since then, my work has expanded from radiation treatment planning and quantitative imaging to large-scale EHR-based research. Today, I work on multi-institutional phenotyping and prediction models using real-world clinical data across the UC Health system. Across these projects, I have been most motivated by the same goal: turning complex healthcare data into useful tools and insights that can support clinical decision-making.
+      </p>
+      <p class="about-text">
+        I am especially interested in work that sits at the intersection of data, clinical care, and product development. I enjoy learning across disease areas and data types, working with interdisciplinary teams, and building solutions that can move beyond research and create real impact for patients and healthcare systems.
+      </p>
+    </div>
+    <ul class="cred-list">
+      <li class="cred-item">
+        <div class="cred-icon">🎓</div>
+        <div>
+          <div class="cred-title">PhD, Medical Physics</div>
+          <div class="cred-sub">Friedrich-Alexander University Erlangen-Nuremberg (FAU), 2019</div>
+        </div>
+      </li>
+      <li class="cred-item">
+        <div class="cred-icon">🎓</div>
+        <div>
+          <div class="cred-title">MSc, Medical Engineering</div>
+          <div class="cred-sub">Specialization: Medical image & data processing · FAU, 2016</div>
+        </div>
+      </li>
+      <li class="cred-item">
+        <div class="cred-icon">🎓</div>
+        <div>
+          <div class="cred-title">BSc, Biomedical Engineering</div>
+          <div class="cred-sub">Technical University of Ilmenau, 2014</div>
+        </div>
+      </li>
+      <li class="cred-item">
+        <div class="cred-icon">🏅</div>
+        <div>
+          <div class="cred-title">COSMOS Data Architect & Data Scientist Certified</div>
+          <div class="cred-sub">Epic, 2025</div>
+        </div>
+      </li>
+      <li class="cred-item">
+        <div class="cred-icon">📍</div>
+        <div>
+          <div class="cred-title">San Diego, CA</div>
+          <div class="cred-sub">Willing to relocate</div>
+        </div>
+      </li>
+      <li class="cred-item">
+        <div class="cred-icon">🌐</div>
+        <div>
+          <div class="cred-title">German (native) · English (fluent)</div>
+          <div class="cred-sub">French · Spanish</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <strong>Karoline Kallis, PhD</strong> · karo.kallis@googlemail.com · San Diego, CA
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/karokallis" target="_blank">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=iqxNWfQAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/karoline-kallis/" target="_blank">LinkedIn</a>
+      <a href="mailto:karo.kallis@googlemail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const projects = [
+  {
+    title: "Guideline-concordant PAD care across a national EHR cohort",
+    domain: "EHR · Epidemiology",
+    meta: "Research Scientist · UCSD Department of Surgery · 2024–present",
+    pub: "In preparation",
+    newFormat: true,
+    status: "Ongoing",
+    keywords: ["Real-world evidence","Longitudinal EHR analysis","Outcomes modeling","Equity analytics","Clinical quality measurement"],
+    background: "Despite established cardiovascular prevention guidelines, PAD remains undertreated in routine care. This study evaluated achievement of four MIPS quality measures: blood pressure control, tobacco-free status, antiplatelet therapy, and statin therapy. Using 1.2 million PAD patients across a national EHR network, it examined how care quality changed over three years by demographic, socioeconomic, and clinical subgroups.",
+    data: "Epic COSMOS · Structured EHR data · ICD · CPT · ATC · LOINC",
+    myRole: "Designed the study and defined the cohort using SQL. Built all analysis pipelines in Python including logistic regression, linear mixed effect models, and time-varying Cox hazard models. Calculated Elixhauser comorbidity scores and constructed all quality measure definitions from ICD, CPT, ATC, and LOINC codes using regex and ontology-based lookups.",
+    methods: ["Logistic regression","Mixed effect model","Cox proportional hazards","SQL","Python","pandas","numpy","statsmodels","matplotlib","seaborn"],
+    keyResults: [
+      "Only 10.7% of patients achieved all four quality measures in the first year after PAD diagnosis",
+      "Black patients had substantially lower blood pressure control than White patients (OR 0.64) even after adjustment",
+      "Quality index improved most in the first year then plateaued, remaining below 60% across all subgroups",
+      "Complete quality measure achievement associated with lower hazard of vascular procedures in CLTI patients (HR 0.89)"
+    ],
+    figClass: "fig-ehr",
+    figSvg: `<img src="trajectories_QI.png" alt="Composite quality index trajectories by subgroup" onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;border-radius:6px;cursor:zoom-in;display:block;" />
+    <svg style="display:none" width="560" height="230" viewBox="0 0 560 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="16" y="20" font-size="11" fill="#085041" font-family="Inter,sans-serif" font-weight="500">Epic COSMOS EHR cohort → quality measure assessment → longitudinal subgroup analysis → outcomes</text>
+      <rect x="12" y="36" width="80" height="150" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.75"/>
+      <text x="52" y="58" font-size="9" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">1.2M patients</text>
+      <rect x="20" y="66" width="56" height="7" rx="2" fill="#1D9E75" fill-opacity="0.45"/>
+      <rect x="20" y="78" width="44" height="7" rx="2" fill="#1D9E75" fill-opacity="0.38"/>
+      <rect x="20" y="90" width="50" height="7" rx="2" fill="#1D9E75" fill-opacity="0.32"/>
+      <rect x="20" y="102" width="38" height="7" rx="2" fill="#1D9E75" fill-opacity="0.28"/>
+      <rect x="20" y="114" width="46" height="7" rx="2" fill="#1D9E75" fill-opacity="0.24"/>
+      <text x="52" y="146" font-size="8.5" fill="#0F6E56" text-anchor="middle" font-family="Inter,sans-serif">ICD · CPT</text>
+      <text x="52" y="158" font-size="8.5" fill="#0F6E56" text-anchor="middle" font-family="Inter,sans-serif">ATC · LOINC</text>
+      <text x="52" y="170" font-size="8.5" fill="#0F6E56" text-anchor="middle" font-family="Inter,sans-serif">Epic COSMOS</text>
+      <line x1="93" y1="111" x2="118" y2="111" stroke="#1D9E75" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <rect x="118" y="64" width="100" height="94" rx="6" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.75"/>
+      <text x="168" y="88" font-size="9" fill="#0C447C" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Quality measures</text>
+      <text x="168" y="103" font-size="8.5" fill="#185FA5" text-anchor="middle" font-family="Inter,sans-serif">Blood pressure control</text>
+      <text x="168" y="116" font-size="8.5" fill="#185FA5" text-anchor="middle" font-family="Inter,sans-serif">Tobacco-free status</text>
+      <text x="168" y="129" font-size="8.5" fill="#185FA5" text-anchor="middle" font-family="Inter,sans-serif">Antiplatelet therapy</text>
+      <text x="168" y="142" font-size="8.5" fill="#185FA5" text-anchor="middle" font-family="Inter,sans-serif">Statin therapy</text>
+      <text x="168" y="158" font-size="8" fill="#0C447C" text-anchor="middle" font-family="Inter,sans-serif" font-style="italic">MIPS Measure 441</text>
+      <line x1="218" y1="111" x2="242" y2="111" stroke="#185FA5" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <rect x="242" y="46" width="110" height="130" rx="6" fill="#FAEEDA" stroke="#FAC775" stroke-width="0.75"/>
+      <text x="297" y="68" font-size="9" fill="#633806" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Subgroup analysis</text>
+      <text x="297" y="84" font-size="8.5" fill="#854F0B" text-anchor="middle" font-family="Inter,sans-serif">Race / ethnicity</text>
+      <text x="297" y="97" font-size="8.5" fill="#854F0B" text-anchor="middle" font-family="Inter,sans-serif">Insurance type</text>
+      <text x="297" y="110" font-size="8.5" fill="#854F0B" text-anchor="middle" font-family="Inter,sans-serif">Sex</text>
+      <text x="297" y="123" font-size="8.5" fill="#854F0B" text-anchor="middle" font-family="Inter,sans-serif">PAD severity</text>
+      <text x="297" y="140" font-size="8.5" fill="#854F0B" text-anchor="middle" font-family="Inter,sans-serif">SVI · Rurality</text>
+      <text x="297" y="158" font-size="8" fill="#633806" text-anchor="middle" font-family="Inter,sans-serif" font-style="italic">3yr longitudinal follow-up</text>
+      <line x1="352" y1="111" x2="376" y2="111" stroke="#BA7517" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <rect x="376" y="36" width="96" height="150" rx="6" fill="#FAECE7" stroke="#F0997B" stroke-width="0.75"/>
+      <text x="424" y="58" font-size="9" fill="#712B13" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Outcomes</text>
+      <text x="424" y="76" font-size="8.5" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif">Logistic regression</text>
+      <text x="424" y="89" font-size="8.5" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif">Mixed effects models</text>
+      <text x="424" y="102" font-size="8.5" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif">Cox proportional hazards</text>
+      <text x="424" y="120" font-size="9" fill="#712B13" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">10.7% full concordance</text>
+      <text x="424" y="136" font-size="8.5" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif">Disparities by race</text>
+      <text x="424" y="149" font-size="8.5" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif">sex, insurance</text>
+      <text x="424" y="166" font-size="8" fill="#712B13" text-anchor="middle" font-family="Inter,sans-serif" font-style="italic">amputation · vascular Rx</text>
+    </svg>`,
+    paperUrl: null,
+    githubUrl: null
+  },
+  {
+    title: "PAD detection across 5 health systems",
+    domain: "EHR · Machine Learning",
+    meta: "Research Scientist · UCSD Department of Surgery · 2024–present",
+    pub: "In preparation",
+    conference: "Kallis K, Ross E. Assessing performance and generalizability of AI-based PAD detection models across California health systems. Vascular Annual Meeting 2025. Poster.",
+    newFormat: true, status: "Ongoing",
+    keywords: ["Multi-site ML validation","EHR feature engineering","Phenotype discovery","Fairness evaluation","LightGBM pipeline"],
+    background: "PAD affects roughly 12 million Americans but is heavily underdiagnosed. EHR prevalence at UC Health was only 1.3 to 2.4% while population estimates reach 5.6%, and patients were in the health system an average of four years before receiving a PAD code. This study developed and evaluated a generalizable ML model for PAD detection across 5 UC Health systems, assessing model performance and fairness across demographic subgroups and patient phenotypes.",
+    data: "UC Health Data Warehouse (UCHDW) · Structured EHR data · OMOP format · 5 UC Health systems · 33,739 PAD patients + 33,739 matched controls · Concept codes · Vitals · Labs",
+    myRole: "Owned the full ML pipeline from cohort design to fairness evaluation across 5 UC Health systems. Defined PAD cases using OMOP concept codes and built a 1:1 propensity-matched case-control cohort of 33,739 patients. Engineered 14,023 features as code occurrence counts across four time windows, plus continuous lab values, vital signs, and demographics, represented as a sparse matrix. Trained a LightGBM classifier with Bayesian hyperparameter optimization via Optuna. Applied dimensionality reduction followed by Gaussian Mixture Model clustering to identify 4 clinically distinct patient phenotypes. Evaluated model fairness across sex, race, age, social vulnerability index, health system, and phenotypic subgroups using selection rates and equalized odds.",
+    methods: ["LightGBM","Dimensionality reduction","Gaussian Mixture Model","Propensity matching","SHAP","Optuna","SQL","Python","Databricks","Fairness evaluation"],
+    keyResults: [
+      "AUROC 0.76 to 0.79 consistent across all 5 health systems",
+      "Unsupervised clustering revealed 4 clinically distinct PAD phenotypes spanning healthcare utilization, metabolic burden, and comorbidity profiles",
+      "Phenotype AUROC ranged from 0.66 (sparse data cluster) to 0.89 (metabolic cluster)",
+      "Performance stable across sex; modest variation by race and age",
+      "Phenotypic clustering revealed fairness considerations beyond standard demographic subgrouping"
+    ],
+    figClass: "fig-ehr",
+    figSvg: `<img src="figure3.png" alt="Patient phenotype cluster characteristics — coefficient plots for 4 PAD clusters" onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    paperUrl: null, githubUrl: null
+  },
+  {
+    title: "Automated brachytherapy treatment planning",
+    domain: "Radiotherapy Data · Treatment Automation",
+    meta: "Postdoctoral Fellow · UCSD Radiation Medicine & Applied Sciences · 2019–2022",
+    pub: "Physics in Medicine & Biology 2023 · Brachytherapy 2021 (×2)",
+    newFormat: true,
+    status: "Published",
+    keywords: ["End-to-end ML pipeline","Dose-to-plan optimization","Physics-informed optimization","DICOM RT integration","Clinical workflow validation"],
+    figClass: "fig-brachy",
+    figSvg: `<img src="img/automated_treatment.png" alt="Automated brachytherapy treatment planning workflow" onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    problem: "Brachytherapy treatment planning for cervical cancer is time-intensive, requires expert physicists, and is highly operator-dependent. The full automation chain — from dose prediction to a machine-readable deliverable plan — had not been demonstrated for this indication.",
+    contribution: "Owned the automated planning software pipeline around an existing 3D dose prediction model: exported and preprocessed RT DICOM data, implemented the Python optimizer that converts predicted dose into deliverable dwell times, generated updated RT Plan files, evaluated plan quality against clinical benchmarks, and prepared the manuscript.",
+    background: "Cervical cancer brachytherapy planning is performed in a narrow clinical window, often while the patient remains under anesthesia, and depends on expert physicists manually translating anatomy, applicator geometry, and dose constraints into deliverable dwell times. Prior ML work could predict patient-specific 3D dose distributions, but those predictions were not directly usable by the treatment machine. This project addressed the missing engineering step: converting model-predicted dose into a clinically deliverable DICOM treatment plan.",
+    data: "UCSD cervical cancer brachytherapy RT DICOM data · 40 clinical validation plans (T&O/T&R with 0-3 needles) · 10 T&O automated-planning cases · CT images · RTStruct contours · RT Plan/RP dwell positions and times · RT Dose grids · model-predicted 3D dose distributions",
+    myRole: "Owned the software and analysis pipeline downstream of the existing 3D dose prediction model. Exported and preprocessed RT DICOM data, built the Python-coded COBYLA optimizer that converts predicted dose distributions into optimized dwell times, generated updated RT Plan files for import back into the clinical workflow, evaluated automated plans against clinical benchmarks, created figures and analyses, and prepared the manuscript.",
+    tools: [["Python","b-purple"],["COBYLA optimizer","b-purple"],["Knowledge-based modeling","b-purple"],["DICOM","b-purple"],["Spatial interpolation","b-coral"],["MIM","b-purple"],["BrachyVision","b-purple"],["PACS query scripts","b-blue"]],
+    results: ["Plan quality matched manual benchmarks","Validated in clinical workflow at UCSD","First automated dose-to-plan pipeline for cervical brachytherapy","PMB 2023 · Brachytherapy 2021 (×2)"],
+    methods: ["Python","COBYLA optimizer","SciPy","Knowledge-based modeling","3D dose prediction","Dose-to-dwell optimization","DICOM RTStruct","DICOM RT Plan/RP","BrachyVision","MIM"],
+    keyResults: [
+      "First end-to-end automated dose-to-plan pipeline for cervical brachytherapy",
+      "Converted predicted 3D dose distributions into deliverable dwell times",
+      "Plan quality matched manual clinical benchmarks",
+      "Validated within the UCSD clinical workflow",
+      "Published in Physics in Medicine & Biology 2023 with related Brachytherapy studies"
+    ],
+    paperUrl: "https://doi.org/10.1088/1361-6560/acc37c",
+    githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub%20access%20request%20-%20automated%20brachytherapy%20planning&body=Hi%20Karoline%2C%20I%20would%20like%20to%20request%20access%20to%20your%20GitHub%20repository%20for%20the%20automated%20brachytherapy%20treatment%20planning%20project."
+  },
+  {
+    title: "Deformable MRI-to-histopathology registration for RSI biomarker validation",
+    domain: "Medical Imaging · Prostate Cancer",
+    meta: "Postdoctoral Fellow · UCSD Department of Radiology · 2022–2024",
+    pub: null,
+    newFormat: true, status: "Continued",
+    keywords: ["Medical image registration","MRI-to-pathology pipeline","Quantitative biomarker validation","DICOM RTStruct export","Clinical research tooling"],
+    figClass: "fig-mri",
+    figSvg: `<img src="img/Picture1.png" alt="MRI to histopathology registration pipeline" onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "RSI (Restriction Spectrum Imaging) is an emerging quantitative MRI biomarker for detecting clinically significant prostate cancer. To validate and train RSI-based models, spatially accurate ground truth from pathology is essential. 2D whole-mount histopathology after prostatectomy provides definitive cancer location and Gleason score, but aligning ex-vivo tissue slices to in-vivo MRI is challenging due to tissue deformation during surgery and processing.",
+    data: "In-vivo pre-surgical MRI (T2w, DWI, RSI) · 2D whole-mount histopathology slices post-prostatectomy · DICOM RTStruct",
+    myRole: "Digitized 2D whole-mount histopathology slices and worked with a pathologist to annotate cancer extent and Gleason score. Developed the multi-modal deformable image registration pipeline to spatially align in-vivo MRI (T2w, DWI, RSI) to the annotated histopathology slices, building on the RAPSODI framework (Rusu et al., Med Phys 2020), implementing rigid, affine, and deformable registration to correct for tissue deformation during surgery and fixation. Wrote out the deformed histopathology structures as DICOM RTStruct files and uploaded them in MIM for clinical verification of the registered contours. Maintained the REDCap database tracking patient cases and documentation throughout the study, and conducted exploratory data analysis to support the research grant funding this work.",
+    methods: ["Multi-modal deformable image registration","RAPSODI","SimpleITK","pydicom","Python","3D Slicer","MIM","REDCap","DICOM RTStruct","Exploratory data analysis"],
+    keyResults: [
+      "Spatially registered MRI-histopathology dataset established specifically for RSI biomarker validation",
+      "Pipeline corrects for tissue shrinkage and deformation from prostatectomy",
+      "Deformed histopathology contours exported as DICOM RTStruct and clinically verified in MIM",
+      "Manuscript submitted"
+    ],
+    paperUrl: null,
+    githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub%20access%20request%20%E2%80%94%20MRI-histopathology%20registration&body=Hi%20Karoline%2C%20I%20would%20like%20to%20request%20access%20to%20your%20GitHub%20repository%20for%20the%20MRI-histopathology%20registration%20project.",
+  },
+  {
+    title: "Electromagnetic tracking QA for breast brachytherapy",
+    domain: "Brachytherapy QA · Clinical Study",
+    meta: "PhD · University Hospital Erlangen · 2016–2019 · In collaboration with Elekta",
+    pub: "Physics in Medicine & Biology 2018, 2019 · Radiotherapy & Oncology 2019 (×3)",
+    figClass: "fig-em",
+    figSvg: `<svg width="560" height="230" viewBox="0 0 560 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="16" y="20" font-size="11" fill="#27500A" font-family="Inter,sans-serif" font-weight="500">EM sensor → catheter tracking → inter-fractional motion analysis → QA error detection</text>
+      <ellipse cx="80" cy="95" rx="56" ry="46" fill="#C0DD97" fill-opacity="0.28" stroke="#639922" stroke-width="0.75"/>
+      <line x1="46" y1="38" x2="62" y2="72" stroke="#3B6D11" stroke-width="2"/>
+      <line x1="60" y1="35" x2="70" y2="72" stroke="#3B6D11" stroke-width="2"/>
+      <line x1="74" y1="34" x2="78" y2="72" stroke="#3B6D11" stroke-width="2"/>
+      <line x1="88" y1="35" x2="86" y2="72" stroke="#3B6D11" stroke-width="2"/>
+      <line x1="102" y1="38" x2="96" y2="72" stroke="#3B6D11" stroke-width="2"/>
+      <text x="80" y="158" font-size="8.5" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">Breast phantom / patient</text>
+      <text x="80" y="170" font-size="8.5" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">50+ patients · clinical study</text>
+      <line x1="138" y1="95" x2="162" y2="95" stroke="#0F6E56" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <circle cx="204" cy="78" r="34" fill="#9FE1CB" fill-opacity="0.4" stroke="#1D9E75" stroke-width="0.75"/>
+      <text x="204" y="72" font-size="9" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">EM tracking</text>
+      <text x="204" y="85" font-size="8.5" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif">Hybrid Flexitron</text>
+      <text x="204" y="98" font-size="8" fill="#0F6E56" text-anchor="middle" font-family="Inter,sans-serif" font-style="italic">Elekta prototype</text>
+      <line x1="238" y1="78" x2="265" y2="78" stroke="#0F6E56" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <rect x="265" y="48" width="110" height="60" rx="6" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.75"/>
+      <text x="320" y="72" font-size="9" fill="#0C447C" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">MATLAB algorithms</text>
+      <text x="320" y="86" font-size="8.5" fill="#185FA5" text-anchor="middle" font-family="Inter,sans-serif">catheter reconstruction</text>
+      <text x="320" y="99" font-size="8.5" fill="#185FA5" text-anchor="middle" font-family="Inter,sans-serif">inter-fractional motion</text>
+      <line x1="240" y1="115" x2="265" y2="110" stroke="#0F6E56" stroke-width="1.25" stroke-dasharray="4,2.5"/>
+      <rect x="265" y="120" width="110" height="52" rx="6" fill="#FAECE7" stroke="#F0997B" stroke-width="0.75"/>
+      <text x="320" y="142" font-size="9" fill="#712B13" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">QA error detection</text>
+      <text x="320" y="156" font-size="8.5" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif">catheter shift · recon variability</text>
+      <text x="320" y="167" font-size="8" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif" font-style="italic">clinical alert system</text>
+      <rect x="392" y="58" width="86" height="106" rx="6" fill="#EAF3DE" stroke="#97C459" stroke-width="0.75"/>
+      <text x="435" y="82" font-size="9" fill="#27500A" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Outcome</text>
+      <text x="435" y="100" font-size="8.5" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">Error detection</text>
+      <text x="435" y="113" font-size="8.5" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">validated in vivo</text>
+      <text x="435" y="130" font-size="8.5" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">adaptive planning</text>
+      <text x="435" y="143" font-size="8.5" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">feasibility shown</text>
+      <text x="435" y="156" font-size="8" fill="#27500A" text-anchor="middle" font-family="Inter,sans-serif" font-style="italic">5 publications</text>
+      <line x1="375" y1="78" x2="392" y2="78" stroke="#3B6D11" stroke-width="1.5"/>
+      <line x1="375" y1="145" x2="392" y2="145" stroke="#3B6D11" stroke-width="1.5"/>
+    </svg>`,
+    problem: "In multi-catheter breast brachytherapy, catheters shift between treatment fractions and reconstruction errors introduce clinically significant dosimetric uncertainty. No real-time automated system existed to detect these errors during treatment delivery.",
+    contribution: "Developed and validated QA algorithms using electromagnetic tracking integrated into the Flexitron afterloader prototype (Elekta). Conducted and analyzed a clinical study with 50+ breast cancer patients. Collaborated directly with Elekta on hardware integration and provided engineering feedback. Results directly informed prototype development and adaptive planning feasibility.",
+    tools: [["MATLAB","b-green"],["EM tracking (Flexitron)","b-green"],["DICOM","b-green"],["OncentraBrachy","b-green"],["Statistical analysis","b-teal"],["Clinical study design","b-teal"]],
+    results: ["50+ patient clinical study","Error detection validated in vivo","Adaptive planning feasibility demonstrated","PMB 2018 · PMB 2019 · Radiotherapy & Oncology 2019 (×3)"],
+    paperUrl: "https://doi.org/10.1088/1361-6560/aabb5a",
+    githubUrl: "https://github.com/karokallis"
+  },
+  {
+    title: "PAD detection model for deployment at UCSD",
+    domain: "EHR · Machine Learning",
+    meta: "Research Scientist · UCSD Department of Surgery · 2024–present",
+    pub: null,
+    newFormat: true, status: "In production",
+    keywords: ["Clinical ML deployment","XGBoost pipeline","Epic Caboodle integration","Model monitoring","Decision support workflow"],
+    figSvg: `<img src="img/pub_figures/fig_pad_detection_roc.png" alt="PAD detection model ROC curve" onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "PAD is heavily underdiagnosed at UCSD Health, with an EHR prevalence of roughly 1% compared to population estimates of 5–8%. Most patients are asymptomatic until severe disease sets in, missing the window for preventive care. This project translates an ML-based PAD detection model into a production clinical tool integrated with Epic, flagging high-risk patients with upcoming appointments so clinicians can order an ABI and intervene early.",
+    data: "UC San Diego Health · Epic Caboodle · Longitudinal structured EHR data · ICD · CPT · LOINC · ATC",
+    myRole: "Defined the patient cohort and feature engineering strategy using Epic Caboodle and SQL. Developed and trained the XGBoost model with Optuna hyperparameter optimization. Created validation datasets and conducted Epic chart reviews to characterize what the model flags. Built performance drift monitoring and implemented SHAP-based explainability. Deployed model pipeline on AWS SageMaker.",
+    methods: ["XGBoost","Optuna","SHAP","AWS SageMaker","Epic Caboodle","SQL","Python","Jupyter","Performance drift monitoring","Epic chart review"],
+    keyResults: [
+      "Model deployed in clinical workflow at UCSD Health",
+      "Flags high-risk PAD patients with upcoming appointments for ABI ordering",
+      "Performance drift monitoring in place post-deployment",
+      "SHAP explainability integrated to support clinical trust"
+    ],
+    githubNote: "GitHub access available on request",
+    githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub access request — PAD deployment model",
+    paperUrl: null
+  }
+];
+
+let activeProject = -1;
+
+function openProject(i) {
+  const panel = document.getElementById('detail-panel');
+  const fig = document.getElementById('detail-fig');
+  const main = document.getElementById('detail-main');
+  const sidebar = document.getElementById('detail-sidebar');
+  const p = projects[i];
+
+  document.querySelectorAll('.project-card').forEach(c => {
+    c.classList.toggle('active', Number(c.dataset.projectId) === i);
+  });
+
+  if (p.newFormat) {
+    // For new format: figure goes in the right column, no top banner
+    fig.style.display = 'none';
+
+    const kwTags = p.keywords.map(k => `<span class="badge b-blue" style="font-size:12px;padding:4px 11px;">${k}</span>`).join('');
+    const badgePalette = ['b-blue','b-teal','b-purple','b-coral','b-green','b-amber'];
+    const methodTags = p.methods.map((m,i) => `<span class="badge ${badgePalette[i % badgePalette.length]}" style="font-size:12px;padding:4px 11px;">${m}</span>`).join('');
+    const resultItems = p.keyResults.map(r => `<li style="margin-bottom:6px;">${r}</li>`).join('');
+    const statusColor = p.status === 'Ongoing' ? 'color:#0F6E56;background:#E1F5EE;' : p.status === 'In production' ? 'color:#185FA5;background:#E6F1FB;' : p.status === 'Published' ? 'color:#533AB7;background:#EEEDFE;' : p.status === 'Submitted' ? 'color:#0C447C;background:#DBEAFE;' : p.status === 'Continued' ? 'color:#6B5EAB;background:#EEEBF8;' : p.status === 'Research Grant' ? 'color:#854F0B;background:#FEF3C7;' : 'color:var(--muted);background:var(--bg-soft);border:1px solid var(--border);';
+
+    main.innerHTML = `
+      <button class="detail-close" onclick="closeProject()" style="margin-bottom:0.75rem;">✕ Close</button>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.5rem;">
+        <p class="detail-title" style="margin:0;">${p.title}</p>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 12px;border-radius:6px;flex-shrink:0;${statusColor}">
+          <span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block;"></span>${p.status}
+        </span>
+      </div>
+      ${p.conference ? `<p style="font-size:12px;color:#6b7280;font-style:italic;margin:0 0 0.75rem;">${p.conference}</p>` : ''}
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem;">${kwTags}</div>
+      <div class="detail-section">
+        <div class="detail-section-label">Background</div>
+        <p class="detail-text">${p.background}</p>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-label">Data</div>
+        <p class="detail-text">${p.data}</p>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-label">Contribution</div>
+        <p class="detail-text">${p.myRole}</p>
+      </div>
+      <div class="detail-links">
+        ${p.paperUrl ? `<a class="detail-link-btn" href="${p.paperUrl}" target="_blank">📄 ${p.pub || 'View paper'}</a>` : p.pub ? `<span class="detail-link-btn" style="opacity:0.5;cursor:default;">📄 ${p.pub}</span>` : ''}
+        ${p.githubUrl ? `<a class="detail-link-btn" href="${p.githubUrl}" ${p.githubUrl.startsWith('mailto') ? '' : 'target="_blank"'}>${p.githubUrl.startsWith('mailto') ? '✉ Request GitHub access' : '⌥ GitHub'}</a>` : p.githubNote ? `<span class="detail-link-btn" style="opacity:0.65;cursor:default;">⌥ ${p.githubNote}</span>` : ''}
+      </div>
+    `;
+    sidebar.innerHTML = `
+      <div style="margin-bottom:1.25rem;">${p.figSvg}</div>
+      <div class="detail-section">
+        <div class="detail-section-label">Methods &amp; tools</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;">${methodTags}</div>
+      </div>
+      <div class="detail-section" style="margin-top:1.25rem;">
+        <div class="detail-section-label">Key results</div>
+        <ul style="margin:4px 0 0;padding-left:1.25rem;font-size:13px;color:var(--muted);line-height:1.75;">${resultItems}</ul>
+      </div>
+    `;
+  } else {
+    fig.style.display = '';
+    fig.className = 'detail-fig ' + p.figClass;
+    fig.innerHTML = `<button class="detail-close" onclick="closeProject()">✕ Close</button>${p.figSvg}`;
+
+    const toolBadges = p.tools.map(([t, cls]) =>
+      `<span class="badge ${cls}" style="font-size:12px;padding:4px 11px;">${t}</span>`
+    ).join('');
+    const resultChips = p.results.map(r =>
+      `<span class="result-chip">${r}</span>`
+    ).join('');
+    main.innerHTML = `
+      <p class="detail-title">${p.title}</p>
+      <div class="detail-section">
+        <div class="detail-section-label">The problem</div>
+        <p class="detail-text">${p.problem}</p>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-label">My contribution</div>
+        <p class="detail-text">${p.contribution}</p>
+      </div>
+      <div class="detail-links">
+        ${p.paperUrl ? `<a class="detail-link-btn" href="${p.paperUrl}" target="_blank">📄 ${p.pub || 'View paper'}</a>` : '<span class="detail-link-btn" style="opacity:0.5;cursor:default;">📄 Paper (submitted)</span>'}
+        ${p.githubUrl ? `<a class="detail-link-btn" href="${p.githubUrl}" target="_blank">⌥ GitHub</a>` : ''}
+      </div>
+    `;
+    sidebar.innerHTML = `
+      <div class="detail-section">
+        <div class="detail-section-label">Methods &amp; tools</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;">${toolBadges}</div>
+      </div>
+      <div class="detail-section" style="margin-top:1.25rem;">
+        <div class="detail-section-label">Key results</div>
+        <div>${resultChips}</div>
+      </div>
+    `;
+  }
+
+  if (!panel.classList.contains('open') || activeProject !== i) {
+    panel.classList.add('open');
+    setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+  }
+  activeProject = i;
+}
+
+function closeProject() {
+  document.getElementById('detail-panel').classList.remove('open');
+  document.querySelectorAll('.project-card').forEach(c => c.classList.remove('active'));
+  activeProject = -1;
+}
+
+function handleCardKey(event, i) {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    openProject(i);
+  }
+}
+
+// Auto-open project from URL hash e.g. #project-0
+window.addEventListener('DOMContentLoaded', () => {
+  const match = window.location.hash.match(/^#project-(\d+)$/);
+  if (match) {
+    const idx = parseInt(match[1]);
+    if (idx >= 0 && idx < projects.length) {
+      setTimeout(() => {
+        openProject(idx);
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }
+});
+</script>
+
+<div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;">
+  <img src="" alt="Figure" style="max-width:92vw;max-height:92vh;border-radius:8px;box-shadow:0 4px 32px rgba(0,0,0,0.5);" />
+</div>
+<script>
+function openLightbox(img) {
+  const lb = document.getElementById('lightbox');
+  lb.querySelector('img').src = img.src;
+  lb.style.display = 'flex';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>
