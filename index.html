@@ -46,7 +46,7 @@
       font-family: 'Inter', system-ui, sans-serif;
       font-size: 15px;
       color: var(--text);
-      background: var(--bg);
+      background: var(--bg-soft);
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -62,7 +62,7 @@
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
+      padding: 0 max(2rem, calc((100vw - 1180px) / 2));
       min-height: 56px;
       display: flex;
       align-items: center;
@@ -100,8 +100,11 @@
       grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.75fr);
       gap: 3rem;
       align-items: center;
-      max-width: 1180px;
+      width: 100%;
       margin: 0 auto;
+      background: var(--bg);
+      padding-left: max(4rem, calc((100vw - 1180px) / 2));
+      padding-right: max(4rem, calc((100vw - 1180px) / 2));
     }
     .hero-intro {
       display: flex;
@@ -282,8 +285,11 @@
     section {
       padding: 4rem 4rem;
       border-top: 1px solid var(--border);
-      max-width: 1180px;
-      margin: 0 auto;
+      width: 100%;
+      margin: 0;
+      background: var(--bg);
+      padding-left: max(4rem, calc((100vw - 1180px) / 2));
+      padding-right: max(4rem, calc((100vw - 1180px) / 2));
     }
     .section-header {
       display: flex;
@@ -304,24 +310,47 @@
 
     /* ── PROJECT CARDS ── */
     .projects-grid {
-      display: grid;
+      display: none;
       grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
+      gap: 18px;
+    }
+    #project-slides {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .project-slide {
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    .project-slide .detail-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .project-slide .detail-main { padding: 1.75rem 2rem; }
+    .project-slide .detail-sidebar { padding: 1.75rem 2rem; overflow-y: visible; border-left: 1px solid var(--border); background: var(--bg-soft); }
+    .project-slide .project-slide-figure img { width: 100%; max-height: 280px; object-fit: contain; background: #fff; border-radius: 6px; display: block; }
+    .project-slide .project-slide-number { color: var(--muted); font-size: 11px; letter-spacing: 0.08em; }
+    @media (max-width: 780px) {
+      .project-slide .detail-body { grid-template-columns: 1fr; }
+      .project-slide .detail-sidebar { border-left: none; border-top: 1px solid var(--border); }
+      .project-slide .detail-main, .project-slide .detail-sidebar { padding: 1.25rem; }
     }
     .project-card {
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border-radius: 10px;
       overflow: hidden;
       cursor: pointer;
       transition: box-shadow 0.18s, transform 0.15s, border-color 0.15s;
       background: var(--bg);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      box-shadow: 0 1px 2px rgba(15,23,42,0.04);
       display: flex;
       flex-direction: column;
     }
     .project-card:hover {
-      border-color: var(--accent-border);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.09), 0 2px 6px rgba(0,0,0,0.06);
+      border-color: #94a3b8;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.08);
       transform: translateY(-2px);
     }
     .project-card.active {
@@ -336,27 +365,32 @@
     }
     .card-fig {
       width: 100%;
-      height: 175px;
+      height: 168px;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
     }
-    .card-fig svg,
-    .card-fig img {
-      transition: transform 0.22s ease, opacity 0.22s ease;
+    .card-fig svg { display: none; }
+    .card-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 14px 18px;
+      transition: transform 0.22s ease;
     }
-    .project-card:hover .card-fig svg,
-    .project-card:hover .card-fig img {
+    .project-card:hover .card-preview {
       transform: scale(1.015);
     }
-    .card-body { padding: 14px 16px 16px; flex: 1; }
-    .card-body.tint-ehr    { background: #f0fdfa; }
-    .card-body.tint-brachy { background: #f5f3ff; }
-    .card-body.tint-mri    { background: #fff7ed; }
-    .card-body.tint-em     { background: #f0fdf4; }
+    .card-body { padding: 17px 18px 18px; flex: 1; background: #fff; }
+    .card-body.tint-ehr,
+    .card-body.tint-brachy,
+    .card-body.tint-mri,
+    .card-body.tint-em { background: #fff; }
     .card-domain {
       font-size: 10.5px;
       font-weight: 600;
@@ -376,6 +410,23 @@
       color: var(--muted);
       line-height: 1.5;
       margin-bottom: 10px;
+    }
+    .card-result {
+      margin-top: 13px;
+      padding-top: 11px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
+      color: #334155;
+      line-height: 1.45;
+    }
+    .card-result-label {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
     .badge-row { display: flex; flex-wrap: wrap; gap: 5px; }
     .badge {
@@ -777,14 +828,15 @@
 <!-- ── PROJECTS ── -->
 <section id="projects">
   <div class="section-header">
-    <h2 class="section-title">Selected projects</h2>
-    <span style="font-size:13px; color:var(--muted);">Click any card to explore</span>
+    <h2 class="section-title">Research highlights</h2>
   </div>
 
+  <div id="project-slides"></div>
   <div class="projects-grid" id="cards-grid">
 <!-- Card 0 -->
     <div class="project-card" onclick="openProject(0)" onkeydown="handleCardKey(event, 0)" role="button" tabindex="0" data-project-id="0" id="card-0">
       <div class="card-fig fig-ehr">
+        <img class="card-preview" src="img/trajectories_QI.png" alt="Quality measure trajectories by subgroup">
         <svg width="100%" height="175" viewBox="0 0 360 175" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g transform="translate(0,33)">
             <line x1="31" y1="0" x2="31" y2="110" stroke="#085041" stroke-opacity="0.12" stroke-width="0.5"/>
@@ -878,12 +930,14 @@
           <span class="badge b-teal">Mixed effect model</span>
           <span class="badge b-blue">SQL</span>
         </div>
+        <div class="card-result"><span class="card-result-label">Key result</span>Only 10.7% achieved all four quality measures in the first year after diagnosis.</div>
       </div>
     </div>
 
     <!-- Card 1 -->
     <div class="project-card" onclick="openProject(5)" onkeydown="handleCardKey(event, 5)" role="button" tabindex="0" data-project-id="5" id="card-1">
       <div class="card-fig fig-ehr">
+        <img class="card-preview" src="img/pub_figures/fig_pad_detection_roc.png" alt="PAD detection model ROC curve">
         <svg width="100%" height="175" viewBox="0 0 360 175" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g transform="translate(0,33)">
             <line x1="31" y1="0" x2="31" y2="110" stroke="#085041" stroke-opacity="0.12" stroke-width="0.5"/>
@@ -980,12 +1034,14 @@
           <span class="badge b-blue">AWS SageMaker</span>
           <span class="badge b-green">Clinical deployment</span>
         </div>
+        <div class="card-result"><span class="card-result-label">Key result</span>Deployed in the UCSD clinical workflow with performance monitoring and SHAP explainability.</div>
       </div>
     </div>
 
     <!-- Card 2 -->
     <div class="project-card" onclick="openProject(2)" onkeydown="handleCardKey(event, 2)" role="button" tabindex="0" data-project-id="2" id="card-2">
       <div class="card-fig fig-brachy">
+        <img class="card-preview" src="img/automated_treatment.png" alt="Automated brachytherapy treatment planning workflow">
         <svg width="100%" height="175" viewBox="0 0 360 175" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="brachyPipeBg" x1="0" y1="0" x2="360" y2="175">
@@ -1061,12 +1117,14 @@
           <span class="badge b-purple">DICOM</span>
           <span class="badge b-coral">BrachyVision</span>
         </div>
+        <div class="card-result"><span class="card-result-label">Key result</span>Converted predicted dose distributions into deliverable treatment plans validated against clinical benchmarks.</div>
       </div>
     </div>
 
     <!-- Card 3 -->
     <div class="project-card" onclick="openProject(3)" onkeydown="handleCardKey(event, 3)" role="button" tabindex="0" data-project-id="3" id="card-3">
       <div class="card-fig fig-mri">
+        <img class="card-preview" src="img/Picture1.png" alt="MRI to histopathology registration pipeline">
         <svg width="280" height="145" viewBox="0 0 280 145" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <clipPath id="clip-mri-shot"><rect x="10" y="18" width="78" height="95" rx="5"/></clipPath>
@@ -1107,6 +1165,7 @@
           <span class="badge b-blue">DICOM</span>
           <span class="badge b-blue">Python</span>
         </div>
+        <div class="card-result"><span class="card-result-label">Key result</span>Established a spatially registered MRI–histopathology dataset for quantitative biomarker validation.</div>
       </div>
     </div>
 
@@ -1609,6 +1668,40 @@ const projects = [
 
 let activeProject = -1;
 
+// Keep the homepage focused on four detailed case studies for now.
+// The fourth slot can later be replaced by a PhD project without changing the layout.
+const homepageProjectIds = [0, 5, 2, 3];
+document.getElementById('project-slides').innerHTML = homepageProjectIds.map((projectId, slideIndex) => {
+  const p = projects[projectId];
+  const statusColor = p.status === 'Ongoing' ? 'color:#0F6E56;background:#E1F5EE;' : p.status === 'In production' ? 'color:#185FA5;background:#E6F1FB;' : p.status === 'Published' ? 'color:#533AB7;background:#EEEDFE;' : 'color:var(--muted);background:var(--bg-soft);border:1px solid var(--border);';
+  const kwTags = (p.keywords || []).map(k => `<span class="badge b-blue" style="font-size:12px;padding:4px 11px;">${k}</span>`).join('');
+  const methodTags = (p.methods || []).map((m,i) => `<span class="badge ${['b-blue','b-teal','b-purple','b-coral','b-green','b-amber'][i % 6]}" style="font-size:12px;padding:4px 11px;">${m}</span>`).join('');
+  const resultItems = (p.keyResults || []).map(result => `<li style="margin-bottom:6px;">${result}</li>`).join('');
+  const links = `${p.paperUrl ? `<a class="detail-link-btn" href="${p.paperUrl}" target="_blank">📄 ${p.pub || 'View paper'}</a>` : p.pub ? `<span class="detail-link-btn" style="opacity:0.5;cursor:default;">📄 ${p.pub}</span>` : ''}${p.githubUrl ? `<a class="detail-link-btn" href="${p.githubUrl}" ${p.githubUrl.startsWith('mailto') ? '' : 'target="_blank"'}>${p.githubUrl.startsWith('mailto') ? '✉ Request GitHub access' : '⌥ GitHub'}</a>` : ''}`;
+  return `
+    <article class="project-slide" id="project-slide-${slideIndex}">
+      <div class="detail-body">
+        <div class="detail-main">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.5rem;">
+            <p class="detail-title" style="margin:0;">${p.title}</p>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 12px;border-radius:6px;flex-shrink:0;${statusColor}">${p.status || 'Selected'}</span>
+          </div>
+          <p class="detail-meta">${p.meta || ''}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem;">${kwTags}</div>
+          <div class="detail-section"><div class="detail-section-label">Background</div><p class="detail-text">${p.background || p.problem || ''}</p></div>
+          <div class="detail-section"><div class="detail-section-label">Data</div><p class="detail-text">${p.data || ''}</p></div>
+          <div class="detail-section"><div class="detail-section-label">Contribution</div><p class="detail-text">${p.myRole || p.contribution || ''}</p></div>
+          <div class="detail-links">${links}</div>
+        </div>
+        <div class="detail-sidebar">
+          <div class="project-slide-figure" style="margin-bottom:1.25rem;">${p.figSvg || ''}</div>
+          <div class="detail-section"><div class="detail-section-label">Methods &amp; tools</div><div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;">${methodTags}</div></div>
+          <div class="detail-section" style="margin-top:1.25rem;"><div class="detail-section-label">Key results</div><ul style="margin:4px 0 0;padding-left:1.25rem;font-size:13px;color:var(--muted);line-height:1.75;">${resultItems}</ul></div>
+        </div>
+      </div>
+    </article>`;
+}).join('');
+
 function openProject(i) {
   const panel = document.getElementById('detail-panel');
   const fig = document.getElementById('detail-fig');
@@ -1742,12 +1835,19 @@ window.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;">
-  <img src="" alt="Figure" style="max-width:92vw;max-height:92vh;border-radius:8px;box-shadow:0 4px 32px rgba(0,0,0,0.5);" />
+  <figure style="max-width:92vw;max-height:92vh;margin:0;display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
+    <img src="" alt="Figure" style="max-width:92vw;max-height:84vh;border-radius:8px;box-shadow:0 4px 32px rgba(0,0,0,0.5);" />
+    <figcaption class="lightbox-caption" style="display:none;max-width:780px;color:#e5e7eb;font-size:13px;line-height:1.55;text-align:center;"></figcaption>
+  </figure>
 </div>
 <script>
 function openLightbox(img) {
   const lb = document.getElementById('lightbox');
   lb.querySelector('img').src = img.src;
+  lb.querySelector('img').alt = img.alt || 'Figure';
+  const caption = lb.querySelector('.lightbox-caption');
+  caption.innerHTML = img.dataset.caption || '';
+  caption.style.display = img.dataset.caption ? 'block' : 'none';
   lb.style.display = 'flex';
 }
 function closeLightbox() {
