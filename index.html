@@ -1595,59 +1595,29 @@ const projects = [
     githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub%20access%20request%20%E2%80%94%20MRI-histopathology%20registration&body=Hi%20Karoline%2C%20I%20would%20like%20to%20request%20access%20to%20your%20GitHub%20repository%20for%20the%20MRI-histopathology%20registration%20project.",
   },
   {
-    title: "Electromagnetic tracking QA for breast brachytherapy",
-    domain: "Brachytherapy QA · Clinical Study",
-    meta: "PhD · University Hospital Erlangen · 2016–2019 · In collaboration with Elekta",
-    pub: "Physics in Medicine & Biology 2018, 2019 · Radiotherapy & Oncology 2019 (×3)",
-    figClass: "fig-em",
-    figSvg: `<svg width="560" height="230" viewBox="0 0 560 230" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <text x="16" y="20" font-size="11" fill="#27500A" font-family="Inter,sans-serif" font-weight="500">EM sensor → catheter tracking → inter-fractional motion analysis → QA error detection</text>
-      <ellipse cx="80" cy="95" rx="56" ry="46" fill="#C0DD97" fill-opacity="0.28" stroke="#639922" stroke-width="0.75"/>
-      <line x1="46" y1="38" x2="62" y2="72" stroke="#3B6D11" stroke-width="2"/>
-      <line x1="60" y1="35" x2="70" y2="72" stroke="#3B6D11" stroke-width="2"/>
-      <line x1="74" y1="34" x2="78" y2="72" stroke="#3B6D11" stroke-width="2"/>
-      <line x1="88" y1="35" x2="86" y2="72" stroke="#3B6D11" stroke-width="2"/>
-      <line x1="102" y1="38" x2="96" y2="72" stroke="#3B6D11" stroke-width="2"/>
-      <text x="80" y="158" font-size="8.5" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">Breast phantom / patient</text>
-      <text x="80" y="170" font-size="8.5" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">50+ patients · clinical study</text>
-      <line x1="138" y1="95" x2="162" y2="95" stroke="#0F6E56" stroke-width="1.5" stroke-dasharray="5,3"/>
-      <circle cx="204" cy="78" r="34" fill="#9FE1CB" fill-opacity="0.4" stroke="#1D9E75" stroke-width="0.75"/>
-      <text x="204" y="72" font-size="9" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">EM tracking</text>
-      <text x="204" y="85" font-size="8.5" fill="#085041" text-anchor="middle" font-family="Inter,sans-serif">Hybrid Flexitron</text>
-      <text x="204" y="98" font-size="8" fill="#0F6E56" text-anchor="middle" font-family="Inter,sans-serif" font-style="italic">Elekta prototype</text>
-      <line x1="238" y1="78" x2="265" y2="78" stroke="#0F6E56" stroke-width="1.5" stroke-dasharray="5,3"/>
-      <rect x="265" y="48" width="110" height="60" rx="6" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.75"/>
-      <text x="320" y="72" font-size="9" fill="#0C447C" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">MATLAB algorithms</text>
-      <text x="320" y="86" font-size="8.5" fill="#185FA5" text-anchor="middle" font-family="Inter,sans-serif">catheter reconstruction</text>
-      <text x="320" y="99" font-size="8.5" fill="#185FA5" text-anchor="middle" font-family="Inter,sans-serif">inter-fractional motion</text>
-      <line x1="240" y1="115" x2="265" y2="110" stroke="#0F6E56" stroke-width="1.25" stroke-dasharray="4,2.5"/>
-      <rect x="265" y="120" width="110" height="52" rx="6" fill="#FAECE7" stroke="#F0997B" stroke-width="0.75"/>
-      <text x="320" y="142" font-size="9" fill="#712B13" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">QA error detection</text>
-      <text x="320" y="156" font-size="8.5" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif">catheter shift · recon variability</text>
-      <text x="320" y="167" font-size="8" fill="#993C1D" text-anchor="middle" font-family="Inter,sans-serif" font-style="italic">clinical alert system</text>
-      <rect x="392" y="58" width="86" height="106" rx="6" fill="#EAF3DE" stroke="#97C459" stroke-width="0.75"/>
-      <text x="435" y="82" font-size="9" fill="#27500A" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500">Outcome</text>
-      <text x="435" y="100" font-size="8.5" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">Error detection</text>
-      <text x="435" y="113" font-size="8.5" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">validated in vivo</text>
-      <text x="435" y="130" font-size="8.5" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">adaptive planning</text>
-      <text x="435" y="143" font-size="8.5" fill="#3B6D11" text-anchor="middle" font-family="Inter,sans-serif">feasibility shown</text>
-      <text x="435" y="156" font-size="8" fill="#27500A" text-anchor="middle" font-family="Inter,sans-serif" font-style="italic">5 publications</text>
-      <line x1="375" y1="78" x2="392" y2="78" stroke="#3B6D11" stroke-width="1.5"/>
-      <line x1="375" y1="145" x2="392" y2="145" stroke="#3B6D11" stroke-width="1.5"/>
-    </svg>`,
-    problem: "In multi-catheter breast brachytherapy, catheters shift between treatment fractions and reconstruction errors introduce clinically significant dosimetric uncertainty. No real-time automated system existed to detect these errors during treatment delivery.",
-    contribution: "Developed and validated QA algorithms using electromagnetic tracking integrated into the Flexitron afterloader prototype (Elekta). Conducted and analyzed a clinical study with 50+ breast cancer patients. Collaborated directly with Elekta on hardware integration and provided engineering feedback. Results directly informed prototype development and adaptive planning feasibility.",
-    tools: [["MATLAB","b-green"],["EM tracking (Flexitron)","b-green"],["DICOM","b-green"],["OncentraBrachy","b-green"],["Statistical analysis","b-teal"],["Clinical study design","b-teal"]],
-    results: ["50+ patient clinical study","Error detection validated in vivo","Adaptive planning feasibility demonstrated","PMB 2018 · PMB 2019 · Radiotherapy & Oncology 2019 (×3)"],
+    title: "EMT-integrated Flexitron system for breast brachytherapy verification",
+    domain: "Medical Devices · Brachytherapy",
+    meta: "PhD candidate · University Hospital Erlangen, Department of Radiation Oncology · 2016–2019",
+    pub: "Kallis et al. · Physics in Medicine & Biology 2018",
+    newFormat: true,
+    status: "Published",
+    keywords: ["Electromagnetic tracking","Afterloader integration","Real-time position verification","Coherent point drift registration","Catheter reconstruction","Prototype validation"],
+    figClass: "fig-brachy",
+    figSvg: `<div style="width:min(100%,465px);aspect-ratio:1030/610;overflow:hidden;margin:0 auto;background:#fff;border-radius:6px;"><img src="img/pub_figures/fig_kallis2018_emt_system.png" alt="EM tracking system overview diagram from Kallis et al., PMB 2018" data-lightbox-crop="1030 / 610" data-caption="Architecture of the EMT-enabled Flexitron workflow from Kallis et al., Physics in Medicine &amp; Biology 2018. The afterloader and treatment-control system were connected to the electromagnetic-tracking field generator, control and interface units, reference sensors, and position-server software to record sensor positions in real time." onclick="openLightbox(this)" style="width:100%;height:100%;max-height:none;object-fit:cover;object-position:top;cursor:zoom-in;display:block;" /></div>`,
+    background: "Multi-catheter interstitial breast brachytherapy depends on accurate catheter and dwell-position reconstruction, but conventional verification was image-based and could not measure the source path in real time. This project evaluated whether electromagnetic tracking integrated into an Elekta Flexitron afterloader could provide an independent geometric verification layer by measuring a tracked source, reconstructing catheter paths and dwell positions, and comparing them with the treatment plan.",
+    data: "Elekta Flexitron afterloader prototype with an integrated electromagnetic-tracking sensor · phantom measurements · implant geometry from 20 breast brachytherapy patients · raw 3D EMT catheter traces · CT-based catheter reconstructions · treatment-plan dwell positions",
+    myRole: "Designed the measurement workflow and upgraded the C# measurement software used with the EMT-enabled Flexitron system. Expanded the information captured during each measurement, redesigned the data display to make results easier to inspect, and added export to both plain-text and SQLite formats for downstream processing and analysis. Built the MATLAB registration and reconstruction pipeline that converted raw electromagnetic-tracking measurements into catheter traces and dwell positions. Implemented coherent point drift registration to align EMT traces with CT-based catheter reconstructions, compared fitting and interpolation approaches for defining dwell positions, and evaluated reconstructed positions against the treatment-plan reference. Designed and analyzed phantom error scenarios with deliberately introduced catheter shifts and swaps. Across iterative phantom tests and measurements in 20 patient implants, built and refined a standardized measurement procedure that could operate within the clinical treatment workflow. Worked with physicians, nurses, medical physicists, and Elekta technical support to integrate the prototype measurements into the breast brachytherapy workflow.",
+    methods: ["Measurement-procedure development","C# measurement software","MATLAB analysis pipeline","Electromagnetic tracking","EMT-enabled Flexitron afterloader prototype","Data logging and SQLite export","Coherent point drift registration","Catheter and dwell-position reconstruction","Interpolation and curve fitting","Phantom error simulation","Geometric error analysis (RMSE)","Clinical feasibility validation"],
+    keyResults: ["Built and refined a standardized measurement procedure through iterative phantom and patient testing","Expanded measurement logging and added clearer data displays with TXT and SQLite export","Detected deliberately introduced catheter shifts and swaps using both fitting and interpolation approaches","Interpolation achieved the highest dwell-position accuracy (RMSE 1.27 mm), while curve fitting was more robust to noisy or motion-distorted EMT traces","Integrated the EMT workflow into clinical measurements for 20 patient implants","Established the EMT-enabled Flexitron system used in the subsequent patient, adaptive-planning, and automated error-detection studies","First-author manuscript published in Physics in Medicine & Biology, 2018","The system supported a follow-on automated error-detection study led by Masitho et al., Physics in Medicine & Biology, 2019"],
     paperUrl: "https://doi.org/10.1088/1361-6560/aabb5a",
-    githubUrl: "https://github.com/karokallis"
+    githubUrl: null
   },
   {
     title: "PAD detection model for deployment at UCSD",
     domain: "EHR · Machine Learning",
     meta: "Research Scientist · UCSD Department of Surgery · 2024–present",
     pub: null,
-    newFormat: true, status: "In production",
+    newFormat: true, status: "Ongoing",
     keywords: ["Clinical ML deployment","XGBoost pipeline","Epic Caboodle integration","Model monitoring","Decision support workflow"],
     figSvg: `<img src="img/pub_figures/fig_pad_detection_roc.png" alt="PAD detection model ROC curve" onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
     background: "PAD is heavily underdiagnosed at UCSD Health, with an EHR prevalence of roughly 1% compared to population estimates of 5–8%. Most patients are asymptomatic until severe disease sets in, missing the window for preventive care. This project translates an ML-based PAD detection model into a production clinical tool integrated with Epic, flagging high-risk patients with upcoming appointments so clinicians can order an ABI and intervene early.",
@@ -1668,9 +1638,8 @@ const projects = [
 
 let activeProject = -1;
 
-// Keep the homepage focused on four detailed case studies for now.
-// The fourth slot can later be replaced by a PhD project without changing the layout.
-const homepageProjectIds = [0, 5, 2, 3];
+// Five featured case studies spanning EHR research, medical imaging, and medical-device integration.
+const homepageProjectIds = [0, 5, 2, 3, 4];
 document.getElementById('project-slides').innerHTML = homepageProjectIds.map((projectId, slideIndex) => {
   const p = projects[projectId];
   const statusColor = p.status === 'Ongoing' ? 'color:#0F6E56;background:#E1F5EE;' : p.status === 'In production' ? 'color:#185FA5;background:#E6F1FB;' : p.status === 'Published' ? 'color:#533AB7;background:#EEEDFE;' : 'color:var(--muted);background:var(--bg-soft);border:1px solid var(--border);';
@@ -1843,8 +1812,23 @@ window.addEventListener('DOMContentLoaded', () => {
 <script>
 function openLightbox(img) {
   const lb = document.getElementById('lightbox');
-  lb.querySelector('img').src = img.src;
-  lb.querySelector('img').alt = img.alt || 'Figure';
+  const lbImg = lb.querySelector('img');
+  lbImg.src = img.src;
+  lbImg.alt = img.alt || 'Figure';
+  if (img.dataset.lightboxCrop) {
+    const [cropWidth, cropHeight] = img.dataset.lightboxCrop.split('/').map(Number);
+    lbImg.style.width = `min(92vw, ${cropWidth}px)`;
+    lbImg.style.height = 'auto';
+    lbImg.style.aspectRatio = `${cropWidth} / ${cropHeight}`;
+    lbImg.style.objectFit = 'cover';
+    lbImg.style.objectPosition = 'top';
+  } else {
+    lbImg.style.width = '';
+    lbImg.style.height = '';
+    lbImg.style.aspectRatio = '';
+    lbImg.style.objectFit = '';
+    lbImg.style.objectPosition = '';
+  }
   const caption = lb.querySelector('.lightbox-caption');
   caption.innerHTML = img.dataset.caption || '';
   caption.style.display = img.dataset.caption ? 'block' : 'none';
