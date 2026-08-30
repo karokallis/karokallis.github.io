@@ -333,8 +333,8 @@
       <div class="mini-pub"><span>Clinical deployment</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
     </div>
 
-    <div class="mini-card" style="cursor:pointer;" onclick="openProject(1,this)">
-      <p class="mini-title">PAD detection across 5 health systems</p>
+    <div class="mini-card" id="project-pad-5-systems" style="cursor:pointer;" onclick="openProject(1,this)">
+      <p class="mini-title">Performance, generalizability, and fairness of a PAD detection model</p>
       <p class="mini-desc">ML model for peripheral artery disease detection with multi-site fairness evaluation across UC Health systems.</p>
       <div class="badge-row">
         <span class="badge b-teal">LightGBM</span>
@@ -396,34 +396,34 @@
   </div>
   <div class="mini-grid">
 
-    <div class="mini-card featured" style="cursor:pointer;" onclick="openProject(15,this)">
+    <div class="mini-card featured" id="project-mri-histopathology" style="cursor:pointer;" onclick="openProject(15,this)">
       <span class="mini-featured-label">Selected project</span>
-      <p class="mini-title">Deformable MRI-to-histopathology registration for RSI biomarker validation</p>
-      <p class="mini-desc">Developed a pipeline to register in-vivo MRI to whole-mount histopathology sections, enabling spatial ground truth for quantitative MRI biomarker validation.</p>
+      <p class="mini-title">Registering prostate MRI to histopathology for RSIrs biomarker validation</p>
+      <p class="mini-desc">Built a multimodal registration pipeline aligning in-vivo prostate MRI with whole-mount histopathology to create pathology-grounded labels for RSIrs biomarker development.</p>
       <div class="badge-row">
-        <span class="badge b-coral">DIR</span>
+        <span class="badge b-coral">Deformable registration</span>
         <span class="badge b-coral">Histopathology</span>
         <span class="badge b-blue">Python</span>
-        <span class="badge b-amber">DICOM</span>
+        <span class="badge b-amber">DICOM RTStruct</span>
       </div>
       <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
     </div>
 
-    <div class="mini-card" style="cursor:pointer;" onclick="openProject(3,this)">
-      <p class="mini-title">Calibrating RSI for reproducible prostate cancer detection</p>
-      <p class="mini-desc">Linear calibration method correcting echo-time-dependent bias in a quantitative MRI biomarker for clinically significant prostate cancer, validated on 197 patients.</p>
+    <div class="mini-card" id="project-rsi-calibration" style="cursor:pointer;" onclick="openProject(3,this)">
+      <p class="mini-title">Calibration of the RSIrs biomarker for reproducibility across echo times</p>
+      <p class="mini-desc">Developed and validated an echo-time calibration method for RSIrs in 197 prostate MRI cases, reducing biomarker bias and supporting reproducible use across acquisition protocols.</p>
       <div class="badge-row">
         <span class="badge b-coral">Quantitative MRI</span>
-        <span class="badge b-coral">RSIrs</span>
+        <span class="badge b-coral">RSIrs biomarker</span>
         <span class="badge b-coral">Echo-time calibration</span>
         <span class="badge b-green">MATLAB</span>
       </div>
       <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
     </div>
 
-    <div class="mini-card" style="cursor:pointer;" onclick="openProject(5,this)">
-      <p class="mini-title">Evaluating synthetic high-b DWI for prostate cancer imaging</p>
-      <p class="mini-desc">Tested whether synthesized <em>b</em>=2000 DWI can replace acquired high-b imaging in 151 prostate MRI/biopsy cases, showing in-prostate similarity but important quantitative and pelvic-artifact limitations.</p>
+    <div class="mini-card" id="project-synthetic-dwi" style="cursor:pointer;" onclick="openProject(5,this)">
+      <p class="mini-title">Validating synthetic high <em>b</em>-value DWI for prostate cancer detection</p>
+      <p class="mini-desc">Compared synthetic and acquired <em>b</em>=2000 DWI in 151 prostate MRI cases, showing visual similarity in the prostate but signal underestimation and pelvic artifacts that limit quantitative use.</p>
       <div class="badge-row">
         <span class="badge b-coral">Diffusion MRI</span>
         <span class="badge b-coral">Synthetic DWI</span>
@@ -433,11 +433,12 @@
       <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
     </div>
 
-    <div class="mini-card" style="cursor:pointer;" onclick="openProject(6,this)">
-      <p class="mini-title">Clinical validation of RSIrs-guided prostate tumor targeting</p>
-      <p class="mini-desc">Prospective international reader study showing that RSIrs maps substantially improved radiation oncologists' ability to contour prostate tumors for focal radiotherapy boost.</p>
+    <div class="mini-card" id="project-reignite" style="cursor:pointer;" onclick="openProject(6,this)">
+      <p class="mini-title">ReIGNITE: Clinical validation of RSIrs-guided prostate tumor targeting</p>
+      <p class="mini-desc">Prospective international reader study showing that RSIrs improved prostate tumor contour accuracy, reduced complete misses, and made focal-boost targeting more consistent.</p>
       <div class="badge-row">
         <span class="badge b-coral">RSIrs</span>
+        <span class="badge b-blue">MIM Software/Cloud</span>
         <span class="badge b-teal">Clinical validation</span>
         <span class="badge b-teal">Multi-reader analytics</span>
         <span class="badge b-green">MATLAB</span>
@@ -445,13 +446,15 @@
       <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
     </div>
 
-    <div class="mini-card" style="cursor:pointer;" onclick="openProject(14,this)">
-      <p class="mini-title">Quantifying treatment impact from prostate contour variability</p>
-      <p class="mini-desc">Converted multi-reader prostate tumor contours into focal boost plans to measure how contouring errors change dose coverage and predicted recurrence risk.</p>
+    <div class="mini-card" id="project-prostate-contour-impact" style="cursor:pointer;" onclick="openProject(14,this)">
+      <p class="mini-title">ReIGNITE: Clinical impact of prostate tumor contour variability</p>
+      <p class="mini-desc">Converted multi-reader prostate tumor contours into focal boost plans to quantify how contour variability changes dose coverage and predicted biochemical-failure risk.</p>
       <div class="badge-row">
         <span class="badge b-green">RapidPlan</span>
+        <span class="badge b-teal">Contour variability</span>
         <span class="badge b-teal">DVH analysis</span>
         <span class="badge b-teal">Outcome modeling</span>
+        <span class="badge b-blue">MIM Software</span>
         <span class="badge b-green">MATLAB</span>
       </div>
       <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
@@ -480,12 +483,12 @@
   </div>
   <div class="mini-grid">
 
-    <div class="mini-card featured" style="cursor:pointer;" onclick="openProject(2,this)">
+    <div class="mini-card featured" id="project-automated-brachytherapy" style="cursor:pointer;" onclick="openProject(2,this)">
       <span class="mini-featured-label">Selected project</span>
       <p class="mini-title">Automated brachytherapy treatment planning</p>
-      <p class="mini-desc">End-to-end framework converting 3D dose predictions into deliverable cervical cancer treatment plans, validated in the clinical workflow.</p>
+      <p class="mini-desc">Built the dose-to-plan layer that converted predicted 3D dose into deliverable cervical cancer brachytherapy plans and tested it against clinical plans.</p>
       <div class="badge-row">
-        <span class="badge b-purple">Knowledge-based</span>
+        <span class="badge b-purple">Knowledge-based dose prediction</span>
         <span class="badge b-purple">Python</span>
         <span class="badge b-purple">DICOM</span>
       </div>
@@ -566,7 +569,7 @@
   </div>
   <div class="mini-grid">
 
-    <div class="mini-card featured" style="cursor:pointer;" onclick="openProject(9,this)">
+    <div class="mini-card featured" id="project-emt-flexitron" style="cursor:pointer;" onclick="openProject(9,this)">
       <span class="mini-featured-label">Selected project</span>
       <p class="mini-title">EMT-integrated Flexitron system for breast brachytherapy verification</p>
       <p class="mini-desc">Upgraded the C# measurement software and built the MATLAB registration and reconstruction pipeline for an EMT-enabled afterloader, validated in phantoms and 20 patient implants.</p>
@@ -592,7 +595,7 @@
       <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
     </div>
 
-    <div class="mini-card" style="cursor:pointer;" onclick="openProject(19,this)">
+    <div class="mini-card" id="project-adaptive-brachytherapy" style="cursor:pointer;" onclick="openProject(19,this)">
       <p class="mini-title">Decision framework for selective adaptive planning in breast brachytherapy</p>
       <p class="mini-desc">Used Plastimatch for deformable registration and contour propagation, reconstructed catheters and reapplied plans in OncentraBrachy, and analyzed the results in MATLAB to design a physician-informed adaptive-replanning cascade.</p>
       <div class="badge-row">
@@ -665,15 +668,18 @@ const projects = [
     paperUrl: null, githubUrl: null
   },
   {
-    title: "PAD detection across 5 health systems",
+    title: "Performance, Generalizability, and Fairness of a Peripheral Artery Disease Detection Model Across Patient Phenotypes and Health Systems",
     meta: "Research Scientist · University of California San Diego Department of Surgery · 2024–present",
-    pub: "In preparation",
-    conference: "Kallis K, Ross E. Assessing performance and generalizability of AI-based PAD detection models across California health systems. Vascular Annual Meeting 2025. Poster.",
+    pub: "Kallis et al. · Journal of the American Heart Association · submitted 2026",
+    conference: "Conference presentation: Kallis K, Ross E. Assessing performance and generalizability of AI-based PAD detection models across California health systems. Vascular Annual Meeting 2025. Poster.",
     newFormat: true, status: "Ongoing",
     keywords: ["Multi-site ML validation","EHR feature engineering","Phenotype discovery","Fairness evaluation","LightGBM pipeline"],
     background: "PAD affects roughly 12 million Americans but is heavily underdiagnosed. EHR prevalence at UC Health was only 1.3 to 2.4% while population estimates reach 5.6%, and patients were in the health system an average of four years before receiving a PAD code. This study developed and evaluated a generalizable ML model for PAD detection across 5 UC Health systems, assessing model performance and fairness across demographic subgroups and patient phenotypes.",
     data: "UC Health Data Warehouse (UCHDW) · Structured EHR data · OMOP format · 5 UC Health systems · 33,739 PAD patients + 33,739 matched controls · Concept codes · Vitals · Labs",
     myRole: "I owned the full ML pipeline from cohort design through fairness evaluation across five UC Health systems. I defined PAD cases using OMOP concept codes and built a 1:1 propensity-matched case-control cohort of 33,739 patients. I engineered 14,023 features from code-occurrence counts across four time windows, continuous laboratory values, vital signs, and demographics, represented as a sparse matrix. I trained a LightGBM classifier with Bayesian hyperparameter optimization via Optuna. I applied dimensionality reduction followed by Gaussian mixture-model clustering to identify four clinically distinct patient phenotypes. I evaluated model fairness across sex, race, age, social vulnerability index, health system, and phenotypic subgroups using selection rates and equalized odds.",
+    contribution: "I led the study design, cohort construction, feature engineering, model development, phenotype discovery, and fairness analysis. I built the end-to-end pipeline that evaluated whether PAD detection performance generalized across health systems and clinically distinct patient subgroups.",
+    collaboration: "Collaborated with Elsie G. Ross, M.B. Malas, and the UC Health research teams across five health systems to define the clinical question, interpret patient phenotypes, and assess the model's generalizability and fairness in diverse care settings.",
+    clinicalImplications: "The model's consistent performance across five health systems supports its potential as a scalable EHR-based tool for earlier PAD case finding and risk-based clinical outreach. The observed variation across patient phenotypes shows why deployment should include subgroup monitoring and calibration checks rather than relying on aggregate performance alone. Prospective workflow evaluation and clinician oversight would be needed before using the model to guide patient care.",
     methods: ["LightGBM","Sparse matrix training","Dimensionality reduction","Gaussian Mixture Model","Propensity matching","SHAP","Optuna","SQL","Python","Databricks","Fairness evaluation"],
     keyResults: [
       "AUROC 0.76 to 0.79 consistent across all 5 health systems",
@@ -684,53 +690,69 @@ const projects = [
     ],
     figClass: "fig-ehr",
     figSvg: `<img src="img/figure3.png" alt="Patient phenotype cluster characteristics — coefficient plots for 4 PAD clusters" data-caption="PAD phenotype cluster characteristics derived from unsupervised clustering of EHR-based model features. Positive and negative coefficients summarize the variables most associated with each cluster, revealing clinically distinct subgroups across utilization, metabolic burden, comorbidity, and demographic patterns." onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
-    paperUrl: null, githubUrl: null
+    paperUrl: "https://www.medrxiv.org/content/10.64898/2026.08.19.26360861v1", githubUrl: null
   },
   {
     title: "Automated brachytherapy treatment planning",
     meta: "Postdoctoral Fellow · University of California San Diego Department of Radiation Medicine & Applied Sciences · 2019–2022",
-    pub: "Physics in Medicine & Biology 2023",
+    pub: "Kallis et al. · Physics in Medicine & Biology · 2023",
     newFormat: true,
     status: "Continued",
-    keywords: ["End-to-end ML pipeline","Dose-to-plan optimization","Physics-informed optimization","DICOM RT integration","Clinical workflow validation"],
+    keywords: ["End-to-end ML pipeline","Dose-to-plan optimization","Affine registration","Dose-grid downsampling","Clinical workflow validation"],
     figClass: "fig-brachy",
     figSvg: `<img src="img/automated_treatment.png" alt="Automated brachytherapy treatment planning workflow" data-caption="Figure from Kallis et al., Physics in Medicine & Biology 2023: schema of the optimization workflow. A dose-rate kernel is transformed to each dwell position, weighted by dwell time, summed to calculate dose, and iteratively optimized by minimizing mean squared error between calculated and reference dose." onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
-    problem: "Brachytherapy treatment planning for cervical cancer is time-intensive, requires expert physicists, and is highly operator-dependent. The full automation chain had not been demonstrated for this indication.",
-    contribution: "I owned the automated-planning software pipeline built around an existing 3D dose-prediction model developed by Cortes et al. in parallel within the same lab. I exported and preprocessed RT DICOM data, implemented the Python optimizer that converted predicted dose into deliverable dwell times, generated updated RT Plan files, evaluated plan quality against clinical benchmarks, and prepared the manuscript.",
-    background: "Cervical cancer brachytherapy planning is performed in a narrow clinical window, often while the patient remains under anesthesia, and depends on expert physicists manually translating anatomy, applicator geometry, and dose constraints into deliverable dwell times. Prior ML work in the lab (Cortes et al., Brachytherapy 2022) could predict patient-specific 3D dose distributions, but those predictions were not directly usable by the treatment machine. This project addressed the missing engineering step: converting model-predicted dose into a clinically deliverable DICOM treatment plan. The lab has continued to build on this dose-to-plan pipeline in the years since, extending the dose-prediction model itself and the auto-planning approach through several follow-on papers.",
-    data: "University of California San Diego cervical cancer brachytherapy RT DICOM data · 40 clinical validation plans (T&O/T&R with 0-3 needles) · 10 T&O automated-planning cases · CT images · RTStruct contours · RT Plan/RP dwell positions and times · RT Dose grids · model-predicted 3D dose distributions",
-    myRole: "I owned the software and analysis pipeline downstream of the existing 3D dose-prediction model. I exported and preprocessed RT DICOM data, built the Python COBYLA optimizer that converted predicted dose distributions into optimized dwell times, generated updated RT Plan files for import into the clinical workflow, evaluated automated plans against clinical benchmarks, created the figures and analyses, and prepared the manuscript. I remained a contributing co-author on the lab's follow-on dose-prediction and automated-planning papers after completing this postdoc.",
-    tools: [["Python","b-purple"],["COBYLA optimizer","b-purple"],["Knowledge-based modeling","b-purple"],["DICOM","b-purple"],["Spatial interpolation","b-coral"],["MIM","b-purple"],["BrachyVision","b-purple"]],
-    results: ["Plan quality matched manual benchmarks","Validated in clinical workflow at University of California San Diego","First automated dose-to-plan pipeline for cervical brachytherapy","PMB 2023"],
-    methods: ["Python","COBYLA optimizer","SciPy","Knowledge-based modeling","3D dose prediction","Dose-to-dwell optimization","DICOM RTStruct","DICOM RT Plan/RP","BrachyVision","MIM"],
+    problem: "Cervical cancer brachytherapy planning is time-sensitive, requires specialized expertise, and depends on manually translating anatomy and a desired dose distribution into deliverable dwell times. A dose-prediction model alone does not produce a treatment plan that can be reviewed or imported into a treatment-planning system.",
+    contribution: "I owned the dose-to-plan translation layer around an existing 3D dose-prediction model developed by Cortes et al. in parallel within the same lab. I used MIM Software to export and preprocess RT DICOM data, registered and downsampled dose distributions for optimization, implemented the Python optimizer that converted predicted dose into dwell times, generated updated RT Plan files, evaluated plan quality against clinical benchmarks, and prepared the manuscript.",
+    background: "Planning is often performed while the patient remains under anesthesia, so reducing repetitive optimization could shorten the planning window while preserving physicist oversight. Prior work in the lab (Cortes et al., Brachytherapy 2022) could predict patient-specific 3D dose distributions, but those predictions were not directly usable in the treatment-planning system. I addressed this translational gap by building the optimization and DICOM integration needed to turn a predicted dose distribution into a reviewable, deliverable plan. The lab has continued to build on this foundation through follow-on work in dose prediction and automated planning.",
+    data: "University of California San Diego cervical cancer brachytherapy RT DICOM data · 40 patients for optimizer validation (T&O/T&R with 0-3 needles) · 10 unique T&O test-set patients for automated planning · CT images · RTStruct contours · RT Plan/RP dwell positions and times · clinical and model-predicted 3D dose distributions",
+    myRole: "I owned the software and analysis pipeline downstream of the existing 3D dose-prediction model. I used MIM Software to export and preprocess RT DICOM data, registered and downsampled dose distributions, built the Python COBYLA optimizer that converted predicted dose distributions into optimized dwell times, generated updated RT Plan files for import into the treatment-planning workflow, and compared automated plans with clinical benchmarks. I also created the figures and analyses and prepared the manuscript. I remained a contributing co-author on the lab's follow-on dose-prediction and automated-planning papers after completing this postdoc.",
+    collaboration: "Collaborated with radiation oncologists and medical physicists at UCSD to define clinically relevant dose objectives, discuss the practical requirements for automated planning, interpret automated-versus-clinical plan comparisons, and assess how the pipeline could fit into the treatment-planning workflow. Coordinated with the dose-prediction team to connect model outputs with the optimization and DICOM planning pipeline.",
+    clinicalImplications: "This workflow demonstrates how knowledge-based dose prediction can be translated into a clinically reviewable treatment plan rather than remaining an offline model output. It could reduce repetitive dwell-time optimization and provide a consistent starting point for physicist review during the narrow brachytherapy planning window. The evaluation supports technical feasibility and comparable plan quality in this cohort, but the system is best understood as decision support: prospective validation, broader applicator and needle coverage, and explicit physicist oversight would be needed before routine clinical deployment.",
+    relatedWork: [
+      "Cortes et al. · Brachytherapy · 2022 — Knowledge-based 3D dose prediction for tandem-and-ovoid brachytherapy",
+      "Moore et al. · Medical Physics · 2024 — Applicator-specific neural-network dose prediction under data scarcity",
+      "Moore et al. · ICCR · 2024 — Direct dwell-time prediction compared with dose-prediction auto-planning",
+      "Truong et al. · Brachytherapy · 2025 — Single-click AI auto-planning integrated within BrachyVision",
+      "Mitra et al. · Practical Radiation Oncology · 2026 — AI auto-planning compared with manual expert planning",
+      "Moore et al. · CVPR · 2026 — D2T2 multimodal automated planning for brachytherapy"
+    ],
+    tools: [["Python","b-purple"],["COBYLA optimizer","b-purple"],["Knowledge-based modeling","b-purple"],["DICOM","b-purple"],["Spatial interpolation","b-coral"],["BrachyVision","b-purple"]],
+    results: ["1.6 min average optimization time","6.5% dose difference vs. clinical plans","10.3 s dwell-time difference vs. clinical plans","100% isodose Dice score: 0.91"],
+    methods: ["Python","COBYLA optimizer","SciPy","Knowledge-based modeling","3D dose prediction","Affine registration","Dose-grid downsampling","Dose-to-dwell optimization","DICOM RTStruct","DICOM RT Plan/RP","BrachyVision"],
     keyResults: [
-      "First end-to-end automated dose-to-plan pipeline for cervical brachytherapy",
-      "Converted predicted 3D dose distributions into deliverable dwell times",
-      "Plan quality matched manual clinical benchmarks",
-      "Validated within the University of California San Diego clinical workflow",
+      "Optimizer reproduced 40 clinical plans with 1.1% mean absolute dose difference, 4 s dwell-time difference, and Dice score 0.99",
+      "Generated automated plans for 10 unique T&O test-set patients",
+      "Automated plans differed from clinical plans by 6.5% in dose and 10.3 s in dwell times",
+      "Automated 100% isodose contours achieved a mean Dice score of 0.91",
       "Published in Physics in Medicine & Biology 2023",
-      "Dose-prediction model extended to a 3D CNN approach (Cortes et al., Brachytherapy 2022) and further refined for applicator-specific models under data scarcity (Moore et al., Medical Physics 2024)",
-      "Auto-planning approach continued by the lab: dwell-time vs. dose-prediction network comparison (Moore et al., ICCR 2024), single-click AI auto-planning integrated into a clinical TPS (Truong et al., Brachytherapy 2025/2026), AI auto-planning shown to rival manual expert planning (Mitra et al., Practical Radiation Oncology 2026), and D2T2 multimodal automated planning (Moore et al., CVPR 2026)"
     ],
     paperUrl: "https://doi.org/10.1088/1361-6560/acc37c", githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub%20access%20request%20-%20automated%20brachytherapy%20planning&body=Hi%20Karoline%2C%20I%20would%20like%20to%20request%20access%20to%20your%20GitHub%20repository%20for%20the%20automated%20brachytherapy%20treatment%20planning%20project."
   },
   {
-    title: "Calibrating RSI for reproducible prostate cancer detection",
+    title: "Calibration of the RSIrs biomarker for reproducibility across echo times",
     meta: "Postdoctoral Fellow · University of California San Diego Department of Radiology · 2022–2024",
-    pub: "J Applied Med Physics 2024", figClass: "fig-mri",
+    pub: "Kallis et al. · Journal of Applied Clinical Medical Physics · 2024", figClass: "fig-mri",
     newFormat: true, status: "Published",
-    keywords: ["Quantitative MRI","Echo-time calibration","Diffusion-weighted imaging","Prostate cancer","Reproducibility"],
+    keywords: ["RSIrs biomarker","Echo-time calibration","Diffusion-weighted imaging","Prostate cancer","Reproducibility"],
     figSvg: `<img src="img/pub_figures/fig_kallis2024_tecalib.png" alt="RSIrs calibration scatter plots — TE90 uncorrected vs. corrected vs. repeat TEmin acquisitions, for non-csPCa and csPCa patients" data-caption="Figure from Kallis et al., Journal of Applied Clinical Medical Physics 2024: 98th percentile RSIrs values comparing uncorrected TE90, corrected TE90, and repeated TEmin acquisitions against the TEmin1 reference. The top row shows patients without clinically significant prostate cancer; the bottom row shows patients with clinically significant prostate cancer." onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
     background: "RSI restriction score (RSIrs) is a diffusion MRI biomarker that has shown strong performance for detecting clinically significant prostate cancer (csPCa), outperforming ADC and matching PI-RADS v2.1. But like many quantitative MRI biomarkers, its value is sensitive to acquisition parameters — in particular echo time (TE) — which differ across scanners, protocols, and institutions. Uncorrected, this TE-dependence limits RSIrs's reliability as a comparable, reproducible clinical measurement and complicates multi-site validation and pooled analyses.",
     data: "197 consecutive patients undergoing MRI and biopsy at University of California San Diego (100 without csPCa, 97 with grade group ≥2 csPCa), each scanned three times in the same session on a 3T GE Discovery MR750 scanner: twice at minimum echo time (TEmin1, TEmin2, ≈75–76 ms) and once at TE = 90 ms (TE90), across 5 b-values (0, 50, 800, 1500, 3000 s/mm²), with biopsy- or prostatectomy-confirmed pathology.",
-    myRole: "I prepared the full dataset from scratch. I identified and retrieved the relevant RSI and T2-weighted series from PACS for all 197 patients, de-identified the imaging data, and ran the RSI model fitting to generate compartment (C1–C4) and RSIrs maps for each of the three TE acquisitions per patient. I built the complete RSIrs processing pipeline for PACS export, de-identification, model fitting, and output of processed NIfTI data alongside the original DICOM, organized by patient and acquisition. I used multiprocessing on the department's compute cluster to parallelize model fitting across the cohort. I designed and implemented the TE-calibration method using partial linear regression on the four RSI compartment maps to match TE90 acquisitions to the TEmin reference, restricted to the 95th–99th percentile of prostate signal intensity to limit noise. I estimated the per-compartment scaling factors and derived a calibrated b=0 normalization value. I performed the statistical evaluation using paired t-tests, sensitivity and specificity at the Youden index, and a bootstrapped sample-size analysis. I implemented the full pipeline in MATLAB.",
-    methods: ["PACS extraction","De-identification","Linear regression calibration","MATLAB","Quantitative MRI modeling","Multi-compartment diffusion modeling","Compute cluster","ROC / Youden index analysis","Paired t-tests","DICOM","NIfTI"],
+    myRole: "I prepared the full dataset from scratch. I identified and retrieved the relevant RSI and T2-weighted series from PACS for all 197 patients, de-identified the imaging data, and ran RSI model fitting to generate compartment (C1–C4) and RSIrs maps for each of the three TE acquisitions per patient. I built an automated PACS-to-NIfTI RSI image-processing pipeline for data export, de-identification, model fitting, and organized output of processed NIfTI data alongside the original DICOM. I used multiprocessing on the department's compute cluster to parallelize model fitting across the cohort. I designed and implemented the TE-calibration method using partial linear regression on the four RSI compartment maps to match TE90 acquisitions to the TEmin reference, restricted to the 95th–99th percentile of prostate signal intensity to limit noise. I estimated the per-compartment scaling factors and derived a calibrated b=0 normalization value. I performed the statistical evaluation using paired t-tests, sensitivity and specificity at the Youden index, and a bootstrapped sample-size analysis. I implemented the full pipeline in MATLAB.",
+    collaboration: "Collaborated with prostate MRI researchers, radiologists, and clinical/pathology teams at UC San Diego to define the reference acquisition, select clinically relevant biomarker endpoints, and assess whether calibration could support reproducible multi-site RSIrs deployment.",
+    clinicalImplications: "Echo-time calibration reduced acquisition-dependent RSIrs bias and produced more comparable biomarker values across different echo times. This provides the harmonization step needed for follow-up, multi-site patient studies applying the RSIrs imaging protocol consistently across scanners and clinical sites. The results support RSIrs as a more reproducible quantitative biomarker for clinical research, while also indicating that new scanners or disease sites should undergo local calibration before deployment.",
+    methods: ["RSIrs biomarker calibration for reproducibility","Multi-compartment RSI model fitting","PACS-to-NIfTI processing","HPC cluster / multiprocessing","De-identification","Statistical analysis","DICOM / NIfTI","MATLAB"],
     keyResults: [
       "72% reduction in TE-induced bias for non-csPCa cases (1.82 ± 1.20 SI → −0.51 ± 1.21 SI vs. reference)",
       "55% reduction in bias for csPCa cases after calibration",
       "66% sensitivity / 72% specificity for csPCa at the Youden index using the reference acquisition",
       "~35 patients sufficient to reproduce a comparable calibration for a new scanner or disease site",
       "Published in Journal of Applied Clinical Medical Physics, 2024"
+    ],
+    relatedWork: [
+      "Rojo Domingo et al. · Scientific Reports · 2024 — evaluated quantitative T2 measurements derived from RSI for clinically significant prostate cancer detection",
+      "Rojo Domingo et al. · The Journal of Urology · 2025 — assessed RSIrs as a quantitative biomarker for patient-level prostate cancer detection across seven centers",
+      "Do et al. · Cancer Imaging · 2026 — evaluated the effects of patient, scanner, and protocol factors on RSIrs across 1,890 patients",
+      "Baxter et al. · European Urology Open Science · 2025 — ART-Pro protocol for a multicenter, multinational evaluation of RSIrs across standardized MRI protocols and scanners"
     ],
     paperUrl: "https://doi.org/10.1002/acm2.14514", githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub%20access%20request%20%E2%80%94%20RSI%20TE%20calibration&body=Hi%20Karoline%2C%20I%20would%20like%20to%20request%20access%20to%20your%20GitHub%20repository%20for%20the%20RSI%20cross-scanner%2Fecho-time%20calibration%20project."
   },
@@ -752,21 +774,23 @@ const projects = [
   },
   // 5 — Synthesized DWI
   {
-    title: "Evaluating synthetic high-b DWI for prostate cancer imaging",
+    title: "Validating synthetic high <em>b</em>-value DWI for prostate cancer detection",
     meta: "Postdoctoral Fellow · University of California San Diego Department of Radiology · 2022–2024",
-    pub: "Cancer Imaging 2024", figClass: "fig-mri",
+    pub: "Kallis et al. · Cancer Imaging · 2024", figClass: "fig-mri",
     newFormat: true, status: "Published",
     keywords: ["Quantitative MRI validation","Synthetic DWI","RSIrs","Diffusion modeling","Artifact analysis","Clinical imaging evaluation"],
-    figSvg: `<img src="img/syntheticb-value.png" alt="Synthetic high-b DWI comparison showing monoexponential signal extrapolation and acquired versus synthesized prostate DWI images" data-caption="Figure from Kallis et al., Cancer Imaging 2024: comparison of acquired images to images synthesized with monoexponential models for one representative patient. Mean prostate values using b-values up to 500 s/mm&lt;sup&gt;2&lt;/sup&gt; (sDWI500) or up to 1000 s/mm&lt;sup&gt;2&lt;/sup&gt; (sDWI1000) are compared to acquired DWI. Panels A-D show acquired &lt;em&gt;b&lt;/em&gt;=0, 500, 1000, and 2000 s/mm&lt;sup&gt;2&lt;/sup&gt; images; panels E-F show synthesized &lt;em&gt;b&lt;/em&gt;=2000 s/mm&lt;sup&gt;2&lt;/sup&gt; images." onclick="openLightbox(this)" style="width:100%;max-height:380px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
-    background: "High b-value diffusion-weighted MRI improves prostate cancer conspicuity and is recommended for lesion detection, but acquired high-b images add scan time and can suffer from low signal-to-noise and artifacts. Synthetic high-b DWI offers an attractive shortcut by extrapolating from lower b-values, but monoexponential synthesis may not represent restricted diffusion in complex tissue or remain reliable outside the prostate.",
-    data: "151 consecutive prostate MRI patients with biopsy or prostatectomy pathology · 3T GE Discovery MR750 · axial DWI acquired at <em>b</em>=0, 500, 1000, and 2000 s/mm<sup>2</sup> · T2-weighted reference MRI · whole-gland prostate segmentations · radiologist-defined suspicious lesions · RSIrs maps for multi-compartment diffusion comparison",
-    myRole: "I collected and prepared the full imaging dataset, identified the relevant prostate MRI cases, prepared the DWI data, organized the analysis-ready cohort with pathology labels, and generated the RSIrs comparator maps using the PACS-export and cluster-processing pipeline from the calibration study. I led the image-analysis study comparing synthesized and acquired <em>b</em>=2000 DWI. I generated sDWI from <em>b</em>=0/500 and <em>b</em>=0/500/1000 acquisitions using monoexponential extrapolation, quantified voxel-level signal differences across prostate and pelvic regions of interest, evaluated lesion conspicuity and patient-level clinically significant prostate-cancer classification using ROC analysis, and benchmarked sDWI and acquired DWI against RSIrs. I prepared the figures, statistical analysis, and manuscript.",
-    methods: ["MATLAB","Synthetic DWI","Monoexponential extrapolation","Voxel-wise signal analysis","ROC analysis","AUC / FPR90 comparison","Contrast-to-noise ratio","DICOM","Quantitative MRI"],
+    figSvg: `<img src="img/syntheticb-value.png" alt="Synthetic high b-value DWI comparison showing monoexponential signal extrapolation and acquired versus synthesized prostate DWI images" data-caption="Figure from Kallis et al., Cancer Imaging 2024: comparison of acquired images to images synthesized with monoexponential models for one representative patient. Mean prostate values using <em>b</em>-values up to 500 s/mm&lt;sup&gt;2&lt;/sup&gt; (sDWI500) or up to 1000 s/mm&lt;sup&gt;2&lt;/sup&gt; (sDWI1000) are compared to acquired DWI. Panels A-D show acquired &lt;em&gt;b&lt;/em&gt;=0, 500, 1000, and 2000 s/mm&lt;sup&gt;2&lt;/sup&gt; images; panels E-F show synthesized &lt;em&gt;b&lt;/em&gt;=2000 s/mm&lt;sup&gt;2&lt;/sup&gt; images." onclick="openLightbox(this)" style="width:100%;max-height:380px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "Synthetic high <em>b</em>-value DWI could reduce scan time, but mono-exponential extrapolation may distort signal and introduce artifacts outside the prostate. I evaluated whether synthesized <em>b</em>=2000 images could substitute for acquired high <em>b</em>-value DWI for prostate cancer detection.",
+    data: "151 men with prostate MRI and biopsy · 86 clinically significant prostate cancers and 65 benign/grade group 1 cases · 3T GE Discovery MR750 · DWI at <em>b</em>=0, 500, 1000, and 2000 s/mm<sup>2</sup> · prostate, lesion, and pelvic ROIs · RSIrs comparator",
+    myRole: "I led the quantitative validation. I curated the imaging and pathology cohort, prepared the DWI data, and generated the RSIrs comparator maps. I synthesized <em>b</em>=2000 images from <em>b</em>=0/500 and <em>b</em>=0/500/1000 acquisitions using mono-exponential extrapolation. I built the MATLAB analysis pipeline to compare signal, contrast-to-noise ratio, and artifacts across prostate and pelvic ROIs; evaluated clinically significant prostate-cancer classification using ROC/AUC and FPR90; benchmarked synthetic and acquired DWI against RSIrs; and prepared the figures, statistical analysis, and manuscript.",
+    collaboration: "Collaborated with radiologists, prostate MRI researchers, and clinical/pathology teams at UC San Diego to define imaging and pathology endpoints, interpret synthetic-image artifacts, and assess whether synthesized images were clinically interchangeable with acquired high <em>b</em>-value DWI.",
+    clinicalImplications: "Synthetic high <em>b</em>-value DWI was visually comparable to acquired DWI within the prostate, but substantially underestimated signal and introduced pelvic artifacts that could obscure disease outside the prostate. The findings support synthetic DWI as a potential qualitative adjunct, not a drop-in replacement for acquired high <em>b</em>-value DWI or a quantitative biomarker without further validation.",
+    methods: ["MATLAB","DWI signal synthesis","Mono-exponential modeling","Voxel-wise signal analysis","ROI / CNR analysis","Artifact analysis","Statistical analysis","RSIrs benchmarking"],
     keyResults: [
       "sDWI was qualitatively comparable to acquired <em>b</em>=2000 DWI within the prostate",
       "sDWI systematically underestimated acquired signal within the prostate (-46% for sDWI1000, -67% for sDWI500)",
       "AUCs for in-prostate csPCa detection were similar for aDWI and sDWI (0.62-0.65)",
-      "Synthetic images introduced hyperintense pelvic artifacts that interfered with quantitative detection beyond the prostate",
+      "Whole-field-of-view sDWI classification dropped to AUC 0.45-0.47 because of pelvic artifacts",
       "RSIrs outperformed aDWI and sDWI for quantitative csPCa detection (AUC 0.78 in-prostate)",
       "Published in Cancer Imaging, 2024"
     ],
@@ -774,22 +798,25 @@ const projects = [
   },
   // 6 — ReIGNITE
   {
-    title: "Clinical validation of RSIrs-guided prostate tumor targeting",
+    title: "ReIGNITE: Clinical validation of RSIrs-guided prostate tumor targeting",
     meta: "Postdoctoral Fellow · University of California San Diego Department of Radiology · 2022–2024",
-    pub: "IJROBP 2023", figClass: "fig-mri",
+    pub: "Lui et al. · International Journal of Radiation Oncology • Biology • Physics · 2023", figClass: "fig-mri",
     newFormat: true, status: "Published",
     keywords: ["RSIrs-assisted contouring","Prospective reader study","Contour accuracy metrics","Mixed-effects modeling","Clinical usability analysis","International collaboration"],
     figSvg: `<img src="img/pub_figures/fig_lui2023_reignite.png" alt="Patient case showing tumor contours on conventional MRI alone vs. conventional MRI + RSIrs map, with participant contour heatmaps" data-caption="Figure from Lui et al., International Journal of Radiation Oncology • Biology • Physics 2023: patient case 1 from Figure 1. Participants contoured target volumes using conventional MRI alone or conventional MRI with an RSIrs map. Expert volumes are shown in red; selected participant volumes are shown in blue, and heatmaps show the percentage of participants including each voxel in the target volume." onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
     background: "Focal prostate radiotherapy boost can improve outcomes when the MRI-visible tumor is accurately targeted, but target delineation is difficult for radiation oncologists using conventional MRI alone. RSIrs is a quantitative diffusion MRI biomarker designed to highlight restricted diffusion associated with clinically significant prostate cancer. This study tested whether adding RSIrs maps improved real-world contouring accuracy, reduced missed tumors, and made the contouring task more usable for radiation oncologists.",
-    data: "Prospective, international, multi-reader study · 44 radiation oncologists across 9 countries · 39 prostate MRI cases · conventional MRI and RSIrs map conditions · 2 expert genitourinary radiologist reference contours · 1,604 participant contour attempts · histopathology confirmation for 33 of 34 expert-defined lesions · system usability survey responses",
-    myRole: "I co-led the study's quantitative analysis. I ran the RSIrs processing pipeline—including PACS export, de-identification, and cluster-based multiprocessing—to generate the maps used across study sites. I processed the MRI and contour data, converted participant-exported contour sets into binary masks, and built the MATLAB pipeline for multi-reader contour-accuracy metrics. I computed percent overlap with the expert volume, Dice coefficient, conformal number, and maximum distance beyond the expert volume. I ran mixed-effects models to quantify the effect of RSIrs availability while accounting for reader experience, and I supported the usability analysis, case curation, histopathology confirmation, figure generation, and manuscript preparation.",
-    methods: ["MATLAB","DICOM contour processing","Binary mask generation","Dice coefficient","Conformal number","Mixed-effects modeling","System usability scale","Multi-reader study design","Statistical analysis"],
+    data: "ReIGNITE prospective multi-reader study · 39 prostate MRI cases · 44 radiation oncologists across 9 countries · 2 expert genitourinary radiologist reference contours · 1,604 contour attempts",
+    myRole: "I co-led the study's quantitative analysis. I ran the RSIrs processing pipeline, including PACS export, de-identification, and cluster-based multiprocessing, to generate the maps used across study sites. I supported the MIM Software/Cloud contouring workflow, processed the MRI and contour data, and built the MATLAB pipeline for multi-reader contour-accuracy metrics. I computed contour agreement metrics and ran mixed-effects models to quantify the effect of RSIrs availability while accounting for reader experience. I also supported case curation, histopathology confirmation, figure generation, and manuscript preparation.",
+    collaboration: "Collaborated with 44 radiation oncologists across 9 countries, two expert genitourinary radiologists, and the multidisciplinary ReIGNITE study team. Coordinated the multi-site MIM Software/Cloud contouring workflow and worked with clinicians to interpret contour-accuracy, usability, and histopathology findings.",
+    clinicalImplications: "RSIrs-assisted contouring improved the consistency of prostate tumor delineation for focal radiotherapy boost and substantially reduced complete misses. Among 42 respondents, the System Usability Scale score improved from 57 to 72 with RSIrs, while poor-usability ratings fell from 36% to 5%. The findings support RSIrs as a clinical decision-support tool that could make tumor targeting more reliable across practitioners and experience levels, while preserving physician review and judgment.",
+    relatedWork: ["Zhong et al. · International Journal of Radiation Oncology • Biology • Physics · 2024 — Clinical impact of contouring variability for prostate cancer tumor boost"],
+    methods: ["MIM Software/Cloud","DICOM RTStruct","MATLAB","Contour agreement metrics","Statistical analysis","Mixed-effects modeling"],
     keyResults: [
       "1,604 contour attempts by 44 radiation oncologists across 9 countries",
       "Complete-miss rate fell from 18% of attempts (conventional MRI) to 2% (with RSIrs)",
       "91% of participants missed ≥1 target without RSIrs, vs. 30% with RSIrs",
       "Median overlap with the expert-defined target improved from 41% to 78% with RSIrs",
-      "Mixed-effects models confirmed RSIrs — not reader experience — was the main driver of improved accuracy (P < 10⁻⁹)",
+      "Mixed-effects models confirmed that RSIrs, rather than reader experience, was the main driver of improved accuracy (P < 10⁻⁹)",
       "Published in International Journal of Radiation Oncology • Biology • Physics, 2023"
     ],
     paperUrl: "https://doi.org/10.1016/j.ijrobp.2023.07.004", githubUrl: null
@@ -858,6 +885,17 @@ const projects = [
     collaboration: "Worked with physicians, nurses, and medical physicists to integrate the prototype measurements into the breast brachytherapy workflow. Collaborated with Elekta technical support on the tracking-enabled Flexitron system and its connection to the clinical afterloader infrastructure.",
     mentorship: "Mentored multiple master’s students who used the measurement software and datasets I developed for their own research projects. Guided them in working with the measurement workflow, processing and analyzing the data, interpreting results, and communicating their findings.",
     clinicalImplications: "The system demonstrated that an EMT-enabled afterloader could independently reconstruct catheter and dwell positions, detect clinically relevant shifts and catheter swaps, and operate within a patient-care workflow. This established the EMT-enabled Flexitron system used in the later patient study, adaptive-planning analysis, and follow-on automated error-detection work.",
+    relatedWork: [
+      "Kellermeier et al. · Brachytherapy · 2018 — Implant-geometry assessment across fractionated breast brachytherapy",
+      "Masitho et al. · Physics in Medicine & Biology · 2019 — EMT-based error detection in multi-catheter breast brachytherapy",
+      "Dürrbeck et al. · Radiotherapy and Oncology · 2022 — Automated breast implant reconstruction using EMT and image segmentation",
+      "Dürrbeck et al. · Medical Physics · 2022 — Patient-motion compensation for EMT-based breast QA",
+      "Sauer et al. · Frontiers in Physics · 2022 — Systematic review of EMT in interstitial brachytherapy",
+      "Dürrbeck et al. · Medical Physics · 2023 — Reference-point localization for breast treatment-error detection",
+      "Gómez-Sarmiento et al. · Medical Physics · 2024 — Automated EMT-to-CT registration for afterloader QA",
+      "Sauer et al. · Journal of Contemporary Brachytherapy · 2024 — Impact of registration method on breast QA",
+      "Dürrbeck et al. · Medical Physics · 2024 — Comprehensive EMT quality-assurance protocol"
+    ],
     methods: ["Measurement-procedure development","C# measurement software","MATLAB analysis pipeline","Electromagnetic tracking","EMT-enabled Flexitron afterloader prototype","Data logging and SQLite export","Coherent point drift registration","Catheter and dwell-position reconstruction","Interpolation and curve fitting","Phantom error simulation","Geometric error analysis (RMSE)","Clinical feasibility validation"],
     keyResults: ["Built and refined a standardized measurement procedure through iterative phantom and patient testing","Expanded measurement logging and added clearer data displays with TXT and SQLite export","Detected deliberately introduced catheter shifts and swaps using both fitting and interpolation approaches","Interpolation achieved the highest dwell-position accuracy (RMSE 1.27 mm), while curve fitting was more robust to noisy or motion-distorted EMT traces","Integrated the EMT workflow into clinical measurements for 20 patient implants","Established the EMT-enabled Flexitron system used in the subsequent patient, adaptive-planning, and automated error-detection studies","First-author manuscript published in Physics in Medicine & Biology, 2018","The system supported a follow-on automated error-detection study led by Masitho et al., Physics in Medicine & Biology, 2019"],
     funding: "Elekta research grant",
@@ -933,16 +971,18 @@ const projects = [
   },
   // 14 — Zhong dosimetric impact
   {
-    title: "Quantifying treatment impact from prostate contour variability",
+    title: "ReIGNITE: Clinical impact of prostate tumor contour variability",
     meta: "Postdoctoral Fellow · University of California San Diego Department of Radiology · 2022–2024",
-    pub: "IJROBP 2024", figClass: "fig-mri",
+    pub: "Zhong et al. · International Journal of Radiation Oncology • Biology • Physics · 2024", figClass: "fig-mri",
     newFormat: true, status: "Published",
     keywords: ["Contour-to-dose pipeline","Knowledge-based planning","DVH analysis","Outcome modeling","RSIrs-assisted contours","Clinical impact quantification"],
     figSvg: `<img src="img/pub_figures/fig_zhong2024_dosimetric.png" alt="Dose distributions for three patient cases comparing expert and participant-contoured focal radiotherapy boost plans" data-caption="Figure from Zhong et al., International Journal of Radiation Oncology • Biology • Physics 2024: focal boost dose distributions for three patient cases. Left column shows the planning MRI; panels A–C show the resulting dose wash (as % of the 77 Gy prescription) for the expert-defined target versus different participant-contoured targets, illustrating how contouring differences shift the high-dose region relative to the true tumor." onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
     background: "ReIGNITE showed that RSIrs maps reduced prostate tumor contouring errors, but the clinical question was whether those geometric differences actually matter for treatment. Focal boost plans have dose gradients and penumbra, so a contour can partially miss the expert target without an obvious interpretation of patient impact. This follow-up study translated contour variability into treatment-plan dose coverage and predicted biochemical failure risk, creating a quantitative bridge from imaging/contouring performance to clinically meaningful endpoints.",
-    data: "8 ReIGNITE patient cases with usable planning CT · 45 radiation oncologist readers (23 trainees, 22 non-trainees) · 2 expert radiologist reference contours · 394 participant target volumes + 8 expert target volumes · full focal-boost RT plans for each contour · 77 Gy/35 fractions prostate prescription with integrated boost to 95 Gy at the target · KBP model trained on 62 clinical plans and validated on 10 independent cases",
-    myRole: "I contributed to the contour-to-dose analysis pipeline. I rigidly co-registered T2-weighted MRI and expert and participant tumor contours to the planning CT, processed 394 participant contours and eight expert contours through the knowledge-based planning workflow, and extracted dose metrics including D98 and delta D98. I supported predicted biochemical-failure estimation using the randomized-trial dose-response model and performed case-wise and paired statistical comparisons across contouring conditions, RSIrs availability, and trainee and non-trainee readers.",
-    methods: ["Knowledge-based planning","Varian RapidPlan","Rigid image registration","DICOM RTDose","DVH analysis","D98 / delta D98","Biochemical failure modeling","MATLAB","Paired t-tests","Mixed-effects analysis"],
+    data: "8 ReIGNITE patient cases with planning CT data · 45 radiation oncologist readers (23 trainees, 22 non-trainees) · 2 expert radiologist reference contours · 394 participant target volumes + 8 expert target volumes · full focal-boost RT plans for each contour · 77 Gy/35 fractions prostate prescription with integrated boost to 95 Gy at the target · KBP model trained on 62 clinical plans and validated on 10 independent cases",
+    myRole: "I trained the Varian RapidPlan knowledge-based planning model on 62 clinical plans and validated it on 10 independent cases. I processed 394 participant contours and eight expert contours from MIM Software through the model, analyzed dose differences between contouring conditions, and estimated the resulting biochemical-failure risk using the randomized-trial dose-response model. I performed the case-wise and statistical analyses across RSIrs availability and trainee status.",
+    collaboration: "Collaborated with radiation oncologists, radiologists, and medical physicists from the ReIGNITE study to connect reader contouring variability with treatment-planning consequences. Worked with the clinical team to define relevant dose and outcome endpoints and interpret whether the observed differences were clinically meaningful.",
+    clinicalImplications: "The study showed that variation in prostate tumor contours can translate into measurable differences in focal-boost dose coverage and predicted biochemical-failure risk. RSIrs-assisted contours reduced dosimetric error in paired cases, supporting imaging-assisted contouring as a way to improve treatment consistency. Because the analysis used a small retrospective case set and model-based outcome estimates, the results support clinical relevance but not direct outcome claims.",
+    methods: ["Knowledge-based planning","Varian RapidPlan","MIM Software","DICOM RTDose","DVH analysis","Biochemical failure modeling","MATLAB","Statistical analysis","Mixed-effects analysis"],
     keyResults: [
       "394 participant + 8 expert target volumes converted into full RT plans via automated knowledge-based planning",
       "Participant contours increased predicted biochemical failure by 4.3% on average vs. the expert-defined target",
@@ -956,16 +996,18 @@ const projects = [
   },
   // 15 — MRI to histopathology registration
   {
-    title: "Deformable MRI-to-histopathology registration for RSI biomarker validation",
+    title: "Registering prostate MRI to histopathology for RSIrs biomarker validation",
     meta: "Postdoctoral Fellow · University of California San Diego Department of Radiology · 2022–2024",
-    pub: "Rojo Domingo et al. · Eur Urol Oncol 2026", figClass: "fig-mri",
+    pub: "Rojo Domingo et al. · European Urology Oncology · 2026", figClass: "fig-mri",
     newFormat: true, status: "Published",
     keywords: ["Medical image registration","MRI-to-pathology pipeline","Quantitative biomarker validation","DICOM RTStruct export","Clinical research tooling"],
     figSvg: `<img src="img/Picture1.png" alt="MRI to histopathology registration pipeline" data-caption="MRI-to-histopathology registration example for RSI biomarker validation. Whole-mount prostate histopathology slices with annotated cancer are aligned to in-vivo MRI, creating spatial ground truth for quantitative imaging biomarker development." onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;border-radius:6px;cursor:zoom-in;display:block;" />`,
     background: "RSI (Restriction Spectrum Imaging) is an emerging quantitative MRI biomarker for detecting clinically significant prostate cancer. To validate and train RSI-based models, spatially accurate ground truth from pathology is essential. 2D whole-mount histopathology after prostatectomy provides definitive cancer location and Gleason score, but aligning ex-vivo tissue slices to in-vivo MRI is challenging due to tissue deformation during surgery and processing.",
     data: "In-vivo pre-surgical MRI (T2w, DWI, RSI) · 2D whole-mount histopathology slices post-prostatectomy · DICOM RTStruct",
-    myRole: "I digitized 2D whole-mount histopathology slices and worked with a pathologist to annotate cancer extent and Gleason score. I developed the multimodal deformable-registration pipeline to align in vivo MRI (T2-weighted imaging, DWI, and RSI) with the annotated histopathology slices. Building on the RAPSODI framework, I implemented rigid, affine, and deformable registration steps to correct for tissue deformation during surgery and fixation. I exported the deformed histopathology structures as DICOM RTStruct files and uploaded them to MIM for clinical verification of the registered contours. I maintained the REDCap database for patient cases and study documentation and conducted exploratory analyses in support of the research grant. The lab continued the work after my postdoc.",
-    methods: ["Multi-modal deformable image registration","RAPSODI","SimpleITK","pydicom","Python","3D Slicer","MIM","REDCap","DICOM RTStruct","Exploratory data analysis"],
+    myRole: "I digitized 2D whole-mount histopathology slices and worked with a pathologist to annotate cancer extent and Gleason score. I developed the multimodal deformable-registration pipeline to align in vivo MRI (T2-weighted imaging, DWI, and RSI) with the annotated histopathology slices. Building on the RAPSODI framework, I implemented rigid, affine, and deformable registration steps to correct for tissue deformation during surgery and fixation. I exported the deformed histopathology structures as DICOM RTStruct files and uploaded them to MIM Software for clinical verification of the registered contours. I maintained the REDCap database for patient cases and study documentation and conducted exploratory analyses in support of the research grant. The lab continued the work after my postdoc.",
+    collaboration: "Worked with a pathologist to define cancer extent and Gleason-grade annotations on whole-mount sections and with the prostate MRI research team to establish the imaging-to-pathology registration workflow. Coordinated clinical verification of the registered contours in MIM Software and maintained the case-level documentation needed for reproducible research use.",
+    clinicalImplications: "The registration pipeline creates spatially aligned, pathology-grounded labels that can be used to train and validate RSIrs and other quantitative prostate MRI biomarkers against definitive cancer location and grade. By correcting for tissue shrinkage and deformation after prostatectomy, the workflow helps connect in-vivo imaging signal to ex-vivo pathology while preserving the need for expert pathology and imaging review.",
+    methods: ["Multi-modal deformable image registration","RAPSODI","SimpleITK","pydicom","Python","3D Slicer","MIM Software","REDCap","DICOM RTStruct","Exploratory data analysis"],
     keyResults: [
       "Spatially registered MRI-histopathology dataset established for RSI biomarker validation",
       "Pipeline corrects for tissue shrinkage and deformation from prostatectomy",
@@ -1206,6 +1248,7 @@ function openProject(i, clickedEl) {
     ${methodTags ? `<div class="detail-section"><div class="detail-section-label">Methods &amp; tools</div><div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;">${methodTags}</div></div>` : ''}
     ${p.mentorship ? `<div class="detail-section" style="margin-top:1.25rem;"><div class="detail-section-label">Mentorship</div><p class="detail-text">${p.mentorship}</p></div>` : ''}
     ${resultItems ? `<div class="detail-section" style="margin-top:1.25rem;"><div class="detail-section-label">Key results</div><ul style="margin:4px 0 0;padding-left:1.25rem;font-size:13px;color:#6b7280;line-height:1.75;">${resultItems}</ul></div>` : ''}`;
+  if (p.relatedWork) sidebar.innerHTML += `<div class="detail-section" style="margin-top:1.25rem;"><div class="detail-section-label">Related Work</div><ul style="margin:4px 0 0;padding-left:1.25rem;font-size:13px;color:#6b7280;line-height:1.65;">${p.relatedWork.map(work => `<li style="margin-bottom:6px;">${work}</li>`).join('')}</ul></div>`;
   if (p.funding) sidebar.innerHTML += `<div class="detail-section" style="margin-top:1.25rem;"><div class="detail-section-label">Funding</div><p class="detail-text">${p.funding}</p></div>`;
 
   if (!panel.classList.contains('open') || activeProject !== i) {

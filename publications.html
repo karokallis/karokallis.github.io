@@ -83,6 +83,14 @@
     }
     .pub-btn-doi { color: var(--blue-mid); border: 1px solid var(--blue-border); background: var(--blue-light); }
     .pub-btn-doi:hover { background: #d4e8f7; text-decoration: none; }
+    .pub-actions a[href^="projects.html#"] {
+      color: var(--accent); border: 1px solid var(--accent-border); background: var(--accent-light);
+    }
+    .pub-actions a[href^="projects.html#"]:hover { background: #ccfbf1; text-decoration: none; }
+    .pub-actions a[href*="medrxiv.org"] {
+      color: #166534; border-color: #86efac; background: #f0fdf4;
+    }
+    .pub-actions a[href*="medrxiv.org"]:hover { background: #dcfce7; text-decoration: none; }
 
     footer {
       border-top: 1px solid var(--border); background: var(--bg-soft);
@@ -127,10 +135,10 @@
       padding: 0.85rem 1.1rem;
       border-left: 4px solid;
     }
-    .affil-card.erlangen    { background: #fffbeb; border-color: #eab308; }
-    .affil-card.ucsd-moore  { background: #fff7ed; border-color: #f97316; }
-    .affil-card.ucsd-seibert{ background: #fef2f2; border-color: #ef4444; }
-    .affil-card.ucsd-ross   { background: #fff1f2; border-color: #881337; }
+    .affil-card.erlangen    { background: #f1f5f9; border-color: #94a3b8; }
+    .affil-card.ucsd-moore  { background: #eef2ff; border-color: #818cf8; }
+    .affil-card.ucsd-seibert{ background: #e0f2fe; border-color: #38bdf8; }
+    .affil-card.ucsd-ross   { background: #f0fdfa; border-color: #2dd4bf; }
     .affil-name  { font-size: 12.5px; font-weight: 600; color: var(--text); }
     .affil-abbr  { font-weight: 400; color: var(--muted); }
     .affil-pi    { font-size: 11.5px; color: var(--muted); }
@@ -143,10 +151,10 @@
       border-radius: 8px; padding: 5px 13px;
       white-space: nowrap; text-decoration: none;
     }
-    .pub-tag.erlangen     { color: #713f12; background: #fef9c3; border: 1px solid #fde047; }
-    .pub-tag.ucsd-moore   { color: #7c2d12; background: #ffedd5; border: 1px solid #fb923c; }
-    .pub-tag.ucsd-seibert { color: #991b1b; background: #fee2e2; border: 1px solid #f87171; }
-    .pub-tag.ucsd-ross    { color: #fff1f2; background: #881337; border: 1px solid #9f1239; }
+    .pub-tag.erlangen     { color: #334155; background: #f1f5f9; border: 1px solid #cbd5e1; }
+    .pub-tag.ucsd-moore   { color: #3730a3; background: #eef2ff; border: 1px solid #a5b4fc; }
+    .pub-tag.ucsd-seibert { color: #075985; background: #e0f2fe; border: 1px solid #7dd3fc; }
+    .pub-tag.ucsd-ross    { color: #115e59; background: #f0fdfa; border: 1px solid #99f6e4; }
   </style>
 </head>
 <body>
@@ -162,7 +170,7 @@
 <div class="page-header">
 <p class="page-label">Research output</p>
 <h1 class="page-title">Publications</h1>
-<p class="page-desc">29 peer-reviewed publications in brachytherapy, deep learning for dose prediction, quantitative MRI biomarkers, adaptive radiotherapy, and EHR-based clinical research</p>
+<p class="page-desc">30 peer-reviewed publications in brachytherapy, deep learning for dose prediction, quantitative MRI biomarkers, adaptive radiotherapy, and EHR-based clinical research</p>
 <div class="affil-section">
   <div class="affil-card erlangen">
     <div class="affil-name">Department of Radiation Oncology <span class="affil-abbr">(UKER)</span></div>
@@ -191,6 +199,34 @@
 <div class="year-label">2026</div>
 <div class="year-papers">
 
+<div class="pub-entry" id="kallis-pad-2026">
+<div class="pub-top">
+<p class="pub-title">Performance, Generalizability, and Fairness of a Peripheral Artery Disease Detection Model Across Patient Phenotypes and Health Systems</p>
+</div>
+<p class="pub-meta"><strong>Journal of the American Heart Association</strong>  ·  Submitted 2026</p>
+<p class="pub-authors"><strong>Kallis K</strong>, Quitevis C, Malas MB, Ross EG</p>
+<p class="pub-abstract"><strong>Background:</strong> Peripheral artery disease (PAD) is a major cause of cardiovascular events but remains underdiagnosed. Electronic health record (EHR)-based machine learning models show promise for earlier detection, but developing generalizable and fair models across diverse populations remains challenging.<br><br><strong>Methods:</strong> Using the University of California Health Data Warehouse, containing EHR data from five health systems, we identified patients with and without PAD. We used unsupervised clustering to define PAD phenotypes and trained a LightGBM classifier using 14,023 features spanning demographics, comorbidities, medications, laboratory values, healthcare utilization, and diagnosis, procedure, and medication codes. We evaluated performance overall and across demographic groups and phenotypes, and assessed fairness using selection rates and subgroup differences in true- and false-positive rates.<br><br><strong>Results:</strong> The study included 33,739 cases and 33,739 matched controls. Clustering identified four phenotypes: patients with limited healthcare documentation (cluster 1), younger patients with severe metabolic disease (cluster 2), patients with a traditional atherosclerotic risk profile (cluster 3), and frail elderly patients with multimorbidity (cluster 4). Overall, the model demonstrated consistent performance across institutions (AUROC 0.76–0.79; AUC-PR 0.76–0.79) with well-calibrated probabilities. Performance was similar across genders, with modest variation by race and age, and was stronger in clusters 2–4. Cluster 2 demonstrated the highest sensitivity (TPR 0.87, 95% CI 0.87–0.88), while cluster 1 showed the lowest performance (TPR 0.40, 95% CI 0.39–0.41).<br><br><strong>Conclusions:</strong> The EHR-based PAD detection model demonstrated consistent performance across five health systems. Phenotypic clustering revealed clinically meaningful differences in model performance adding an additional consideration in ML fairness and performance evaluations.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-ross">UCSD Surgery</span>
+<a class="pub-btn pub-btn-doi" href="https://www.medrxiv.org/content/10.64898/2026.08.19.26360861v1" target="_blank">🔗 Preprint / DOI</a>
+<a class="pub-btn" href="projects.html#project-pad-5-systems">View project</a>
+</div>
+</div>
+
+<div class="pub-entry" id="rojo-domingo-histopath-2026">
+<div class="pub-top">
+<p class="pub-title">Detection and Localization of Unfavorable-histology Prostate Cancer Using MRI and Whole-mount Histopathology</p>
+</div>
+<p class="pub-meta"><strong>European Urology Oncology</strong>  ·  2026</p>
+<p class="pub-authors">Rojo Domingo M, Dornisch A, Conlin CC, Bagrodia A, Barrett T, Cooperberg M, Desloges JJ, Do DD, Do S, Hahn ME, Harisinghani M, Hollenberg G, <strong>Kallis K</strong>, Kane CJ, Kim J, Lee KL, Levine J, Liss MA, Liu J, Nakrour N, Osinski T, Pare C, Rakow-Penner R, Rupareliya R, Salmasi A, Simko J, Song Y, Sushentev N, Weinberg E, Woolen S, Dale AM, Shabaik AS, Seibert TM</p>
+<p class="pub-abstract"><strong>Background and objective:</strong> We evaluated the utility of PI-RADS and the automated Restriction Spectrum Imaging restriction score (RSIrs) for detecting and localizing unfavorable-histology prostate cancer (uhPC), including high-grade and cribriform or intraductal disease.<br><br><strong>Methods:</strong> Patient-level detection was evaluated in a multicenter biopsy cohort, while lesion-level localization was assessed against whole-mount histopathology after radical prostatectomy. PI-RADS and RSIrs were compared for uhPC detection and index-tumor localization.<br><br><strong>Results:</strong> In 1022 patients from five centers, PI-RADS and RSIrs showed comparable patient-level discrimination. In 103 patients with whole-mount histopathology, combined PI-RADS and RSIrs achieved 93% sensitivity for the index tumor and 90% sensitivity for all uhPC tumors.<br><br><strong>Conclusions and clinical implications:</strong> MRI showed high sensitivity for detecting uhPC. PI-RADS and automated RSIrs may support targeted biopsy and tumor-focused treatment, including focal radiation dose escalation.</p>
+<div class="pub-actions">
+<span class="pub-tag ucsd-seibert">UCSD Radiology</span>
+<a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.euo.2026.07.011" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-mri-histopathology">View project</a>
+</div>
+</div>
+
 <div class="pub-entry">
 <div class="pub-top">
 <p class="pub-title">D2T2: Multimodal Automated Planning for Brachytherapy </p>
@@ -200,7 +236,8 @@
 <p class="pub-abstract">Brachytherapy is a complex radiation oncology problem that requires the simultaneous prediction of radiation dose and a set of machine parameters known as dwell times, used for treatment delivery. We propose Direct Dwell Time Transformer (D2T2), the first deep learning architecture that directly predicts dwell times during dose prediction. D2T2 is a two-stage model: the first stage predicts a vector of dwell times and the second implements the physical model of radiation delivery as a linear combination of dose kernels. This constrains the model to make physically plausible dose predictions when trained end-to-end. We also propose a new loss function — the gamma loss — based on prediction of the gamma index, the gold standard for dose comparisons. D2T2 is trained on a large dataset of ~5,000 clinical brachytherapy plans spanning gynecological, breast, and other treatment sites. Results demonstrate that D2T2 outperforms existing methods in both accuracy and speed, producing deliverable plans and physically valid dose distributions in a single forward pass — hours faster than manual planning and minutes faster than recent automated methods.</p>
 <div class="pub-actions">
 <span class="pub-tag ucsd-moore">RMAS</span>
-<a class="pub-btn pub-btn-doi" href="https://openaccess.thecvf.com/content/CVPR2026/html/Moore_D2T2_Multimodal_Automated_Planning_for_Brachytherapy_CVPR_2026_paper.html" target="_blank">🔗 CVF</a>
+<a class="pub-btn pub-btn-doi" href="https://openaccess.thecvf.com/content/CVPR2026/html/Moore_D2T2_-_Multimodal_Automated_Planning_for_Brachytherapy_CVPR_2026_paper.html" target="_blank">🔗 CVF paper</a>
+<a class="pub-btn" href="projects.html#project-automated-brachytherapy">View project</a>
 </div>
 </div>
 
@@ -214,6 +251,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-moore">RMAS</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.prro.2026.05.002" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-automated-brachytherapy">View project</a>
 </div>
 </div>
 <div class="pub-entry">
@@ -226,6 +264,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-seibert">UCSD Radiology</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1186/s40644-026-01032-w" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-rsi-calibration">View project</a>
 </div>
 </div>
 </div>
@@ -255,6 +294,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-moore">RMAS</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.brachy.2025.08.004" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-automated-brachytherapy">View project</a>
 </div>
 </div>
 
@@ -268,6 +308,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-seibert">UCSD Radiology</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1097/JU.0000000000004611" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-rsi-calibration">View project</a>
 </div>
 </div>
 </div>
@@ -285,6 +326,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-seibert">UCSD Radiology</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1038/s41598-024-82742-8" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-rsi-calibration">View project</a>
 </div>
 </div>
 <div class="pub-entry">
@@ -297,6 +339,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-seibert">UCSD Radiology</span> <span class="pub-tag ucsd-moore">RMAS</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.ijrobp.2024.06.007" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-prostate-contour-impact">View project</a>
 </div>
 </div>
 <div class="pub-entry" id="kallis-2024-rsi">
@@ -309,6 +352,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-seibert">UCSD Radiology</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1002/acm2.14514" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-rsi-calibration">View project</a>
 </div>
 </div>
 <div class="pub-entry">
@@ -321,6 +365,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-seibert">UCSD Radiology</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1186/s40644-024-00723-6" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-synthetic-dwi">View project</a>
 </div>
 </div>
 <div class="pub-entry">
@@ -333,6 +378,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-moore">RMAS</span>
 <a class="pub-btn pub-btn-doi" href="https://www.iccr2024.org/papers/526220.pdf" target="_blank">🔗 Proceedings</a>
+<a class="pub-btn" href="projects.html#project-automated-brachytherapy">View project</a>
 </div>
 </div>
 <div class="pub-entry">
@@ -345,6 +391,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-moore">RMAS</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1002/mp.17230" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-automated-brachytherapy">View project</a>
 </div>
 </div>
 </div>
@@ -362,6 +409,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-seibert">UCSD Radiology</span> <span class="pub-tag ucsd-moore">RMAS</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.ijrobp.2023.07.004" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-reignite">View project</a>
 </div>
 </div>
 <div class="pub-entry">
@@ -374,6 +422,7 @@
 <div class="pub-actions">
 <span class="pub-tag erlangen">UKER</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1002/mp.16659" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-adaptive-brachytherapy">View project</a>
 </div>
 </div>
 <div class="pub-entry" id="kallis-2023-pmb">
@@ -386,6 +435,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-moore">RMAS</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1088/1361-6560/acc37c" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-automated-brachytherapy">View project</a>
 </div>
 </div>
 </div>
@@ -403,6 +453,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-moore">RMAS</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.brachy.2022.03.002" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-automated-brachytherapy">View project</a>
 </div>
 </div>
 </div>
@@ -421,6 +472,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-moore">RMAS</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.brachy.2021.08.010" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-automated-brachytherapy">View project</a>
 </div>
 </div>
 <div class="pub-entry" id="kallis-2021-needle">
@@ -433,6 +485,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-moore">RMAS</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.brachy.2021.07.001" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-automated-brachytherapy">View project</a>
 </div>
 </div>
 <div class="pub-entry">
@@ -445,6 +498,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-moore">RMAS</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1200/CCI.20.00093" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-orbit-rt">View project</a>
 </div>
 </div>
 </div>
@@ -462,6 +516,7 @@
 <div class="pub-actions">
 <span class="pub-tag ucsd-moore">RMAS</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.brachy.2020.04.008" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-knowledge-based-dose">View project</a>
 </div>
 </div>
 <div class="pub-entry">
@@ -492,6 +547,7 @@
 <div class="pub-actions">
 <span class="pub-tag erlangen">UKER</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.radonc.2019.08.015" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-adaptive-brachytherapy">View project</a>
 </div>
 </div>
 <div class="pub-entry" id="kallis-2019-interfrac">
@@ -504,6 +560,7 @@
 <div class="pub-actions">
 <span class="pub-tag erlangen">UKER</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.radonc.2019.08.012" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-emt-flexitron">View project</a>
 </div>
 </div>
 <div class="pub-entry">
@@ -516,6 +573,7 @@
 <div class="pub-actions">
 <span class="pub-tag erlangen">UKER</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1088/1361-6560/ab4336" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-prostate-contour-impact">View project</a>
 </div>
 </div>
 <div class="pub-entry">
@@ -528,6 +586,7 @@
 <div class="pub-actions">
 <span class="pub-tag erlangen">UKER</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1016/j.radonc.2019.02.017" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-prostate-contour-impact">View project</a>
 </div>
 </div>
 </div>
@@ -546,6 +605,7 @@
 <div class="pub-actions">
 <span class="pub-tag erlangen">UKER</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1088/1361-6560/aabb5a" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-emt-flexitron">View project</a>
 </div>
 </div>
 </div>
@@ -563,6 +623,7 @@
 <div class="pub-actions">
 <span class="pub-tag erlangen">UKER</span>
 <a class="pub-btn pub-btn-doi" href="https://doi.org/10.1088/1361-6560/aa8591" target="_blank">🔗 DOI</a>
+<a class="pub-btn" href="projects.html#project-emt-flexitron">View project</a>
 </div>
 </div>
 </div>

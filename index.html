@@ -800,7 +800,7 @@
         <svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v5h5"/><path d="M10 13h6"/><path d="M10 17h4"/></svg>
       </span>
       <div>
-        <div class="stat-num">29</div>
+        <div class="stat-num">30</div>
         <div class="stat-label">Peer-reviewed publications</div>
       </div>
     </div>
@@ -926,9 +926,10 @@
         <p class="card-desc">Longitudinal analysis of cardiovascular prevention quality measures in 1.2M PAD patients, with subgroup analysis by race, sex, insurance, and PAD severity.</p>
         <div class="badge-row">
           <span class="badge b-blue">Epic COSMOS</span>
-          <span class="badge b-teal">Logistic regression</span>
-          <span class="badge b-teal">Mixed effect model</span>
           <span class="badge b-blue">SQL</span>
+          <span class="badge b-blue">Python</span>
+          <span class="badge b-teal">Mixed effects models</span>
+          <span class="badge b-teal">Cox proportional hazards</span>
         </div>
         <div class="card-result"><span class="card-result-label">Key result</span>Only 10.7% achieved all four quality measures in the first year after diagnosis.</div>
       </div>
@@ -1026,12 +1027,14 @@
       </div>
       <div class="card-body tint-ehr">
         <div class="card-domain">EHR · Machine Learning</div>
-        <p class="card-title">PAD detection model for deployment at UCSD</p>
-        <p class="card-desc">Production ML model integrated into Epic for flagging high-risk PAD patients at point of care, with performance drift monitoring.</p>
+        <p class="card-title">PAD detection model for deployment at University of California San Diego</p>
+        <p class="card-desc">Translating the UC Health PAD detection model into a production-ready clinical tool for EHR integration and at-risk patient flagging at point of care.</p>
         <div class="badge-row">
           <span class="badge b-blue">XGBoost</span>
           <span class="badge b-blue">Epic Caboodle</span>
           <span class="badge b-blue">AWS SageMaker</span>
+          <span class="badge b-blue">SQL</span>
+          <span class="badge b-blue">Python</span>
           <span class="badge b-green">Clinical deployment</span>
         </div>
         <div class="card-result"><span class="card-result-label">Key result</span>Deployed in the UCSD clinical workflow with performance monitoring and SHAP explainability.</div>
@@ -1110,14 +1113,13 @@
       <div class="card-body tint-brachy">
         <div class="card-domain">Radiotherapy Data · Treatment Automation</div>
         <p class="card-title">Automated brachytherapy treatment planning</p>
-        <p class="card-desc">End-to-end framework converting 3D dose predictions into deliverable cervical cancer treatment plans, validated in the clinical workflow.</p>
+        <p class="card-desc">Built the dose-to-plan layer that converted predicted 3D dose into deliverable cervical cancer brachytherapy plans and tested it against clinical plans.</p>
         <div class="badge-row">
-          <span class="badge b-purple">Knowledge-based modeling</span>
+          <span class="badge b-purple">Knowledge-based dose prediction</span>
           <span class="badge b-purple">Python</span>
           <span class="badge b-purple">DICOM</span>
-          <span class="badge b-coral">BrachyVision</span>
         </div>
-        <div class="card-result"><span class="card-result-label">Key result</span>Converted predicted dose distributions into deliverable treatment plans validated against clinical benchmarks.</div>
+        <div class="card-result"><span class="card-result-label">Key result</span>Demonstrated an end-to-end, DICOM-integrated planning workflow on clinical cases with plan quality comparable to manual benchmarks.</div>
       </div>
     </div>
 
@@ -1156,14 +1158,13 @@
       </div>
       <div class="card-body tint-mri">
         <div class="card-domain">Medical Imaging · Image Registration</div>
-        <p class="card-title">Deformable MRI-to-histopathology registration for RSI biomarker validation</p>
-        <p class="card-desc">Pipeline to spatially align in-vivo MRI to whole-mount histopathology, establishing pixel-level ground truth for quantitative MRI biomarker validation.</p>
+        <p class="card-title">Registering prostate MRI to histopathology for RSIrs biomarker validation</p>
+        <p class="card-desc">Built a multimodal registration pipeline aligning in-vivo prostate MRI with whole-mount histopathology to create pathology-grounded labels for RSIrs biomarker development.</p>
         <div class="badge-row">
-          <span class="badge b-coral">Multi-modal deformable image registration</span>
-          <span class="badge b-coral">MRI</span>
+          <span class="badge b-coral">Deformable registration</span>
           <span class="badge b-coral">Histopathology</span>
-          <span class="badge b-blue">DICOM</span>
           <span class="badge b-blue">Python</span>
+          <span class="badge b-amber">DICOM RTStruct</span>
         </div>
         <div class="card-result"><span class="card-result-label">Key result</span>Established a spatially registered MRI–histopathology dataset for quantitative biomarker validation.</div>
       </div>
@@ -1195,6 +1196,24 @@
   </div>
   <div class="pub-panel">
   <div class="pub-list">
+
+    <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div>
+        <a class="pub-title-link" href="publications.html#kallis-pad-2026"><p class="pub-title">Performance, Generalizability, and Fairness of a Peripheral Artery Disease Detection Model Across Patient Phenotypes and Health Systems</p></a>
+        <p class="pub-authors"><strong>Kallis K</strong>, Quitevis C, Malas MB, Ross EG</p>
+        <p class="pub-journal">Journal of the American Heart Association · Submitted 2026</p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div>
+        <a class="pub-title-link" href="publications.html#rojo-domingo-histopath-2026"><p class="pub-title">Detection and Localization of Unfavorable-histology Prostate Cancer Using MRI and Whole-mount Histopathology</p></a>
+        <p class="pub-authors">Rojo Domingo M, Dornisch A, Conlin CC, Bagrodia A, Barrett T, Cooperberg M, Desloges JJ, Do DD, Do S, Hahn ME, Harisinghani M, Hollenberg G, <strong>Kallis K</strong>, et al.</p>
+        <p class="pub-journal">European Urology Oncology · 2026</p>
+      </div>
+    </div>
 
     <div class="pub-item">
       <div class="pub-year">2024</div>
@@ -1522,16 +1541,19 @@ const projects = [
     githubUrl: null
   },
   {
-    title: "PAD detection across 5 health systems",
+    title: "Performance, Generalizability, and Fairness of a Peripheral Artery Disease Detection Model Across Patient Phenotypes and Health Systems",
     domain: "EHR · Machine Learning",
     meta: "Research Scientist · UCSD Department of Surgery · 2024–present",
-    pub: "In preparation",
-    conference: "Kallis K, Ross E. Assessing performance and generalizability of AI-based PAD detection models across California health systems. Vascular Annual Meeting 2025. Poster.",
+    pub: "Kallis et al. · Journal of the American Heart Association · submitted 2026",
+    conference: "Conference presentation: Kallis K, Ross E. Assessing performance and generalizability of AI-based PAD detection models across California health systems. Vascular Annual Meeting 2025. Poster.",
     newFormat: true, status: "Ongoing",
     keywords: ["Multi-site ML validation","EHR feature engineering","Phenotype discovery","Fairness evaluation","LightGBM pipeline"],
     background: "PAD affects roughly 12 million Americans but is heavily underdiagnosed. EHR prevalence at UC Health was only 1.3 to 2.4% while population estimates reach 5.6%, and patients were in the health system an average of four years before receiving a PAD code. This study developed and evaluated a generalizable ML model for PAD detection across 5 UC Health systems, assessing model performance and fairness across demographic subgroups and patient phenotypes.",
     data: "UC Health Data Warehouse (UCHDW) · Structured EHR data · OMOP format · 5 UC Health systems · 33,739 PAD patients + 33,739 matched controls · Concept codes · Vitals · Labs",
     myRole: "Owned the full ML pipeline from cohort design to fairness evaluation across 5 UC Health systems. Defined PAD cases using OMOP concept codes and built a 1:1 propensity-matched case-control cohort of 33,739 patients. Engineered 14,023 features as code occurrence counts across four time windows, plus continuous lab values, vital signs, and demographics, represented as a sparse matrix. Trained a LightGBM classifier with Bayesian hyperparameter optimization via Optuna. Applied dimensionality reduction followed by Gaussian Mixture Model clustering to identify 4 clinically distinct patient phenotypes. Evaluated model fairness across sex, race, age, social vulnerability index, health system, and phenotypic subgroups using selection rates and equalized odds.",
+    contribution: "I led the study design, cohort construction, feature engineering, model development, phenotype discovery, and fairness analysis. I built the end-to-end pipeline that evaluated whether PAD detection performance generalized across health systems and clinically distinct patient subgroups.",
+    collaboration: "Collaborated with Elsie G. Ross, M.B. Malas, and the UC Health research teams across five health systems to define the clinical question, interpret patient phenotypes, and assess the model's generalizability and fairness in diverse care settings.",
+    clinicalImplications: "The model's consistent performance across five health systems supports its potential as a scalable EHR-based tool for earlier PAD case finding and risk-based clinical outreach. The observed variation across patient phenotypes shows why deployment should include subgroup monitoring and calibration checks rather than relying on aggregate performance alone. Prospective workflow evaluation and clinician oversight would be needed before using the model to guide patient care.",
     methods: ["LightGBM","Dimensionality reduction","Gaussian Mixture Model","Propensity matching","SHAP","Optuna","SQL","Python","Databricks","Fairness evaluation"],
     keyResults: [
       "AUROC 0.76 to 0.79 consistent across all 5 health systems",
@@ -1542,49 +1564,57 @@ const projects = [
     ],
     figClass: "fig-ehr",
     figSvg: `<img src="img/figure3.png" alt="Patient phenotype cluster characteristics — coefficient plots for 4 PAD clusters" onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
-    paperUrl: null, githubUrl: null
+    paperUrl: "https://www.medrxiv.org/content/10.64898/2026.08.19.26360861v1", githubUrl: null
   },
   {
     title: "Automated brachytherapy treatment planning",
     domain: "Radiotherapy Data · Treatment Automation",
     meta: "Postdoctoral Fellow · UCSD Radiation Medicine & Applied Sciences · 2019–2022",
-    pub: "Physics in Medicine & Biology 2023 · Brachytherapy 2021 (×2)",
+    pub: "Kallis et al. · Physics in Medicine & Biology · 2023",
     newFormat: true,
     status: "Published",
-    keywords: ["End-to-end ML pipeline","Dose-to-plan optimization","Physics-informed optimization","DICOM RT integration","Clinical workflow validation"],
+    keywords: ["End-to-end ML pipeline","Dose-to-plan optimization","Affine registration","Dose-grid downsampling","Clinical workflow validation"],
     figClass: "fig-brachy",
     figSvg: `<img src="img/automated_treatment.png" alt="Automated brachytherapy treatment planning workflow" onclick="openLightbox(this)" style="width:100%;max-height:340px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
-    problem: "Brachytherapy treatment planning for cervical cancer is time-intensive, requires expert physicists, and is highly operator-dependent. The full automation chain — from dose prediction to a machine-readable deliverable plan — had not been demonstrated for this indication.",
-    contribution: "Owned the automated planning software pipeline around an existing 3D dose prediction model: exported and preprocessed RT DICOM data, implemented the Python optimizer that converts predicted dose into deliverable dwell times, generated updated RT Plan files, evaluated plan quality against clinical benchmarks, and prepared the manuscript.",
-    background: "Cervical cancer brachytherapy planning is performed in a narrow clinical window, often while the patient remains under anesthesia, and depends on expert physicists manually translating anatomy, applicator geometry, and dose constraints into deliverable dwell times. Prior ML work could predict patient-specific 3D dose distributions, but those predictions were not directly usable by the treatment machine. This project addressed the missing engineering step: converting model-predicted dose into a clinically deliverable DICOM treatment plan.",
-    data: "UCSD cervical cancer brachytherapy RT DICOM data · 40 clinical validation plans (T&O/T&R with 0-3 needles) · 10 T&O automated-planning cases · CT images · RTStruct contours · RT Plan/RP dwell positions and times · RT Dose grids · model-predicted 3D dose distributions",
-    myRole: "Owned the software and analysis pipeline downstream of the existing 3D dose prediction model. Exported and preprocessed RT DICOM data, built the Python-coded COBYLA optimizer that converts predicted dose distributions into optimized dwell times, generated updated RT Plan files for import back into the clinical workflow, evaluated automated plans against clinical benchmarks, created figures and analyses, and prepared the manuscript.",
-    tools: [["Python","b-purple"],["COBYLA optimizer","b-purple"],["Knowledge-based modeling","b-purple"],["DICOM","b-purple"],["Spatial interpolation","b-coral"],["MIM","b-purple"],["BrachyVision","b-purple"],["PACS query scripts","b-blue"]],
-    results: ["Plan quality matched manual benchmarks","Validated in clinical workflow at UCSD","First automated dose-to-plan pipeline for cervical brachytherapy","PMB 2023 · Brachytherapy 2021 (×2)"],
-    methods: ["Python","COBYLA optimizer","SciPy","Knowledge-based modeling","3D dose prediction","Dose-to-dwell optimization","DICOM RTStruct","DICOM RT Plan/RP","BrachyVision","MIM"],
+    problem: "Cervical cancer brachytherapy planning is time-sensitive, requires specialized expertise, and depends on manually translating anatomy and a desired dose distribution into deliverable dwell times. A dose-prediction model alone does not produce a treatment plan that can be reviewed or imported into a treatment-planning system.",
+    contribution: "Owned the dose-to-plan translation layer around an existing 3D dose-prediction model: used MIM Software to export and preprocess RT DICOM data, registered and downsampled dose distributions for optimization, implemented the Python optimizer that converted predicted dose into dwell times, generated updated RT Plan files, evaluated plan quality against clinical benchmarks, and prepared the manuscript.",
+    background: "Planning is often performed while the patient remains under anesthesia, so reducing repetitive optimization could shorten the planning window while preserving physicist oversight. Prior work in the lab could predict patient-specific 3D dose distributions, but those predictions were not directly usable in the treatment-planning system. I addressed this translational gap by building the optimization and DICOM integration needed to turn a predicted dose distribution into a reviewable, deliverable plan.",
+    data: "UCSD cervical cancer brachytherapy RT DICOM data · 40 patients for optimizer validation (T&O/T&R with 0-3 needles) · 10 unique T&O test-set patients for automated planning · CT images · RTStruct contours · RT Plan/RP dwell positions and times · clinical and model-predicted 3D dose distributions",
+    myRole: "Owned the software and analysis pipeline downstream of the existing 3D dose-prediction model. I used MIM Software to export and preprocess RT DICOM data, registered and downsampled dose distributions, built the Python COBYLA optimizer that converted predicted dose distributions into optimized dwell times, generated updated RT Plan files for import into the treatment-planning workflow, and compared automated plans with clinical benchmarks. I also created the figures and analyses and prepared the manuscript.",
+    relatedWork: [
+      "Cortes et al. · Brachytherapy · 2022 — Knowledge-based 3D dose prediction for tandem-and-ovoid brachytherapy",
+      "Moore et al. · Medical Physics · 2024 — Applicator-specific neural-network dose prediction under data scarcity",
+      "Moore et al. · ICCR · 2024 — Direct dwell-time prediction compared with dose-prediction auto-planning",
+      "Truong et al. · Brachytherapy · 2025 — Single-click AI auto-planning integrated within BrachyVision",
+      "Mitra et al. · Practical Radiation Oncology · 2026 — AI auto-planning compared with manual expert planning",
+      "Moore et al. · CVPR · 2026 — D2T2 multimodal automated planning for brachytherapy"
+    ],
+    tools: [["Python","b-purple"],["COBYLA optimizer","b-purple"],["Knowledge-based modeling","b-purple"],["DICOM","b-purple"],["Spatial interpolation","b-coral"],["BrachyVision","b-purple"],["PACS query scripts","b-blue"]],
+    results: ["1.6 min average optimization time","6.5% dose difference vs. clinical plans","10.3 s dwell-time difference vs. clinical plans","100% isodose Dice score: 0.91"],
+    methods: ["Python","COBYLA optimizer","SciPy","Knowledge-based modeling","3D dose prediction","Affine registration","Dose-grid downsampling","Dose-to-dwell optimization","DICOM RTStruct","DICOM RT Plan/RP","BrachyVision"],
     keyResults: [
-      "First end-to-end automated dose-to-plan pipeline for cervical brachytherapy",
-      "Converted predicted 3D dose distributions into deliverable dwell times",
-      "Plan quality matched manual clinical benchmarks",
-      "Validated within the UCSD clinical workflow",
+      "Optimizer reproduced 40 clinical plans with 1.1% mean absolute dose difference, 4 s dwell-time difference, and Dice score 0.99",
+      "Generated automated plans for 10 unique T&O test-set patients",
+      "Automated plans differed from clinical plans by 6.5% in dose and 10.3 s in dwell times",
+      "Automated 100% isodose contours achieved a mean Dice score of 0.91",
       "Published in Physics in Medicine & Biology 2023 with related Brachytherapy studies"
     ],
     paperUrl: "https://doi.org/10.1088/1361-6560/acc37c",
     githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub%20access%20request%20-%20automated%20brachytherapy%20planning&body=Hi%20Karoline%2C%20I%20would%20like%20to%20request%20access%20to%20your%20GitHub%20repository%20for%20the%20automated%20brachytherapy%20treatment%20planning%20project."
   },
   {
-    title: "Deformable MRI-to-histopathology registration for RSI biomarker validation",
+    title: "Registering prostate MRI to histopathology for RSIrs biomarker validation",
     domain: "Medical Imaging · Prostate Cancer",
     meta: "Postdoctoral Fellow · UCSD Department of Radiology · 2022–2024",
-    pub: "Rojo Domingo et al. · Eur Urol Oncol 2026",
+    pub: "Rojo Domingo et al. · European Urology Oncology · 2026",
     newFormat: true, status: "Published",
     keywords: ["Medical image registration","MRI-to-pathology pipeline","Quantitative biomarker validation","DICOM RTStruct export","Clinical research tooling"],
     figClass: "fig-mri",
     figSvg: `<img src="img/Picture1.png" alt="MRI to histopathology registration pipeline" onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;border-radius:6px;cursor:zoom-in;display:block;" />`,
     background: "RSI (Restriction Spectrum Imaging) is an emerging quantitative MRI biomarker for detecting clinically significant prostate cancer. To validate and train RSI-based models, spatially accurate ground truth from pathology is essential. 2D whole-mount histopathology after prostatectomy provides definitive cancer location and Gleason score, but aligning ex-vivo tissue slices to in-vivo MRI is challenging due to tissue deformation during surgery and processing.",
     data: "In-vivo pre-surgical MRI (T2w, DWI, RSI) · 2D whole-mount histopathology slices post-prostatectomy · DICOM RTStruct",
-    myRole: "Digitized 2D whole-mount histopathology slices and worked with a pathologist to annotate cancer extent and Gleason score. Developed the multi-modal deformable image registration pipeline to spatially align in-vivo MRI (T2w, DWI, RSI) to the annotated histopathology slices, building on the RAPSODI framework (Rusu et al., Med Phys 2020), implementing rigid, affine, and deformable registration to correct for tissue deformation during surgery and fixation. Wrote out the deformed histopathology structures as DICOM RTStruct files and uploaded them in MIM for clinical verification of the registered contours. Maintained the REDCap database tracking patient cases and documentation throughout the study, and conducted exploratory data analysis to support the research grant funding this work.",
-    methods: ["Multi-modal deformable image registration","RAPSODI","SimpleITK","pydicom","Python","3D Slicer","MIM","REDCap","DICOM RTStruct","Exploratory data analysis"],
+    myRole: "I digitized 2D whole-mount histopathology slices and worked with a pathologist to annotate cancer extent and Gleason score. I developed the multimodal deformable-registration pipeline to align in vivo MRI (T2-weighted imaging, DWI, and RSI) with the annotated histopathology slices. Building on the RAPSODI framework, I implemented rigid, affine, and deformable registration steps to correct for tissue deformation during surgery and fixation. I exported the deformed histopathology structures as DICOM RTStruct files and uploaded them to MIM Software for clinical verification of the registered contours. I maintained the REDCap database for patient cases and study documentation and conducted exploratory analyses in support of the research grant. The lab continued the work after my postdoc.",
+    methods: ["Multi-modal deformable image registration","RAPSODI","SimpleITK","pydicom","Python","3D Slicer","MIM Software","REDCap","DICOM RTStruct","Exploratory data analysis"],
     keyResults: [
       "Spatially registered MRI-histopathology dataset established specifically for RSI biomarker validation",
       "Pipeline corrects for tissue shrinkage and deformation from prostatectomy",
@@ -1606,7 +1636,7 @@ const projects = [
     figSvg: `<div style="width:min(100%,465px);aspect-ratio:1030/610;overflow:hidden;margin:0 auto;background:#fff;border-radius:6px;"><img src="img/pub_figures/fig_kallis2018_emt_system.png" alt="EM tracking system overview diagram from Kallis et al., PMB 2018" data-lightbox-crop="1030 / 610" data-caption="Architecture of the EMT-enabled Flexitron workflow from Kallis et al., Physics in Medicine &amp; Biology 2018. The afterloader and treatment-control system were connected to the electromagnetic-tracking field generator, control and interface units, reference sensors, and position-server software to record sensor positions in real time." onclick="openLightbox(this)" style="width:100%;height:100%;max-height:none;object-fit:cover;object-position:top;cursor:zoom-in;display:block;" /></div>`,
     background: "Multi-catheter interstitial breast brachytherapy depends on accurate catheter and dwell-position reconstruction, but conventional verification was image-based and could not measure the source path in real time. This project evaluated whether electromagnetic tracking integrated into an Elekta Flexitron afterloader could provide an independent geometric verification layer by measuring a tracked source, reconstructing catheter paths and dwell positions, and comparing them with the treatment plan.",
     data: "Elekta Flexitron afterloader prototype with an integrated electromagnetic-tracking sensor · phantom measurements · implant geometry from 20 breast brachytherapy patients · raw 3D EMT catheter traces · CT-based catheter reconstructions · treatment-plan dwell positions",
-    myRole: "Designed the measurement workflow and upgraded the C# measurement software used with the EMT-enabled Flexitron system. Expanded the information captured during each measurement, redesigned the data display to make results easier to inspect, and added export to both plain-text and SQLite formats for downstream processing and analysis. Built the MATLAB registration and reconstruction pipeline that converted raw electromagnetic-tracking measurements into catheter traces and dwell positions. Implemented coherent point drift registration to align EMT traces with CT-based catheter reconstructions, compared fitting and interpolation approaches for defining dwell positions, and evaluated reconstructed positions against the treatment-plan reference. Designed and analyzed phantom error scenarios with deliberately introduced catheter shifts and swaps. Across iterative phantom tests and measurements in 20 patient implants, built and refined a standardized measurement procedure that could operate within the clinical treatment workflow. Worked with physicians, nurses, medical physicists, and Elekta technical support to integrate the prototype measurements into the breast brachytherapy workflow.",
+    myRole: "I designed the measurement workflow and upgraded the C# software used with the EMT-enabled Flexitron system. I expanded the information captured during each measurement, redesigned the data display to make results easier to inspect, and added export to plain-text and SQLite formats for downstream processing and analysis. I built the MATLAB registration and reconstruction pipeline that converted raw electromagnetic-tracking measurements into catheter traces and dwell positions. I implemented coherent point-drift registration to align EMT traces with CT-based catheter reconstructions, compared fitting and interpolation approaches for defining dwell positions, and evaluated reconstructed positions against the treatment-plan reference. I designed and analyzed phantom error scenarios with deliberately introduced catheter shifts and swaps. Through iterative phantom tests and measurements in 20 patient implants, I built and refined a standardized procedure that could operate within the clinical treatment workflow.",
     methods: ["Measurement-procedure development","C# measurement software","MATLAB analysis pipeline","Electromagnetic tracking","EMT-enabled Flexitron afterloader prototype","Data logging and SQLite export","Coherent point drift registration","Catheter and dwell-position reconstruction","Interpolation and curve fitting","Phantom error simulation","Geometric error analysis (RMSE)","Clinical feasibility validation"],
     keyResults: ["Built and refined a standardized measurement procedure through iterative phantom and patient testing","Expanded measurement logging and added clearer data displays with TXT and SQLite export","Detected deliberately introduced catheter shifts and swaps using both fitting and interpolation approaches","Interpolation achieved the highest dwell-position accuracy (RMSE 1.27 mm), while curve fitting was more robust to noisy or motion-distorted EMT traces","Integrated the EMT workflow into clinical measurements for 20 patient implants","Established the EMT-enabled Flexitron system used in the subsequent patient, adaptive-planning, and automated error-detection studies","First-author manuscript published in Physics in Medicine & Biology, 2018","The system supported a follow-on automated error-detection study led by Masitho et al., Physics in Medicine & Biology, 2019"],
     paperUrl: "https://doi.org/10.1088/1361-6560/aabb5a",
@@ -1660,6 +1690,8 @@ document.getElementById('project-slides').innerHTML = homepageProjectIds.map((pr
           <div class="detail-section"><div class="detail-section-label">Background</div><p class="detail-text">${p.background || p.problem || ''}</p></div>
           <div class="detail-section"><div class="detail-section-label">Data</div><p class="detail-text">${p.data || ''}</p></div>
           <div class="detail-section"><div class="detail-section-label">Contribution</div><p class="detail-text">${p.myRole || p.contribution || ''}</p></div>
+          ${p.collaboration ? `<div class="detail-section"><div class="detail-section-label">Collaboration</div><p class="detail-text">${p.collaboration}</p></div>` : ''}
+          ${p.clinicalImplications ? `<div class="detail-section"><div class="detail-section-label">Clinical Implications</div><p class="detail-text">${p.clinicalImplications}</p></div>` : ''}
           <div class="detail-links">${links}</div>
         </div>
         <div class="detail-sidebar">
@@ -1714,6 +1746,8 @@ function openProject(i) {
         <div class="detail-section-label">Contribution</div>
         <p class="detail-text">${p.myRole}</p>
       </div>
+      ${p.collaboration ? `<div class="detail-section"><div class="detail-section-label">Collaboration</div><p class="detail-text">${p.collaboration}</p></div>` : ''}
+      ${p.clinicalImplications ? `<div class="detail-section"><div class="detail-section-label">Clinical Implications</div><p class="detail-text">${p.clinicalImplications}</p></div>` : ''}
       <div class="detail-links">
         ${p.paperUrl ? `<a class="detail-link-btn" href="${p.paperUrl}" target="_blank">📄 ${p.pub || 'View paper'}</a>` : p.pub ? `<span class="detail-link-btn" style="opacity:0.5;cursor:default;">📄 ${p.pub}</span>` : ''}
         ${p.githubUrl ? `<a class="detail-link-btn" href="${p.githubUrl}" ${p.githubUrl.startsWith('mailto') ? '' : 'target="_blank"'}>${p.githubUrl.startsWith('mailto') ? '✉ Request GitHub access' : '⌥ GitHub'}</a>` : p.githubNote ? `<span class="detail-link-btn" style="opacity:0.65;cursor:default;">⌥ ${p.githubNote}</span>` : ''}
@@ -1729,6 +1763,7 @@ function openProject(i) {
         <div class="detail-section-label">Key results</div>
         <ul style="margin:4px 0 0;padding-left:1.25rem;font-size:13px;color:var(--muted);line-height:1.75;">${resultItems}</ul>
       </div>
+      ${p.relatedWork ? `<div class="detail-section" style="margin-top:1.25rem;"><div class="detail-section-label">Related Work</div><ul style="margin:4px 0 0;padding-left:1.25rem;font-size:13px;color:var(--muted);line-height:1.65;">${p.relatedWork.map(work => `<li style="margin-bottom:6px;">${work}</li>`).join('')}</ul></div>` : ''}
     `;
   } else {
     fig.style.display = '';
