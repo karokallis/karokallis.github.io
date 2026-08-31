@@ -117,6 +117,8 @@
       transition: border-color 0.15s, transform 0.1s;
     }
     .mini-card:hover { border-color: var(--accent-border); box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-1px); }
+    .mini-card:focus-visible { outline: 3px solid var(--blue-border); outline-offset: 2px; }
+    .mini-card.active { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-border); }
     .mini-card.featured { border-color: var(--accent-border); background: var(--accent-light); }
     .mini-featured-label {
       font-size: 10px;
@@ -219,7 +221,6 @@
       border-left: 1px solid var(--border); background: var(--bg-soft);
     }
     .detail-title { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
-    .detail-meta { font-size: 12.5px; color: var(--muted); margin-bottom: 1.25rem; }
     .detail-section { margin-bottom: 1.25rem; }
     .detail-section-label {
       font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
@@ -282,11 +283,11 @@
 <div class="page-header">
   <p class="page-label">Research portfolio</p>
   <h1 class="page-title">Projects</h1>
-  <p class="page-desc">23 projects across EHR data science, medical imaging, and radiation oncology treatment planning.</p>
+  <p class="page-desc">24 projects across EHR data science, medical imaging, and radiation oncology treatment planning.</p>
 </div>
 
 <!-- ── DETAIL PANEL ── -->
-<div id="detail-panel">
+<div id="detail-panel" role="region" aria-live="polite" aria-label="Project details">
   <div class="detail-fig" id="detail-fig">
     <button class="detail-close" onclick="closeProject()">✕ Close</button>
   </div>
@@ -307,7 +308,7 @@
     <div class="mini-card featured" style="cursor:pointer;" onclick="openProject(0,this)">
       <span class="mini-featured-label">Selected project</span>
       <p class="mini-title">Guideline-concordant PAD care across a national EHR cohort</p>
-      <p class="mini-desc">Longitudinal analysis of cardiovascular prevention quality measures in 1.2M PAD patients, with subgroup analysis by race, sex, insurance, and PAD severity.</p>
+      <p class="mini-desc">Longitudinal analysis of cardiovascular prevention quality measures in 1.21M PAD patients, with subgroup analysis by race, sex, insurance, geography, and PAD severity.</p>
       <div class="badge-row">
         <span class="badge b-blue">Epic COSMOS</span>
         <span class="badge b-blue">SQL</span>
@@ -320,14 +321,16 @@
 
     <div class="mini-card featured" style="cursor:pointer;" onclick="openProject(12,this)">
       <span class="mini-featured-label">Selected project</span>
-      <p class="mini-title">PAD detection model for deployment at University of California San Diego</p>
-      <p class="mini-desc">Translating the UC Health PAD detection model into a production-ready clinical tool for EHR integration and at-risk patient flagging at point of care.</p>
+      <p class="mini-title">Peripheral artery disease (PAD) detection model for deployment at University of California San Diego</p>
+      <p class="mini-desc">Preparing an explainable PAD detection model for clinical deployment using Epic data and AWS SageMaker.</p>
       <div class="badge-row">
         <span class="badge b-blue">XGBoost</span>
         <span class="badge b-blue">Epic Caboodle</span>
         <span class="badge b-blue">AWS SageMaker</span>
         <span class="badge b-blue">SQL</span>
         <span class="badge b-blue">Python</span>
+        <span class="badge b-teal">SDOH</span>
+        <span class="badge b-teal">Performance drift</span>
         <span class="badge b-green">Clinical deployment</span>
       </div>
       <div class="mini-pub"><span>Clinical deployment</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
@@ -335,7 +338,7 @@
 
     <div class="mini-card" id="project-pad-5-systems" style="cursor:pointer;" onclick="openProject(1,this)">
       <p class="mini-title">Performance, generalizability, and fairness of a PAD detection model</p>
-      <p class="mini-desc">ML model for peripheral artery disease detection with multi-site fairness evaluation across UC Health systems.</p>
+      <p class="mini-desc">Multi-site PAD detection model evaluated for performance, fairness, social determinants of health, phenotype-specific generalizability, and deployment readiness across five UC Health systems.</p>
       <div class="badge-row">
         <span class="badge b-teal">LightGBM</span>
         <span class="badge b-blue">OMOP</span>
@@ -343,6 +346,8 @@
         <span class="badge b-blue">Python</span>
         <span class="badge b-blue">Databricks</span>
         <span class="badge b-teal">Fairness</span>
+        <span class="badge b-teal">SDOH</span>
+        <span class="badge b-teal">Performance drift</span>
         <span class="badge b-blue">UCDDP</span>
       </div>
       <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
@@ -383,6 +388,19 @@
         <span class="badge b-blue">Python</span>
       </div>
       <div class="mini-pub"><span>Manuscript</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
+    </div>
+
+    <div class="mini-card" style="cursor:pointer;" onclick="openProject(23,this)">
+      <p class="mini-title">Variation in PAD populations, management, and outcomes across UC Health systems</p>
+      <p class="mini-desc">Observational multi-site study comparing PAD populations, provider involvement, guideline-directed therapy, and limb outcomes across five UC Health systems.</p>
+      <div class="badge-row">
+        <span class="badge b-blue">OMOP</span>
+        <span class="badge b-teal">Provider involvement &amp; care pathways</span>
+        <span class="badge b-blue">Databricks</span>
+        <span class="badge b-blue">Python</span>
+        <span class="badge b-blue">Statistical analysis</span>
+      </div>
+      <div class="mini-pub"><span>Observational study</span><span style="font-size:11px;color:var(--accent);">View details ↗</span></div>
     </div>
 
   </div>
@@ -653,15 +671,17 @@ const projects = [
     pub: "In preparation",
     newFormat: true, status: "Ongoing",
     keywords: ["Real-world evidence","Longitudinal EHR analysis","Outcomes modeling","Equity analytics","Clinical quality measurement"],
-    background: "Despite established cardiovascular prevention guidelines, PAD remains undertreated in routine care. This study evaluated achievement of four MIPS quality measures: blood pressure control, tobacco-free status, antiplatelet therapy, and statin therapy. Using 1.2 million PAD patients across a national EHR network, it examined how care quality changed over three years by demographic, socioeconomic, and clinical subgroups.",
-    data: "Epic COSMOS · Structured EHR data · ICD · CPT · ATC · LOINC",
-    myRole: "I designed the study and defined the cohort using SQL. I built all analysis pipelines in Python, including logistic regression, linear mixed-effects models, and time-varying Cox proportional-hazards models. I calculated Elixhauser comorbidity scores and constructed the quality-measure definitions from ICD, CPT, ATC, and LOINC codes using regular expressions and ontology-based lookups.",
+    background: "Despite established cardiovascular prevention guidelines, PAD remains undertreated in routine care. This study evaluated four MIPS-based quality measures: blood pressure control, tobacco-free status, antiplatelet therapy, and statin therapy. Using 1,209,459 adults aged 18–75 with PAD in Epic COSMOS, it examined first-year achievement, three-year trajectories, subgroup differences, and associations with limb and cardiovascular outcomes.",
+    data: "Epic COSMOS · 1,209,459 patients with PAD diagnosed 2020–2024 · Structured EHR data · ICD · CPT · ATC · LOINC · Demographics · Insurance · SVI · RUCA",
+    myRole: "I designed the study and defined the cohort using SQL. I built the analysis pipelines in Python, including logistic regression, linear mixed-effects models, and multivariable outcome models. I calculated Elixhauser comorbidity scores and constructed the quality-measure definitions from ICD, CPT, ATC, and LOINC codes using regular expressions and ontology-based lookups. I worked closely with vascular and cardiovascular surgeons to review the cohort logic, confirm that the PAD severity definitions reflected clinical practice, and ensure that the measures and outcomes were clinically meaningful.",
+    collaboration: "Collaborated with vascular and cardiovascular surgeons at UC San Diego and Stanford to validate cohort construction, interpret PAD severity and progression, refine the quality-measure definitions, and assess the clinical relevance of the limb and cardiovascular outcomes.",
+    clinicalImplications: "Only 8.9% of patients achieved all four MIPS-based quality measures during the first year after PAD diagnosis. Although individual measures improved over follow-up, complete achievement remained uncommon, with particularly low medication-related achievement among patients with unspecified PAD. Complete first-year achievement was associated with lower odds of amputation (OR 0.62), vascular procedures (OR 0.71), stroke (OR 0.71), and myocardial infarction (OR 0.95); these observational associations support population-level quality-improvement efforts but do not establish causality.",
     methods: ["Logistic regression","Mixed effect model","Cox proportional hazards","SQL","Python","pandas","numpy","statsmodels","matplotlib","seaborn"],
     keyResults: [
-      "Only 10.7% of patients achieved all four quality measures in the first year after PAD diagnosis",
+      "Cohort included 1,209,459 patients with PAD; only 8.9% achieved all four quality measures in the first year",
+      "First-year achievement was 71.9% for blood pressure control, 53.8% for tobacco-free status, 51.1% for statin therapy, and 32.3% for antiplatelet therapy",
       "Black patients had substantially lower blood pressure control than White patients (OR 0.64) even after adjustment",
-      "Quality index improved most in the first year then plateaued, remaining below 60% across all subgroups",
-      "Complete quality measure achievement associated with lower hazard of vascular procedures in CLTI patients (HR 0.89)"
+      "Complete first-year achievement was associated with lower odds of amputation (OR 0.62), vascular procedures (OR 0.71), stroke (OR 0.71), and myocardial infarction (OR 0.95)"
     ],
     figClass: "fig-ehr",
     figSvg: `<img src="img/trajectories_QI.png" alt="Composite quality index trajectories by subgroup" data-caption="Composite PAD quality index trajectories over three years after diagnosis, stratified by race/ethnicity, insurance, sex, and PAD severity. The quality index summarizes achievement of guideline-concordant cardiovascular prevention measures and shows the largest gains during the first year, followed by a plateau." onclick="openLightbox(this)" style="width:100%;max-height:260px;object-fit:contain;border-radius:6px;cursor:zoom-in;display:block;" />`,
@@ -671,16 +691,15 @@ const projects = [
     title: "Performance, Generalizability, and Fairness of a Peripheral Artery Disease Detection Model Across Patient Phenotypes and Health Systems",
     meta: "Research Scientist · University of California San Diego Department of Surgery · 2024–present",
     pub: "Kallis et al. · Journal of the American Heart Association · submitted 2026",
-    conference: "Conference presentation: Kallis K, Ross E. Assessing performance and generalizability of AI-based PAD detection models across California health systems. Vascular Annual Meeting 2025. Poster.",
     newFormat: true, status: "Ongoing",
     keywords: ["Multi-site ML validation","EHR feature engineering","Phenotype discovery","Fairness evaluation","LightGBM pipeline"],
-    background: "PAD affects roughly 12 million Americans but is heavily underdiagnosed. EHR prevalence at UC Health was only 1.3 to 2.4% while population estimates reach 5.6%, and patients were in the health system an average of four years before receiving a PAD code. This study developed and evaluated a generalizable ML model for PAD detection across 5 UC Health systems, assessing model performance and fairness across demographic subgroups and patient phenotypes.",
+    background: "PAD affects roughly 12 million Americans but is heavily underdiagnosed. EHR prevalence at UC Health was only 1.3 to 2.4% while population estimates reach 5.6%, and patients were in the health system an average of four years before receiving a PAD code. This study developed and evaluated a generalizable ML model for PAD detection across five UC Health systems, assessing model performance and fairness across demographic subgroups and patient phenotypes.",
     data: "UC Health Data Warehouse (UCHDW) · Structured EHR data · OMOP format · 5 UC Health systems · 33,739 PAD patients + 33,739 matched controls · Concept codes · Vitals · Labs",
     myRole: "I owned the full ML pipeline from cohort design through fairness evaluation across five UC Health systems. I defined PAD cases using OMOP concept codes and built a 1:1 propensity-matched case-control cohort of 33,739 patients. I engineered 14,023 features from code-occurrence counts across four time windows, continuous laboratory values, vital signs, and demographics, represented as a sparse matrix. I trained a LightGBM classifier with Bayesian hyperparameter optimization via Optuna. I applied dimensionality reduction followed by Gaussian mixture-model clustering to identify four clinically distinct patient phenotypes. I evaluated model fairness across sex, race, age, social vulnerability index, health system, and phenotypic subgroups using selection rates and equalized odds.",
     contribution: "I led the study design, cohort construction, feature engineering, model development, phenotype discovery, and fairness analysis. I built the end-to-end pipeline that evaluated whether PAD detection performance generalized across health systems and clinically distinct patient subgroups.",
-    collaboration: "Collaborated with Elsie G. Ross, M.B. Malas, and the UC Health research teams across five health systems to define the clinical question, interpret patient phenotypes, and assess the model's generalizability and fairness in diverse care settings.",
+    collaboration: "Collaborated with vascular surgeons and clinical researchers to define the PAD detection use case and interpret clinically distinct patient phenotypes. Worked with data scientists, ML engineers, and clinical-informatics engineers across UC Health to build the feature pipeline, evaluate generalizability and fairness, and plan the monitoring requirements for deployment.",
     clinicalImplications: "The model's consistent performance across five health systems supports its potential as a scalable EHR-based tool for earlier PAD case finding and risk-based clinical outreach. The observed variation across patient phenotypes shows why deployment should include subgroup monitoring and calibration checks rather than relying on aggregate performance alone. Prospective workflow evaluation and clinician oversight would be needed before using the model to guide patient care.",
-    methods: ["LightGBM","Sparse matrix training","Dimensionality reduction","Gaussian Mixture Model","Propensity matching","SHAP","Optuna","SQL","Python","Databricks","Fairness evaluation"],
+    methods: ["LightGBM","Sparse matrix training","Dimensionality reduction","Gaussian Mixture Model","Propensity matching","SHAP","Optuna","SQL","Python","Databricks","Fairness evaluation","Performance drift monitoring"],
     keyResults: [
       "AUROC 0.76 to 0.79 consistent across all 5 health systems",
       "Unsupervised clustering revealed 4 clinically distinct PAD phenotypes spanning healthcare utilization, metabolic burden, and comorbidity profiles",
@@ -939,16 +958,18 @@ const projects = [
   },
   // 12 — PAD production model
   {
-    title: "PAD detection model for deployment at University of California San Diego",
+    title: "Peripheral artery disease (PAD) detection model for deployment at University of California San Diego",
     meta: "Research Scientist · University of California San Diego Department of Surgery · 2024–present",
     pub: null,
     newFormat: true, status: "Ongoing",
-    keywords: ["Clinical ML deployment","XGBoost pipeline","Epic Caboodle integration","Model monitoring","Decision support workflow"],
-    background: "PAD is severely underdiagnosed, with reported prevalence at University of California San Diego of approximately 1%, far below the estimated 7% in the general US population. Many patients are asymptomatic and remain undetected until limb-threatening events occur. This project translates the multi-site PAD detection model into a clinical tool that flags high-risk patients with upcoming clinic appointments, enabling clinicians to proactively order an ankle-brachial index (ABI) test, confirm the diagnosis, and initiate guideline-recommended therapy before adverse limb events occur. For clinical adoption, model explainability is essential: clinicians need to understand which patient-level factors are driving a flag in order to trust and act on the model output.",
+    keywords: ["Clinical ML deployment","XGBoost pipeline","Epic Caboodle integration","Model monitoring","Social determinants of health","Decision support workflow"],
+    background: "PAD is severely underdiagnosed, with reported prevalence at University of California San Diego of approximately 1%, far below the estimated 7% in the general US population. Many patients are asymptomatic and remain undetected until limb-threatening events occur. This project translates the multi-site PAD detection model into a clinical tool that flags high-risk patients with upcoming clinic appointments, enabling clinicians to proactively order an ankle-brachial index (ABI) test, confirm the diagnosis, and initiate guideline-recommended therapy before adverse limb events occur. For clinical adoption, model explainability and subgroup monitoring are essential: clinicians need to understand which patient-level factors are driving a flag, while the implementation team must assess model behavior across demographic, clinical, and social-context subgroups.",
     data: "UC San Diego Health · Epic Caboodle · longitudinal structured EHR data · ICD · CPT · LOINC · ATC",
     myRole: "I defined the cohort and inclusion criteria, engineered features from longitudinal structured EHR data using ICD, CPT, LOINC, and ATC codes, and created the training, validation, and test datasets. I developed and tuned the XGBoost model using Optuna for hyperparameter optimization. I conducted an Epic chart review of model-flagged patients to validate the predictions clinically and assess real-world model behavior. I am leading productionization by packaging the inference pipeline, defining the deployment architecture, implementing the model on AWS SageMaker, and designing monitoring for performance drift. I use Python and SQL in Jupyter notebooks throughout the workflow.",
-    methods: ["XGBoost","Optuna","SHAP","Python","SQL","AWS SageMaker","Epic Caboodle","Epic chart review","Jupyter notebooks","Feature engineering","Model monitoring"],
-    keyResults: ["Train AUC 0.82 · Test AUC 0.79 · Validation AUC 0.76","Epic chart review of flagged patients conducted to clinically validate model predictions","Production inference pipeline under development for EHR integration at University of California San Diego"],
+    collaboration: "Collaborated with vascular surgeons and clinical researchers to define the patient-flagging workflow and review chart-based validation results. Worked with data scientists, ML engineers, data engineers, and clinical-informatics engineers to package the inference pipeline, integrate Epic data, define the AWS SageMaker deployment architecture, and establish monitoring for performance drift and subgroup behavior.",
+    clinicalImplications: "The model is being prepared as clinical decision support to identify patients who may benefit from confirmatory ankle-brachial index testing and earlier preventive care. A prospective clinical trial is planned, subject to IRB review, to evaluate workflow fit, model performance, calibration, drift, and subgroup behavior.",
+    methods: ["XGBoost","Optuna","SHAP","Python","SQL","AWS SageMaker","Epic Caboodle","Epic chart review","Jupyter notebooks","Feature engineering","SDOH analysis","Performance drift monitoring"],
+    keyResults: ["Train AUC 0.82 · Test AUC 0.79 · Validation AUC 0.76","Epic chart review of flagged patients conducted to clinically validate model predictions","Production inference pipeline under development for EHR integration at University of California San Diego","Prospective clinical trial planned, subject to IRB review"],
     figClass: "fig-ehr",
     figSvg: `<img src="img/pub_figures/fig_pad_detection_roc.png" alt="ROC curves for PAD production model (Train AUC 0.82, Test AUC 0.79, Val AUC 0.76)" data-caption="Receiver operating characteristic curves for the PAD detection model across train, test, and validation splits. Performance remained stable across splits, with AUC 0.82 for training, 0.79 for testing, and 0.76 for validation." onclick="openLightbox(this)" style="width:100%;max-height:280px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
     paperUrl: null, githubUrl: "mailto:karo.kallis@googlemail.com?subject=GitHub%20access%20request&body=Hi%20Karoline%2C%20I%20would%20like%20to%20request%20access%20to%20your%20GitHub%20repository%20for%20the%20PAD%20detection%20model.", githubNote: null
@@ -1189,6 +1210,30 @@ const projects = [
       "Created a reusable batch workflow for preparing imaging cohorts for downstream research"
     ],
     paperUrl: null, githubUrl: null
+  },
+  // 23 — Multi-site observational PAD study
+  {
+    title: "Variation in PAD populations, management, and outcomes across UC Health systems",
+    meta: "Research Scientist · University of California San Diego Department of Surgery · 2024–present",
+    pub: null,
+    newFormat: true, status: "Observational study",
+    keywords: ["Observational study","Multi-site observational study","PAD care variation","Clinical outcomes","OMOP EHR data"],
+    figClass: "fig-ehr",
+    figSvg: `<img src="img/western_table2.png" alt="Table comparing specialist involvement, procedures, medical therapy, and limb outcomes across five UC Health systems" data-caption="Table from the observational study: specialist involvement, procedures, medical therapy, and limb outcomes following PAD diagnosis across UC Irvine, UC San Diego, UC Davis, UC San Francisco, and UCLA. The table shows variation in specialist involvement and amputation outcomes across systems, while guideline-directed therapy was broadly similar." onclick="openLightbox(this)" style="width:100%;max-height:420px;object-fit:contain;background:#fff;border-radius:6px;cursor:zoom-in;display:block;" />`,
+    background: "Peripheral artery disease populations can differ substantially across health systems in demographics, comorbidity burden, disease severity, provider involvement, and cardiovascular risk. This observational study characterized PAD populations across five University of California health systems and compared patient characteristics, management patterns, provider involvement, and limb outcomes.",
+    data: "UC Health Data Warehouse · OMOP-formatted structured EHR data · UC Irvine · UC San Diego · UC Davis · UC San Francisco · UCLA · 33,739 patients with PAD · 2014–2024",
+    myRole: "I led the observational cohort analysis, defining PAD cases using repeated diagnosis codes and comparing patient characteristics, disease severity, provider involvement, guideline-directed therapy, and amputation outcomes across health systems. I performed the statistical comparisons and prepared the results for dissemination.",
+    collaboration: "Collaborated with vascular surgeons and cardiovascular informatics researchers across UC San Diego, UC Irvine, UC Davis, UC San Francisco, UCLA, and Stanford-affiliated teams to define clinically meaningful comparisons, interpret differences in PAD populations and outcomes, and identify opportunities to improve care across institutions.",
+    clinicalImplications: "PAD populations and limb outcomes varied substantially across UC health systems, even though guideline-directed therapy was broadly similar. Institutional comparisons should account for differences in patient demographics, comorbidity burden, disease severity, and provider involvement rather than treating outcome variation as a simple ranking of care quality. These findings help identify system-level opportunities to improve PAD diagnosis, referral, and limb-preservation care.",
+    methods: ["Observational cohort design","OMOP EHR data","Multi-site comparison","Statistical analysis","Provider involvement and care pathways","Clinical outcome analysis"],
+    keyResults: [
+      "33,739 patients with PAD across five UC Health systems",
+      "Site-specific PAD prevalence ranged from 1.31% at UCSF to 2.43% at UC San Diego",
+      "Specialist diagnosis ranged from 14% at UC San Diego to 27% at UCLA",
+      "Major amputation rates ranged from 0.8% at UCLA to 3.6% at UC Irvine",
+      "Guideline-directed therapy was broadly similar despite differences in patient characteristics and limb outcomes"
+    ],
+    paperUrl: null, githubUrl: null
   }
 ];
 
@@ -1257,6 +1302,19 @@ function openProject(i, clickedEl) {
   }
   activeProject = i;
 }
+
+// The cards use a compact inline click handler in the markup; add equivalent
+// keyboard behavior so the same project browser works without a mouse.
+document.querySelectorAll('.mini-card').forEach(card => {
+  card.setAttribute('role', 'button');
+  card.setAttribute('tabindex', '0');
+  card.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    const match = card.getAttribute('onclick')?.match(/openProject\((\d+)/);
+    if (match) openProject(Number(match[1]), card);
+  });
+});
 
 function closeProject() {
   document.getElementById('detail-panel').classList.remove('open');
